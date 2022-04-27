@@ -29,6 +29,7 @@
     -webkit-text-size-adjust: 100%;
 }
 
+
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;
 }
@@ -60,7 +61,6 @@ dt {
 }
 
 
-
 html, body {
     max-width: 800px;
     margin: 0 auto;
@@ -71,7 +71,6 @@ html, body {
     font-size: 16px;
     line-height: 1;
     margin-bottom: 200px;
-    /* font-family: 'Courier New', Courier, monospace; */
     font-family: 'Verdana', sans-serif;
 }
 
@@ -118,11 +117,6 @@ ul li {
     list-style: square;
 }
 
-/* ul li::before {
-    position: absolute;
-    content: "♦";
-    left: -0.7em;
-} */
 
 ol{
     list-style-position: inside;
@@ -180,4 +174,22 @@ body {
 	border-top: 1px solid var(--white);
 	width: auto;
 	max-width: none;
+}
+
+/* Sidebar */
+
+.sidebar {
+height: 100%;
+width: 150px;
+position: absolute;
+left: 0;
+top: 0;
+padding-top: 40px;
+background-color: lightblue;
+}
+
+.sidebar div {
+padding: 8px;
+font-size: 24px;
+display: block;
 }

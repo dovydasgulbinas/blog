@@ -3,3 +3,6 @@ name = dovydas.xyz
 
 [servers.production]
 target = rsync://media/opt/media/__composites__/swag/config/www/dovydas.xyz
+
+[packages]
+lektor-markdown-highlighter = 0.3.1

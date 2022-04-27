@@ -1,8 +1,9 @@
 <!doctype html>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{{ '/static/global.css'|url }}">
-<link rel="stylesheet" href="{{ '/static/blog.css'|url }}">
 <link rel="stylesheet" href="{{ '/static/pygments.css'|url }}">
+<link rel="icon" href="/favicon.ico" type="image/gif"/>
+{% block head_extras %}{% endblock %}
 <title>{% block title %}Welcome{% endblock %} — dovydas.xyz</title>
 <body>
   <header>
@@ -10,7 +11,7 @@
     <nav>
       <ul class="nav navbar-nav">
         <li{% if this._path == '/' %} class="active"{% endif
-          %}><a href="{{ '/'|url }}">Welcome</a></li>
+          %}><a href="{{ '/'|url }}">Home</a></li>
         {% for href, title in [
           ['/blog', 'Blog'],
           ['/projects', 'Projects'],

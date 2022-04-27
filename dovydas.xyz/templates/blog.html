@@ -1,4 +1,7 @@
 {% extends "layout.html" %}
+{% block head_extras %}
+  <link rel="stylesheet" href="{{ '/static/blog.css'|url }}">
+{% endblock %}
 {% from "macros/blog.html" import render_blog_post %}
 {% from "macros/pagination.html" import render_pagination %}
 {% block title %}{{ this.title }}{% endblock %}

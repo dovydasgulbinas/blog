@@ -1,0 +1,136 @@
+title: Run Jython Standalone Jar On Windows
+---
+body:
+
+This tutorial will show you how you can run `jython-standalone.2.7.2.jar` on a Windows machine.
+Using Jython standalone you will be able to execute Python scripts, or use Python [REPL](https://codewith.mu/en/tutorials/1.1/repl).
+
+NOTE: Pip install for Jython is not covered.
+
+prerequisites:
+- Windows PowerShell
+
+----
+## Guide outline
+1. Install OpenJDK 17
+	1. [Download Java](#download-java)
+	2. [Add Path Java variable](#add-path-java-variable)
+	3. [Verify Java Installation](#verify-java-installation)
+2. [Download Jython.jar and Guide's Stub](#download-jythonjar-and-guides-stub)
+3. Run Jython Standalone
+	1. [Verify Jython Installation](#verify-jython-installation)
+	2.  [Run Jython REPL](#run-jython-repl)
+	3.  [Run Jython Script](#run-jython-script)
+4. [Summary](#summary)
+
+----
+## Install OpenJDK 17
+
+
+### Download Java
+ 
+1. [Download](https://jdk.java.net/java-se-ri/17)  Windows 10 x64 JDK ![jdk-screen](dd0d19dd32a52a6fc782c22bbec55bd5.png)
+2. From zip extract,  jdk-17 folder to disk `C:\`.
+
+Absolute path to the JDK installation should be `C:\jdk-17`
+
+### Add Path Java variable
+
+This part assumes you have installed OpenJDK in `C:\jdk-17` folder.
+
+
+1. In Windows search type "Edit environment variables for your account"
+2. Double click [Path]
+3. Click [New]
+4. Enter this: `C:\jdk-17\bin`; press Enter key
+5. Click [OK] ![env variable menu](907a169d45fc00d8ab354d90f1282e6b.png)
+
+
+### Verify Java Installation
+
+In PowerShell run:
+
+	java -version
+
+Assert Java version is correct:
+
+	openjdk version "17.0.1" 2021-10-19
+	OpenJDK Runtime Environment (build 17.0.1+12-39)
+	OpenJDK 64-Bit Server VM (build 17.0.1+12-39, mixed mode, sharing)
+
+If you see `OpenJDK 64-Bit Server VM` your installation was successful.
+
+----
+## Download Jython.jar and Guide's Stub
+
+This tutorial includes a zip file containing folder structure and a test script.
+
+
+
+1. [Download](jythonstub.zip) the stub and extract it on your PC.
+2. [Download](https://search.maven.org/artifact/org.python/jython-standalone/2.7.2/jar) jython-standalone.2.7.2.jar, and save it to `jythonstub/lib` folder.
+
+----
+
+## Run Jython Standalone
+
+PowerShell commands below are executed in folder `jythonstub/`
+
+### Verify Jython Installation
+
+Assert that Jython runs inside JRE:
+
+	java -jar ./lib/jython-standalone-2.7.2.jar --help
+
+expected result:
+```
+usage: jython [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Options and arguments:
+-B       : don't write bytecode files on import
+-c cmd   : program passed in as string (terminates option list)
+...
+```
+
+
+
+### Run Jython REPL
+
+Assert that Jython REPL is working:
+
+	java -jar ./lib/jython-standalone-2.7.2.jar
+
+Expected result:
+
+```python
+Jython 2.7.2 (v2.7.2:925a3cc3b49d, Mar 21 2020, 10:03:58)
+[OpenJDK 64-Bit Server VM (Oracle Corporation)] on java17.0.1
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+### Run Jython Script
+
+Assert that Jython script is working, th:
+
+	java -classpath ./lib/* org.python.util.jython ./hello_world.py
+
+It should print:
+
+	PYTHON: Hello World!
+	JAVA: Hello World!
+	
+Let's the called command
+
+* `java`:  Is OpenJDK, we installed.
+* `-classpath ./lib/*`:  tells your java runtime to scan all `.jar` files inside the `lib/` folder i.e. makes them available for import inside Jython.
+* `org.python.util.jython` : reverse url notation to jython class containing a `main()`  method(notice the class name is jython, not Jython)
+* `./hello_world.py`: Name of the Jython script executed.
+
+----
+## Summary
+
+If you managed to run a Jython scipt using this guide good news.
+Now you have a clean environment to work on your Jython projects.
+Do not forget to place additional jar files to the `lib/` folder!
+
+

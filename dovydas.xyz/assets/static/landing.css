@@ -5,6 +5,10 @@ section {
 	margin: 1rem auto;
 }
 
+html, body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 
 @media (min-height: 5.863in) and (min-width: 7in) {
 	body {

@@ -1,27 +1,14 @@
+_model: poster
+---
 title: Dovydas.xyz Homepage
 ---
 body:
 
-<html lang="en">
 
-<head>
-
-  <!--  Meta  -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!--  Styles  -->
-  <link rel="stylesheet" href="/static/global.css">
-  <link rel="stylesheet" href="/static/landing.css">
-  <link rel="icon" href="/favicon.ico" type="image/gif" />
-</head>
-
-<body>
   <header>
       <h1>Dovydas Gulbinas</h1>
       <q>Well, you wonder why I always dress in black...</q>
   </header>
-
 
   <section id="art">
   </section>
@@ -31,12 +18,12 @@ body:
       <h3>Whoami</h3>
       <p>Twenty-something year old software engineer located in Vilnius, Lithuania with a humble dream to live somewhere
         warmer.</p>
-      <p>I used to covert coffee to physics equations, but now coffee is converted to source code.</p>
+      <p>I used to convert coffee to physics equations, but now coffee is converted to source code.</p>
     </div>
 
     <div id="resume">
-      <h3>Resume: <a href="/data/public/resume/dovydas-gulbinas-resume.html">html</a>
-        <a href="/data/public/resume/dovydas-gulbinas-resume.pdf">pdf</a>
+      <h3>Resume: <a href="/dovydas-gulbinas-resume.html">html</a>
+        <a href="/dovydas-gulbinas-resume.pdf">pdf</a>
       </h3>
     </div>
 
@@ -47,11 +34,6 @@ body:
       </a>
     </div>
 
-    <!-- <div id="photography">
-      <a href="/something">
-        <h3>Photography</h3>
-      </a>
-    </div> -->
 
     <div id="Haiku">
       <a href="/blog/@haiku.html">
@@ -71,9 +53,7 @@ body:
     </div>
 
   </section>
-
-</body>
-
-</html>
 ---
 _discoverable: yes
+---
+_template: landing.html
