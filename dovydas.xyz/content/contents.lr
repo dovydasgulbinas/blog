@@ -35,9 +35,9 @@ body:
     </div>
 
 
-    <div id="Haiku">
-      <a href="/blog/@haiku.html">
-        <h3>Haiku</h3>
+    <div id="about-me">
+      <a href="/about-me">
+        <h3>About Me</h3>
       </a>
     </div>
 

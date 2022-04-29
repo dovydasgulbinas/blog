@@ -1,5 +1,6 @@
 <!doctype html>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{{ '/static/global.css'|url }}">
 <link rel="stylesheet" href="{{ '/static/pygments.css'|url }}">
 <link rel="icon" href="/favicon.ico" type="image/gif"/>
@@ -15,7 +16,7 @@
         {% for href, title in [
           ['/blog', 'Blog'],
           ['/projects', 'Projects'],
-          ['/about', 'About']
+          ['/contact-me', 'Contact Me']
         ] %}
           <li{% if this.is_child_of(href) %} class="active"{% endif
             %}><a href="{{ href|url }}">{{ title }}</a></li>
