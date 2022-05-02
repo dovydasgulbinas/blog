@@ -2,9 +2,9 @@ a {
     color: var(--blue);
 }
 
-a:visited {
+/* a:visited {
     color: var(--dark_blue);
-}
+} */
 
 a:hover {
     text-decoration: underline;
@@ -45,17 +45,6 @@ hr{
 }
 
 
-footer {
-    margin-top: 1em;
-    text-align: center;
-	border-top: 1px solid var(--white);
-	padding-top: 1em;
-	width: auto;
-	max-width: none;
-/* 	font-size: smaller; */
-}
-
-
 img {
     max-width: 100%;
     width: 100%;
@@ -66,7 +55,7 @@ img {
 
 code {
     color: var(--light_peach);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-monospace);
     font-size: 1em;
     font-weight: 400;
 }
@@ -82,7 +71,7 @@ pre code {
     margin-top: 1em;
     border-radius: 0.2em;
     overflow: auto;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-monospace);
 }
 
 
@@ -90,11 +79,10 @@ pre code {
     color: var(--pink);
 }
 
-/* Blog Post Preview Page */
+/* Blog Post Preview & Pagination */
 .post-preview h2{
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-monospace);
 }
-
 
 .post-list {
     margin: 1em;
@@ -102,13 +90,33 @@ pre code {
 
 .post-list li a {
     text-decoration: none;
-    /* font-weight: 800; */
     color: var(--blue);
 }
 
 .post-list *:hover {
     text-decoration: underline;
 }
+
+.container-pagination {
+   display: flex; 
+   justify-content: space-between; 
+   flex-wrap: wrap; 
+   background: var(--black);
+   color: var(--white);
+   font-weight: bold;
+   /* border-top: 0.5em solid var(--white); */
+   padding: .75em;
+   border-radius: 0.2em;
+}
+
+.item-col-3 a:visited {
+    color: var(--white);
+}
+
+.disabled{
+    color: var(--light_grey);
+}
+
 
 
 @media (prefers-color-scheme: light) {
@@ -138,13 +146,30 @@ pre code {
 }
 
 @media (min-width: 55em) {
-    #postlist {
+    .post-list {
         column-count: 1;
     }
 }
 
 @media (min-width: 100em) {
-    #postlist {
+    .post-list {
         column-count: 2;
     }
+}
+
+
+/* Desktops: flexbox child columns */
+@media (min-width:768px) {
+    .item-col-3 {
+        width: 15%;
+        text-align: center;
+                }
+}
+
+/* Phones: flexbox child columns */
+@media (max-width:768px) {
+    .item-col-3 {
+        width: 100%;
+        text-align: center;
+                }
 }

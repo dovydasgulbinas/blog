@@ -15,6 +15,8 @@
     --lavender: #83769C;
     --pink: #FF77A8;
     --light_peach: #FFCCAA;
+    --font-monospace: 'Courier New', Courier, monospace;
+    --font-sans-serif: 'Arial', 'Helvetica', 'Verdana', sans-serif;
 }
 
 * {
@@ -71,7 +73,7 @@ html, body {
     font-size: 16px;
     line-height: 1;
     margin-bottom: 200px;
-    font-family: 'Verdana', sans-serif;
+    font-family: var(--font-sans-serif);
 }
 
 video{
@@ -79,6 +81,16 @@ video{
     display: block;
     margin: 0 auto;
     text-align: center;
+}
+
+footer {
+    margin-top: 1em;
+    text-align: center;
+	/* border-top: 1px solid var(--white); */
+	padding-top: 1em;
+	width: auto;
+	max-width: none;
+	font-size: smaller;
 }
 
 
@@ -181,7 +193,6 @@ body {
  align-items: center;
  justify-content: space-between;
  padding-left: 3%;
- 
  background-color: var(--black);
  color: var(--white);
  border-block: 0.2em solid var(--white);
