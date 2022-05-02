@@ -14,7 +14,7 @@ body:
   </section>
 
   <section id="gallery">
-    <div id="about-me">
+    <div id="whoami">
       <h3>Whoami</h3>
       <p>Twenty-something year old software engineer located in Vilnius, Lithuania with a humble dream to live somewhere
         warmer.</p>
@@ -35,9 +35,9 @@ body:
     </div>
 
 
-    <div id="about-me">
-      <a href="/about-me">
-        <h3>About Me</h3>
+    <div id="contact-me">
+      <a href="/contact-me">
+        <h3>Contact Me</h3>
       </a>
     </div>
 

@@ -90,22 +90,26 @@ pre code {
     color: var(--pink);
 }
 
-#postlist {
+/* Blog Post Preview Page */
+.post-preview h2{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.post-list {
     margin: 1em;
-    
 }
 
-#postlist li a {
+.post-list li a {
     text-decoration: none;
-    font-weight: 800;
-    display: block;
-
+    /* font-weight: 800; */
+    color: var(--blue);
 }
 
-
-#postlist *:hover {
+.post-list *:hover {
     text-decoration: underline;
 }
+
 
 @media (prefers-color-scheme: light) {
     body {

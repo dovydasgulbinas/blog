@@ -3,14 +3,13 @@ title: Run Jython Standalone Jar On Windows
 body:
 
 This tutorial will show you how you can run `jython-standalone.2.7.2.jar` on a Windows machine.
-Using Jython standalone you will be able to execute Python scripts, or use Python [REPL](https://codewith.mu/en/tutorials/1.1/repl).
+Using Jython standalone, you will be able to execute Python scripts, or use Python [REPL](https://codewith.mu/en/tutorials/1.1/repl).
 
 NOTE: Pip install for Jython is not covered.
 
-prerequisites:
+Prerequisites:
 - Windows PowerShell
 
-----
 ## Guide outline
 1. Install OpenJDK 17
 	1. [Download Java](#download-java)
@@ -23,7 +22,7 @@ prerequisites:
 	3.  [Run Jython Script](#run-jython-script)
 4. [Summary](#summary)
 
-----
+
 ## Install OpenJDK 17
 
 
@@ -60,7 +59,7 @@ Assert Java version is correct:
 
 If you see `OpenJDK 64-Bit Server VM` your installation was successful.
 
-----
+
 ## Download Jython.jar and Guide's Stub
 
 This tutorial includes a zip file containing folder structure and a test script.
@@ -70,7 +69,6 @@ This tutorial includes a zip file containing folder structure and a test script.
 1. [Download](jythonstub.zip) the stub and extract it on your PC.
 2. [Download](https://search.maven.org/artifact/org.python/jython-standalone/2.7.2/jar) jython-standalone.2.7.2.jar, and save it to `jythonstub/lib` folder.
 
-----
 
 ## Run Jython Standalone
 
@@ -122,15 +120,16 @@ It should print:
 Let's the called command
 
 * `java`:  Is OpenJDK, we installed.
-* `-classpath ./lib/*`:  tells your java runtime to scan all `.jar` files inside the `lib/` folder i.e. makes them available for import inside Jython.
-* `org.python.util.jython` : reverse url notation to jython class containing a `main()`  method(notice the class name is jython, not Jython)
+* `-classpath ./lib/*`:  tells your java runtime to scan all `.jar` files inside the `lib/` folder, i.e. makes them available for import inside Jython.
+* `org.python.util.jython` : reverse URL notation to jython class containing a `main()`  method(notice the class name is jython, not Jython)
 * `./hello_world.py`: Name of the Jython script executed.
 
-----
 ## Summary
 
-If you managed to run a Jython scipt using this guide good news.
+If you managed to run a Jython script using this guide, good news.
 Now you have a clean environment to work on your Jython projects.
 Do not forget to place additional jar files to the `lib/` folder!
 
 
+---
+pub_date: 2022-04-04
