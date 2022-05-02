@@ -1,6 +1,6 @@
 title: Upgrade LinuxServer/Nextcloud Container Manually
 ---
-author: hermes33
+author: 
 ---
 body:
 
@@ -31,7 +31,6 @@ IMPORTANT: Upgrade one major version at a time.
 Do not do something stupid like upgrading from Nextcloud 17 to 19.
 Skipping major versions, can break your Nextcloud installation permanently.
 
-----
 
 ## Upgrading from version 16 to 17
 
@@ -78,7 +77,6 @@ Convert to big int [source](https://docs.nextcloud.com/server/17/admin_manual/co
 	
 Continue to [Issue Verification](#issue-verification)
 
-----
 	
 ## Upgrading from version 17 to 18
 
@@ -127,7 +125,6 @@ convert to big int:
 
 Continue to [Issue Verification](#issue-verification)
 	
-----
 
 ## Upgrading from version 18 to 19
 
@@ -175,7 +172,6 @@ add optional columns:
 
 Continue to [Issue Verification](#issue-verification)
 
-----
 
 ## Upgrading from version 19 to 20
 
@@ -202,7 +198,6 @@ move old used files:
 
 Continue to [Upgrading inside the container](#upgrading-inside-the-container)
 
-----
 
 ### Fixing related issues 19 to 20
 
@@ -228,7 +223,6 @@ do big int conversion
 
 Continue to [Issue Verification](#issue-verification)
 
-----
 
 ## Upgrading inside the container
 
@@ -263,7 +257,6 @@ restart the containers:
 
 Continue to [Issue Verification](#issue-verification)
 
-----
 
 ### Issue Verification
 Almost done, open your Nextcloud URL in the browser and verify that it is running.

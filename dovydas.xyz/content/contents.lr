@@ -41,15 +41,6 @@ body:
       </a>
     </div>
 
-    <div id="social">
-      <h3>Follow me</h3>
-      <p>
-      <ul>
-        <li>Pixelfed: <a href="https://pixelfed.social/users/Trismegistus.atom">atom</a></li>
-        <li>Blog: <a href="/blog/atom.xml">atom</a>, <a href="/blog/rss.xml">rss</a></li>
-      </ul>
-      </p>
-
     </div>
 
   </section>
