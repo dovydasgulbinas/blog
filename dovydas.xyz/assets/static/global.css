@@ -156,15 +156,13 @@ header h1{
 }
 
 header q{
-
 	text-align: center;
 	font-size: 1.12rem;
 	font-style: italic;
 }
 
 
-/* FOR FOOTER */
-
+/* FOOTER */
 body {
     margin-bottom: 2rem;
 }
@@ -176,21 +174,45 @@ body {
 	max-width: none;
 }
 
-/* Sidebar */
-/*https://blog.hubspot.com/website/css-sidebar*/
 
-.sidebar {
-height: 100%;
-width: 150px;
-position: absolute;
-left: 0;
-top: 0;
-padding-top: 40px;
-background-color: lightblue;
+/* NAVBAR STYLING STARTS */
+.navbar {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding-left: 3%;
+ 
+ background-color: var(--black);
+ color: var(--white);
+ border-block: 0.2em solid var(--white);
+ font-weight: bold;
+ margin-bottom: 8%;
+ 
+}
+.nav-links a {
+ color: var(--white);
+}
+/* LOGO */
+.logo {
+ font-size: 32px;
+}
+/* NAVBAR MENU */
+.menu {
+ display: flex;
+ gap: 1em;
+ font-size: 1em;
+}
+.menu li:hover {
+ background-color: var(--dark_blue);
+ border-radius: 5px;
+ transition: 0.3s ease;
+}
+.menu li {
+ padding: 0px 0.75em;
 }
 
-.sidebar div {
-padding: 8px;
-font-size: 24px;
-display: block;
+/* FOOTER */
+
+footer {
+    margin-top: 10%;
 }
