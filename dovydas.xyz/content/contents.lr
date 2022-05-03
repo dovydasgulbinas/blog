@@ -28,18 +28,6 @@ body:
     </div>
 
 
-    <div id="blog">
-      <a href="/blog">
-        <h3>Blog</h3>
-      </a>
-    </div>
-
-
-    <div id="contact-me">
-      <a href="/contact-me">
-        <h3>Contact Me</h3>
-      </a>
-    </div>
 
     </div>
 

@@ -27,7 +27,7 @@ Plan ahead, because Nextcloud downtime is expected.
 Sections below *Upgrading to version X to X+1* are almost identical.
 Each major version heading, has subheadings for fixing database issues that occur after the upgrade.
 
-IMPORTANT: Upgrade one major version at a time.
+! Upgrade one major version at a time.
 Do not do something stupid like upgrading from Nextcloud 17 to 19.
 Skipping major versions, can break your Nextcloud installation permanently.
 
