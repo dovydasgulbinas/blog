@@ -75,13 +75,14 @@ pre code {
 }
 
 
-.codehilite .c1 {
+/* .codehilite .c1 {
     color: var(--pink);
-}
+} */
 
 /* Blog Post Preview & Pagination */
 .post-preview h2{
     font-family: var(--font-monospace);
+    color: var(--light_peach);
 }
 
 .post-list {
@@ -90,11 +91,14 @@ pre code {
 
 .post-list li a {
     text-decoration: none;
-    color: var(--blue);
+    color: var(--light_peach);
 }
 
 .post-list *:hover {
     text-decoration: underline;
+    background-color: var(--dark_blue);
+    border-radius: 2px;
+    padding: 3px;
 }
 
 .container-pagination {
