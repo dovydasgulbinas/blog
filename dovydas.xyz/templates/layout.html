@@ -14,11 +14,7 @@
         <div class="menu">
         <li{% if this._path == '/' %} class="active"{% endif
           %}><a href="{{ '/'|url }}">Home</a></li>
-        {% for href, title in [
-          ['/blog', 'Blog'],
-          ['/projects', 'Projects'],
-          ['/contact-me', 'Contact Me']
-        ] %}
+        {% for href, title in bag('main-nav').items() %}
           <li{% if this.is_child_of(href) %} class="active"{% endif
             %}><a href="{{ href|url }}">{{ title }}</a></li>
         {% endfor %}
