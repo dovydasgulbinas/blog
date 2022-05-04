@@ -47,10 +47,10 @@ Firstly start REPL:
 Then In the REPL shell enter this code (line by line):
 
 ```python
-	>>> from java.util import Date
-	>>> d = Date()
-	>>> print(d.toString()) # Prints result in REPL
-	Tue Jan 18 10:42:33 EET 2022
+>>> from java.util import Date
+>>> d = Date()
+>>> print(d.toString()) # Prints result in REPL
+Tue Jan 18 10:42:33 EET 2022
 ```
 
 We called a Java stdlib class and printed its value using Jython `print()` method.
