@@ -60,8 +60,8 @@ code {
     font-weight: 400;
 }
 
-pre code {
-    background: var(--light_peach);
+pre {
+    background: var(--dark_blue);
     color: var(--black);
     display: block;
     padding-top: 1em;
@@ -75,9 +75,9 @@ pre code {
 }
 
 
-/* .codehilite .c1 {
+.hll .c1 {
     color: var(--pink);
-} */
+}
 
 /* Blog Post Preview & Pagination */
 .post-preview h2{
