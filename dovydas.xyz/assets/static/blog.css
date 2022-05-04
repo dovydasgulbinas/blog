@@ -121,7 +121,36 @@ pre code {
     color: var(--light_grey);
 }
 
+/* Table CSS */
 
+table {
+    margin-top: 1em;
+    width: 100%;
+    border-collapse:separate;
+    border:solid var(--white) 1px;
+    border-radius: 0.2em;
+}
+
+td, th {
+    border-left:solid var(--black) 1px;
+    border-top:solid var(--black) 1px;
+    padding: 4px;
+}
+
+th {
+    /* background-color: var(--black); */
+    border-top: none;
+    font-weight: bold;
+}
+
+td:first-child, th:first-child {
+     border-left: none;
+}
+
+tbody tr:nth-child(odd){
+  background-color: var(--dark_blue);
+  color: var(--white);
+}
 
 @media (prefers-color-scheme: light) {
     body {
