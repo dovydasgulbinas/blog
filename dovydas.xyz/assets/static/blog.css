@@ -168,6 +168,88 @@ tbody tr:nth-child(odd){
   color: var(--white);
 }
 
+/* LEKTOR SPECIFIC */
+
+p.meta {
+    font-size: smaller;
+    color: var(--light_grey);
+    text-align: right;
+
+}
+
+/* ADMOTION */
+
+div.admonition {
+    margin: 15px 0;
+    background: var(--black);
+    padding: 10px 15px;
+    padding-bottom: 0;
+    padding-bottom: 0.8em;
+  }
+
+div.admonition::before {
+	margin: -10px -15px 10px;
+	padding: 10px 15px;
+	line-height: 1;
+	display: block;
+	content: "";
+	font-weight: 700;
+	font-size: 1em;
+}
+
+div.admonition.admonition-note {
+  border: 1px solid var(--lavender);
+}
+
+div.admonition.admonition-note::before {
+  content: "Note";
+  background: var(--lavender);
+}
+
+div.admonition.admonition-info {
+  border: 1px solid var(--dark_blue);
+}
+
+div.admonition.admonition-info::before {
+  content: "Info";
+  background: var(--dark_blue);
+}
+
+div.admonition.admonition-tip {
+  border: 1px solid var(--pink);
+}
+
+div.admonition.admonition-tip::before {
+  content: "Tip";
+  background: var(--pink);
+}
+
+div.admonition.admonition-warning {
+  border: 1px solid var(--red);
+}
+
+div.admonition.admonition-warning::before {
+  content: "Warning";
+  background: var(--red);
+}
+
+
+
+
+
+
+/*
+https://github.com/lektor/lektor-markdown-admonition
+! 	<div class="admonition admonition-note">
+!! 	<div class="admonition admonition-info">
+!!! 	<div class="admonition admonition-tip">
+!!!! 	<div class="admonition admonition-warning"> */
+
+
+
+
+/* MEDIA QUERIES */
+
 @media (prefers-color-scheme: light) {
     body {
         background: white;
