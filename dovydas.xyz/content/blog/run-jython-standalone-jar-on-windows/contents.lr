@@ -117,7 +117,7 @@ It should print:
 	PYTHON: Hello World!
 	JAVA: Hello World!
 	
-Let's the called command
+Command explanation:
 
 * `java`:  Is OpenJDK, we installed.
 * `-classpath ./lib/*`:  tells your java runtime to scan all `.jar` files inside the `lib/` folder, i.e. makes them available for import inside Jython.
