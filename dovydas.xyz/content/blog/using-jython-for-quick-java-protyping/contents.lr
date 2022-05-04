@@ -19,9 +19,8 @@ We will only focus _call Java classes inside Jython_, since doing it the other w
 **prerequisites:**
 
 1.  [JRE Installed](/blog/run-jython-standalone-jar-on-windows)
-2. `.zip` file extractor
-3. [Download](jython-101.zip) `jython-101.zip`; and extract it anywhere you like
-4. [Download](https://search.maven.org/artifact/org.python/jython-standalone/2.7.2/jar) `jython-standalone.2.7.2.jar`, place it in `jython_101/lib` folder
+2. [Download](jython-101.zip) `jython-101.zip`; and extract it anywhere you like
+3. [Download](https://search.maven.org/artifact/org.python/jython-standalone/2.7.2/jar) `jython-standalone.2.7.2.jar`, place it in `jython_101/lib` folder
 
 
 Terminal commands from this point are relative to the working directory: `jython_101/`
