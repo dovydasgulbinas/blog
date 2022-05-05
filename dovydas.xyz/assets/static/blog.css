@@ -177,7 +177,10 @@ p.meta {
 
 }
 
-/* ADMOTION */
+/* 
+ADMOTION 
+https://github.com/lektor/lektor-markdown-admonition
+*/
 
 div.admonition {
     margin: 15px 0;
@@ -234,20 +237,6 @@ div.admonition.admonition-warning::before {
 }
 
 
-
-
-
-
-/*
-https://github.com/lektor/lektor-markdown-admonition
-! 	<div class="admonition admonition-note">
-!! 	<div class="admonition admonition-info">
-!!! 	<div class="admonition admonition-tip">
-!!!! 	<div class="admonition admonition-warning"> */
-
-
-
-
 /* MEDIA QUERIES */
 
 @media (prefers-color-scheme: light) {
@@ -282,11 +271,11 @@ https://github.com/lektor/lektor-markdown-admonition
     }
 }
 
-@media (min-width: 100em) {
+/* @media (min-width: 100em) {
     .post-list {
         column-count: 2;
     }
-}
+} */
 
 
 /* Desktops: flexbox child columns */
