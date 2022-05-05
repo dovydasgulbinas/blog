@@ -1,0 +1,31 @@
+title: Creating Multiple Folders From a Bash Array
+---
+author: D.G.
+---
+body:
+
+
+This snippet allows you to create a series of directories, that are a part of a
+regular bash array.
+It is useful if you have a number of directories to create and without using a loop.
+
+```bash
+#!/bin/bash
+
+
+var="eins"
+var2="zwei"
+
+play_array=("$var" "$var2")
+
+mkdir "${play_array[@]}"
+```
+
+Directories created:
+```
+.
+├── eins/
+└── zwei/
+```
+---
+pub_date: 2021-09-11

@@ -5,17 +5,17 @@ body:
 This tutorial will show you how you can run `jython-standalone.2.7.2.jar` on a Windows machine.
 Using Jython standalone, you will be able to execute Python scripts, or use Python [REPL](https://codewith.mu/en/tutorials/1.1/repl).
 
-NOTE: Pip install for Jython is not covered.
+! Pip install for Jython is not covered.
 
 Prerequisites:
-- Windows PowerShell
+- Basic knowlege of Windows PowerShell
 
 ## Guide outline
 1. Install OpenJDK 17
 	1. [Download Java](#download-java)
 	2. [Add Path Java variable](#add-path-java-variable)
 	3. [Verify Java Installation](#verify-java-installation)
-2. [Download Jython.jar and Guide's Stub](#download-jythonjar-and-guides-stub)
+2. [Download Jython.jar and Guide Stub](#download-jythonjar-and-guide-stub)
 3. Run Jython Standalone
 	1. [Verify Jython Installation](#verify-jython-installation)
 	2.  [Run Jython REPL](#run-jython-repl)
@@ -60,7 +60,7 @@ Assert Java version is correct:
 If you see `OpenJDK 64-Bit Server VM` your installation was successful.
 
 
-## Download Jython.jar and Guide's Stub
+## Download Jython.jar and Guide Stub
 
 This tutorial includes a zip file containing folder structure and a test script.
 
@@ -133,3 +133,5 @@ Do not forget to place additional jar files to the `lib/` folder!
 
 ---
 pub_date: 2022-04-04
+---
+author: D.G.
