@@ -4,14 +4,13 @@ title: D.G. Home
 ---
 body:
 
-
+<main class="landing">
   <header>
       <h1>Dovydas Gulbinas</h1>
-      <q>Well, you wonder why I always dress in black...</q>
+      <q class="quote">Well, you wonder why I always dress in black...</q>
   </header>
 
-  <section id="art">
-  </section>
+  <section id="art"></section>
 
   <section id="gallery">
     <div id="whoami">
@@ -20,18 +19,14 @@ body:
         warmer.</p>
       <p>I used to convert coffee to physics equations, but now coffee is converted to source code.</p>
     </div>
-
     <div id="resume">
       <h3>Resume: <a href="/dovydas-gulbinas-resume.html">html</a>
         <a href="/dovydas-gulbinas-resume.pdf">pdf</a>
       </h3>
     </div>
-
-
-
-    </div>
-
   </section>
+</main>
+
 ---
 _discoverable: yes
 ---
