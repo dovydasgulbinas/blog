@@ -1,4 +1,8 @@
 :root {
+    font-size: 16px;
+    font-family: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
+    --font-monospace: 'Courier New', Courier, monospace;
+    --font-sans-serif: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
     --black: #000000;
     --dark_blue: #1D2B53;
     --dark_purple: #7E2553;
@@ -15,8 +19,11 @@
     --lavender: #83769C;
     --pink: #FF77A8;
     --light_peach: #FFCCAA;
-    --font-monospace: 'Courier New', Courier, monospace;
-    --font-sans-serif: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
+    --text-primary: var(--white);
+    --text-secondary: var(--light_grey);
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+
 }
 
 * {
@@ -67,13 +74,13 @@ html, body {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 1rem;
-    background: var(--black);
+    /* margin: 0;
+    padding: 0; */
     color: var(--white);
+    background: var(--black);
 
-    font-size: 16px;
     line-height: 1;
     margin-bottom: 200px;
-    font-family: var(--font-sans-serif);
 }
 
 video{
@@ -233,4 +240,19 @@ a:hover {
 
 footer {
     margin-top: 10%;
+}
+
+
+/* scrollbars */
+
+body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+body::-webkit-scrollbar-thumb{
+    background: var(--white);
 }
