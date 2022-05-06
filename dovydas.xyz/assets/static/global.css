@@ -3,6 +3,7 @@
     font-family: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
     --font-monospace: 'Courier New', Courier, monospace;
     --font-sans-serif: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
+    --light_black: #23232e;
     --black: #000000;
     --dark_blue: #1D2B53;
     --dark_purple: #7E2553;
@@ -19,11 +20,13 @@
     --lavender: #83769C;
     --pink: #FF77A8;
     --light_peach: #FFCCAA;
+    /* used with navbar */
+    --bg-primary: var(--light_black);
+    --bg-secondary: var(--dark_blue);
+    --transition-speed: 600ms;
+
     --text-primary: var(--white);
     --text-secondary: var(--light_peach);
-    --bg-primary: #23232e;
-    --bg-secondary: #141418;
-    --transition-speed: 600ms;
 }
 
 * {
@@ -202,7 +205,7 @@ footer {
     background-color: var(--bg-primary);
     transition: width 200ms ease;
     overflow: auto;
-    
+    z-index: 255;
 }
 
 /* navbar large screen */
@@ -214,7 +217,7 @@ footer {
     }
 
     .navbar:hover {
-        width: 14rem;
+        width: 18rem;
     }
 
     .navbar:hover .link-text {
@@ -222,7 +225,7 @@ footer {
     }
 
     .navbar:hover .logo svg {
-        margin-left: 5rem;
+        margin-left: 10rem;
     }
 
     .navbar:hover .logo-text {
@@ -283,22 +286,20 @@ footer {
 .nav-link:hover {
     filter: grayscale(0%) opacity(1);
     background: var(--bg-secondary);
-    color: var(--text-secondary);
+    color: var(--text-primary);
 }
-
 
 .logo {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     background: var(--bg-secondary);
     font-size: 1.5rem;
     letter-spacing: 0.3ch;
     list-style: none;
-    z-index: 255;
 };
 
 .logo svg {
@@ -307,13 +308,13 @@ footer {
 }
 
 .navbar:hover .logo svg {
-    transform: rotate(-180deg);
-    /* transition: transform var(--transition-speed); */
+    transform: scaleX(-1);
+    transition: transform var(--transition-speed);
 }
 
 .link-text {
     display: none;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
 }
 
 .nav-link svg{
