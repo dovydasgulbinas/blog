@@ -198,7 +198,7 @@ footer {
     position: fixed;
     background-color: var(--bg-primary);
     transition: width 200ms ease;
-    overflow: auto;
+    overflow: hidden;
     z-index: 255;
 }
 
@@ -215,6 +215,7 @@ footer {
 
 .nav-item {
     width: 100%;
+    list-style: none;
 }
 
 .nav-link {
@@ -373,7 +374,7 @@ body::-webkit-scrollbar-thumb{
     .navbar {
         bottom: 0;
         width: 100vw;
-        height: 5rem;
+        height: 3.5rem;
       }
     
       .logo {
@@ -394,5 +395,9 @@ body::-webkit-scrollbar-thumb{
 
       #art {
           min-width: 80%;
+      }
+
+      .link-text{
+        display: block;
       }
 }
