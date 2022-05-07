@@ -315,6 +315,11 @@ footer {
 .link-text {
     display: none;
     margin-left: 1rem;
+    font-weight: bold;
+}
+
+.link-text:hover{
+    text-decoration: none;
 }
 
 .nav-link svg{
