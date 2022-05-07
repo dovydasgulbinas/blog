@@ -177,12 +177,6 @@ header h1{
 	font-weight: bold;
 }
 
-header q{
-	text-align: center;
-	font-size: 1.12rem;
-	font-style: italic;
-}
-
 body {
     margin-bottom: 2rem;
 }
@@ -208,55 +202,6 @@ footer {
     z-index: 255;
 }
 
-/* navbar large screen */
-@media only screen and (min-width: 600px) {
-    .navbar {
-        top: 0;
-        width: 5rem;
-        height: 100vh;
-    }
-
-    .navbar:hover {
-        width: 18rem;
-    }
-
-    .navbar:hover .link-text {
-        display: inline;
-    }
-
-    .navbar:hover .logo svg {
-        margin-left: 10rem;
-    }
-
-    .navbar:hover .logo-text {
-        left: 0px;
-    }
-}
-
-/* navbar small screen */
-@media only screen and (max-width: 600px) {
-    .navbar {
-        bottom: 0;
-        width: 100vw;
-        height: 5rem;
-      }
-    
-      .logo {
-        display: none;
-      }
-    
-      .navbar-nav {
-        flex-direction: row;
-      }
-    
-      .nav-link {
-        justify-content: center;
-      }
-    
-      main {
-        margin: 0;
-      }
-}
 
 .navbar-nav{
     list-style: none;
@@ -328,20 +273,6 @@ footer {
     margin: 0 1.5rem;
 }
 
-.fa-primary {
-    color: #ff7eee;
-}
-
-.fa-secondary {
-    color: green;
-}
-
-.fa-primary,
-.fa-secondary {
-    transition: var(--transition-speed);
-}
-
-
 /* scrollbars */
 
 body::-webkit-scrollbar {
@@ -367,11 +298,15 @@ body::-webkit-scrollbar-thumb{
 
 }
 
-.landing section > * {
-	box-sizing: border-box;
-	padding: 0;
-	max-width: 40em;
-	margin: 1rem auto;
+.landing-quote {
+	text-align: center;
+	font-size: 1.15rem;
+	font-style: italic;
+}
+
+#resume h3 a{
+	font-size: initial;
+	font-weight: initial;
 }
 
 .landing h2 {
@@ -381,40 +316,83 @@ body::-webkit-scrollbar-thumb{
 	text-align: center;
 }
 
+/* flexbox controls */
+
+.landing-flex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8vh;
+}
+
 #art {
-	position: relative;
-	width: 2.884in;
-	height: 5.863in;
-	margin: 0 auto 0.2in;
-	background-image: url("/landing-art.png");
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: contain;
+    flex: 1;
+    padding-top: 3rem;
+    padding-right: 2rem;
+    /* some values are controlled via media-queries*/
 }
 
-#art::after {
-	position: absolute;
-	left: 0;
-	top: 100%;
-	width: 100%;
-	text-align: center;
-	font-size: x-small;
+#gallery {
+    width: 100%;
+    flex: 2;
 }
 
+/* large screen */
+@media only screen and (min-width: 600px) {
+    .navbar {
+        top: 0;
+        width: 5rem;
+        height: 100vh;
+    }
 
-#resume h3 a{
-	font-size: initial;
-	font-weight: initial;
+    .navbar:hover {
+        width: 18rem;
+    }
+
+    .navbar:hover .link-text {
+        display: inline;
+    }
+
+    .navbar:hover .logo svg {
+        margin-left: 10rem;
+    }
+
+    .navbar:hover .logo-text {
+        left: 0px;
+    }
+
+    #art{
+        width: 100%;
+    }
 }
 
+/* small screen */
+@media only screen and (max-width: 600px) {
+    .navbar {
+        bottom: 0;
+        width: 100vw;
+        height: 5rem;
+      }
+    
+      .logo {
+        display: none;
+      }
+    
+      .navbar-nav {
+        flex-direction: row;
+      }
+    
+      .nav-link {
+        justify-content: center;
+      }
+    
+      main {
+        margin: 0;
+      }
 
-/* MEDIA QUERIES */
-
-@media (min-height: 5.863in) and (min-width: 7in) {
-	.landing section {
-		width: 46%;
-		text-align: left;
-		vertical-align: top;
-		display: inline-block;
-	}
+      #art {
+          min-width: 80%;
+      }
 }

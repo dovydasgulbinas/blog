@@ -7,12 +7,14 @@ body:
 <main class="landing">
   <header>
       <h1>Dovydas Gulbinas</h1>
-      <q class="quote">Well, you wonder why I always dress in black...</q>
+      <div class="landing-quote">Well, you wonder why I always dress in black...</div>
   </header>
 
-  <section id="art"></section>
+  <div class="landing-flex"> 
 
-  <section id="gallery">
+  <img src="/landing-art.png" id="art" alt="D.G.">
+
+  <div id="gallery">
     <div id="whoami">
       <h3>Whoami</h3>
       <p>Twenty-something year old software engineer located in Vilnius, Lithuania with a humble dream to live somewhere
@@ -24,7 +26,10 @@ body:
         <a href="/dovydas-gulbinas-resume.pdf">pdf</a>
       </h3>
     </div>
-  </section>
+  </div>
+
+  </div>
+
 </main>
 
 ---
