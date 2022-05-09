@@ -1,0 +1,85 @@
+title: Installing Selenium  For Google Chrome (Windows 10)
+---
+author: D.G.
+---
+body:
+
+This tutorial will show you how to install Selenium for Google Chrome (Windows 10), and optionally Python related dependencies.
+
+Prerequisites:
+- Google Chrome Installed on your Windows machine
+
+## Guide Outline
+1. [Install the WebDriver](#install-the-webdriver)
+	1. [Check Your Google Chrome Version](#check-your-google-chrome-version)
+	2. [Download the ChromeDriver](#download-the-chromedriver)
+2. [Python Set-Up](#python-set-up)
+	1. [Open PowerShell](#open-powershell)
+	2. [Verify Python Selenium Installation](#verify-python-selenium-installation)
+
+
+## Install the WebDriver
+
+ WebDriver (ChromeDriver for Chrome) gives Selenium access to control your web-browser.
+ 
+### Check Your Google Chrome Version
+
+Find Chrome version (remember it for later):
+
+	… → Help → About Chrome
+
+![86695802ec4222cce52a2319f0fb2a24.png](86695802ec4222cce52a2319f0fb2a24.png)
+
+### Download the ChromeDriver
+
+[Download](https://sites.google.com/chromium.org/driver/downloads?authuser=0) the Chromedriver Binary (which matches your Chrome version):
+
+![webdriver binary](53f7c7b857b049a324b8984bf693fb2c.png)
+![dl page](71d44a724d08599bea5601874676b201.png)
+
+Extract the `chromedriver_win32.zip` anywhere.
+
+Copy the absolute path to `chromedriver.exe` (remember it for later, it is needed for Python and other scripts).
+
+![090980263de30a2bd06535c027f20acf.png](090980263de30a2bd06535c027f20acf.png)
+
+You can now delete the `chromedriver_win32.zip` it will not be needed anymore.
+Your WebDriver installation is complete.
+
+
+## Python Set-up
+
+prerequisites:
+- Python 3 - installed
+- pip -  Python package manager installed
+
+We will finish the set-up required for running Python based Selenium scripts.
+
+### Open PowerShell
+
+Hold shift + mouse2; then click "_Open PowerShell window here_"
+![a9807464049fa81f21f312754c62e6d7.png](a9807464049fa81f21f312754c62e6d7.png)
+
+### Install Python Selenium Package
+
+In the PowerShell, enter:
+	
+	pip install selenium
+
+### Verify Python Selenium Installation
+
+In the PowerShell, enter:
+
+    python
+
+
+In the Python REPL, enter:
+```python
+>>> import selenium
+```
+
+If no errors occurred during `pip install selenium`, and `import selenium` you are done with your Python set-up.
+
+! Remember absolute path to the `chromedriver.exe` in your Python scripts.
+---
+pub_date: 2022-05-06
