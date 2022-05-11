@@ -67,6 +67,12 @@ a {
     text-decoration: underline;
 }
 
+a:hover {
+    background-color: var(--dark_blue);
+    padding: 0.3125rem;
+    transition: var(--transition-fast);
+
+}
 
 dt {
     margin-top: 1em;
