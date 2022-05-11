@@ -24,6 +24,7 @@
     --bg-primary: var(--light_black);
     --bg-secondary: var(--dark_blue);
     --transition-speed: 600ms;
+    --transition-fast: 300ms;
 
     --text-primary: var(--white);
     --text-secondary: var(--light_peach);
@@ -196,6 +197,10 @@ h3 {
     color: var(--light_black);
 }
 
+.center{
+    display: flex;
+    justify-content: center;
+}
 
 /* https://github.com/fireship-io/222-responsive-icon-nav-css/blob/master/public/style.css */
 main {

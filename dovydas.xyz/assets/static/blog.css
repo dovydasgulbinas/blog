@@ -216,27 +216,25 @@ div.admonition.admonition-warning::before {
 
 /* CARDS */
 
-.blog-header {
-  margin-bottom: 2rem;
-}
-
 .size-post-items {
   width: 640px;
 }
 
 .post-card {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .post-card:hover {
   background: var(--dark_blue);
-  padding: 1rem 0 1rem 1rem;
-  transition: var(--transition-speed);
+  padding: 1rem 1rem 1rem 1rem;
+  transition: var(--transition-fast);
+  /* width: 640px; */
 }
 
 .post-container {
     color: var(--white);
     text-decoration: none;
+ 
 }
 
 a.post-container:hover {
