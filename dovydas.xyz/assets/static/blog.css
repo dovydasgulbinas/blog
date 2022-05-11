@@ -29,7 +29,7 @@ h2:after
 {
   content: "";
   display: inline-block;
-  height: 0.2em;
+  height: 0.125em;
   position: relative;
   vertical-align: middle;
   width: 100%;
@@ -216,7 +216,11 @@ div.admonition.admonition-warning::before {
 
 /* CARDS */
 
-.post-items {
+.blog-header {
+  margin-bottom: 2rem;
+}
+
+.size-post-items {
   width: 640px;
 }
 

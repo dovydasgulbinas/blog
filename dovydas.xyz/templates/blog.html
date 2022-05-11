@@ -6,8 +6,8 @@
 {% from "macros/pagination.html" import render_pagination %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
-  <h2>Blog Posts</h2>
-  <div class="post-list post-items">
+  <h2 class="blog-header size-post-items">Blog Posts</h2>
+  <div class="post-list size-post-items">
   {% for child in this.pagination.items %}
     {{ post_rework(child) }}
   {% endfor %}
