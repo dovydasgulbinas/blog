@@ -99,21 +99,21 @@ li > ol > :first-child {
    display: flex; 
    justify-content: space-between; 
    flex-wrap: wrap; 
-   background: var(--black);
    color: var(--white);
    font-weight: bold;
-   /* border-top: 0.5em solid var(--white); */
-   padding: .75em;
+   /* padding: .75em; */
    border-radius: 0.2em;
 }
 
-.item-col-3 a:visited {
+/* .item-col-3 a:visited {
     color: var(--white);
+} */
+
+.item-col-3 a{
+  text-decoration: none;
+  /* color: var(--white); */
 }
 
-.disabled{
-    color: var(--light_grey);
-}
 
 /* Table CSS */
 
@@ -284,6 +284,7 @@ text-decoration: none;
   font-style: italic;
   font-size: 12px;
 }
+
 
 .arrow {
   border: solid var(--white);

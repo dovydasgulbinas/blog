@@ -2,9 +2,9 @@
   <div class="container-pagination">
     <div class="item-col-3">
     {% if pagination.has_prev %}
-      <a href="{{ pagination.prev|url }}">&laquo; Previous</a>
+      <a class="enabled" href="{{ pagination.prev|url }}"><i class="arrow left enabled"></i>Previous</a>
     {% else %}
-      <span class="disabled">&laquo; Previous</span>
+      <a class="hidden" href="#"><i class="arrow left"></i>Previous</a>
     {% endif %}
     </div>
 
@@ -14,9 +14,9 @@
 
     <div class="item-col-3">
     {% if pagination.has_next %}
-        <a href="{{ pagination.next|url }}">Next &raquo;</a>
+        <a class="enabled" href="{{ pagination.next|url }}">Next<i class="arrow right enabled"></i></a>
     {% else %}
-      <span class="disabled">Next &raquo;</span>
+        <a class="hidden" href="#">Next<i class="arrow right"></i></a>
     {% endif %}
     </div>
   </div>
