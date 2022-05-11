@@ -29,7 +29,13 @@
 
 <a class="post-container" href="{{ post|url }}">
   <div class="post-title">{{ post.title }}</div>
-  <img class="post-img" src="https://namas.duckdns.org/blog/vilnius-living-districts-for-expats/post-no-bills-256.png"> </img>
+
+  {% if post.attachments.images.get('cover.png') %}
+    <img class="post-img" src="{{ post.attachments.images.get('cover.png')|url }}"> </img>
+  {% else %}
+    <img class="post-img" src="{{ '/static/fallback.png'|url }}"> </img>
+  {% endif %}
+
   <div class="post-text">{{ post.body.html | striptags | truncate(200, False, '...') | safe}}</div>
   <div class="post-published">{{ post.pub_date }}</div>
 </a>
