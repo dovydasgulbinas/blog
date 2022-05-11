@@ -4,9 +4,10 @@
 {% endblock %}
 {% from "macros/blog.html" import post_rework %}
 {% from "macros/pagination.html" import render_pagination %}
+{% from "macros/page-title.html" import render_page_title %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
-  <h2 class="blog-header size-post-items">Blog Posts</h2>
+  {{ render_page_title('Blog', 'blog') }}
   <div class="post-list size-post-items">
   {% for child in this.pagination.items %}
     {{ post_rework(child) }}
