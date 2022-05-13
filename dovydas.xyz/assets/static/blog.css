@@ -257,6 +257,11 @@ text-decoration: none;
   margin-right: 0.5rem;
 }
 
+.post-art {
+  max-width: 4rem;
+  float: left;
+}
+
 .post-text {
   width: 28.125rem;
   height: 6.75rem;
