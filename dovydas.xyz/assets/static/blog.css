@@ -9,8 +9,7 @@ h5 {
     color: var(--white);
     text-align: left;
     font-weight: bold;
-    /* font-style: italic; */
-    padding-top: 1em;
+    padding-top: 1rem;
 }
 
 h2:after 
@@ -28,8 +27,8 @@ h2:after
 
 hr{
   color: var(--white);
-  margin-top: 1.2em;
-  margin-bottom: 1.2em;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 code,
@@ -39,7 +38,6 @@ pre {
 
 code {
     color: var(--light_peach);
-    font-size: 1em;
     font-weight: 400;
 }
 
@@ -55,7 +53,7 @@ pre {
     padding-left: 1em;
     padding-right: 1em;
     margin-top: 1em;
-    border-radius: 0.2em;
+    border-radius: 0.25rem;
 }
 
 /* List styling */
@@ -90,10 +88,6 @@ li > ol > :first-child {
    border-radius: 0.25rem;
 }
 
-/* .item-col-3 a:visited {
-    color: var(--white);
-} */
-
 .item-col-3 a{
   text-decoration: none;
 }
@@ -101,14 +95,15 @@ li > ol > :first-child {
 /* Table CSS */
 
 table {
-    margin-top: 1em;
+    margin-top: 1rem;
     width: 100%;
     border-collapse:separate;
-    border:solid var(--white) 1px;
-    border-radius: 0.2em;
+    /* border:solid var(--white) 1px; */
+    border-radius: 0.25rem;
 }
 
-td, th {
+td,
+th {
     border-left:solid var(--black) 1px;
     border-top:solid var(--black) 1px;
     padding: 4px;
@@ -125,7 +120,7 @@ td:first-child, th:first-child {
 }
 
 tbody tr:nth-child(odd){
-  background-color: var(--dark_blue);
+  background-color: var(--light_black);
   color: var(--white);
 }
 
@@ -148,7 +143,7 @@ div.admonition {
     background: var(--black);
     padding: 10px 15px;
     padding-bottom: 0;
-    padding-bottom: 0.8em;
+    padding-bottom: 0.8rem;
   }
 
 div.admonition::before {
@@ -158,7 +153,7 @@ div.admonition::before {
 	display: block;
 	content: "";
 	font-weight: 700;
-	font-size: 1em;
+	font-size: 1rem;
 }
 
 div.admonition.admonition-note {
@@ -240,7 +235,6 @@ text-decoration: none;
   margin-right: 0.5rem;
 }
 
-
 .post-text {
   width: 28.125rem;
   height: 6.75rem;
@@ -267,7 +261,6 @@ text-decoration: none;
   font-size: 12px;
 }
 
-
 .arrow {
   border: solid var(--white);
   border-width: 0 3px 3px 0;
@@ -284,7 +277,6 @@ text-decoration: none;
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
-
 
 /* MEDIA QUERIES */
 

@@ -30,13 +30,11 @@ Begin by testing if Jython runs inside JRE:
 	java -jar ./lib/jython-standalone-2.7.2.jar --help
 	
 We called `--help` on our Jython CLI.
-	
 Call the `hello_world.py` script found in the stub:
 
 	java -classpath ./lib/* org.python.util.jython ./hello_world.py
 
 Open the `hello_world.py` in your text editor and see that  we can have mixed runtime inside a Jython script.
-
 For something more practical, we can print the current time using `java.util.Date`.
 
 Firstly start REPL:

@@ -113,13 +113,13 @@ p{
 
 /* List items */
 
-ul,ol,dl,p {
-  /* font-size: 1rem; */
-}
+/* ul,ol,dl,p {
+  font-size: 1rem;
+} */
 
-dd, dt, p {
+/* dd, dt, p {
   line-height: 1.3;
-}
+} */
 
 
 dt {
