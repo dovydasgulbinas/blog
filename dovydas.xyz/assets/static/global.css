@@ -1,8 +1,9 @@
 :root {
-    --font-sans-serif: Helvetica, Verdana, sans-serif;
-    font-size: 16px;
-    font-family: var(--font-sans-serif);
+    --font-sans-serif: Helvetica, Arial, sans-serif;
     --font-monospace: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    line-height: 1.5rem;
+    font-family: var(--font-sans-serif);
     --light_black: #23232e;
     --black: #000000;
     --dark_blue: #1D2B53;
@@ -20,6 +21,8 @@
     --lavender: #83769C;
     --pink: #FF77A8;
     --light_peach: #FFCCAA;
+    scrollbar-width: thin;
+    scrollbar-color: var(--light_grey) var(--black);
     /* used with navbar */
     --bg-primary: var(--light_black);
     --bg-secondary: var(--dark_blue);
@@ -83,7 +86,6 @@ dt {
 html, body {
     color: var(--white);
     background: var(--black);
-    line-height: 1;
 }
 
 video{
@@ -109,10 +111,10 @@ p{
 }
 
 
-/* List item normalization */
+/* List items */
 
 ul,ol,dl,p {
-  font-size: 1rem;
+  /* font-size: 1rem; */
 }
 
 dd, dt, p {
@@ -132,19 +134,10 @@ ul, ol{
     margin-top: 1rem;
     margin-left: 2rem;
     padding-left: 0;
-
-}
-
-ul li {
-    list-style: square;
-}
-
-
-ol{
     list-style-position: inside;
+
 }
 
-/* list settings */
 
 h1 {
     font-size: 2.5rem;
@@ -275,7 +268,6 @@ footer {
     height: 5rem;
     color: var(--text-primary);
     text-decoration: none;
-
     filter: grayscale(100%) opacity(0.7);
     transition: var(--transition-speed);
 }
@@ -284,6 +276,7 @@ footer {
     filter: grayscale(0%) opacity(1);
     background: var(--bg-secondary);
     color: var(--text-primary);
+    text-decoration: none;
 }
 
 .logo {
@@ -329,7 +322,7 @@ footer {
 /* scrollbars */
 
 body::-webkit-scrollbar {
-    width: 0.25rem;
+    width: 0.5rem;
 }
 
 body::-webkit-scrollbar-track {
@@ -340,6 +333,21 @@ body::-webkit-scrollbar-thumb{
     background: var(--white);
 }
 
+pre::-webkit-scrollbar{
+    height: 0.5rem;
+    width: 0.5rem;
+    background: var(--black);
+}
+
+pre::-webkit-scrollbar-thumb:horizontal{
+    background: var(--light_grey);
+    border-radius: 10px;
+}
+
+/* firefox scrolbar control */
+pre {
+    scrollbar-width: thin;
+}
 
 /* landing page */
 

@@ -31,7 +31,7 @@
     <img class="post-img" src="{{ '/static/fallback.png'|url }}"> </img>
   {% endif %}
 
-  <div class="post-text">{{ post.body.html | striptags | truncate(length=200, killwords=False, end='...')}}</div>
+  <div class="post-text">{{ post.body.html | striptags | truncate(length=160, killwords=False, end='...')}}</div>
   <div class="post-published">{{ post.pub_date }}</div>
 </a>
   
