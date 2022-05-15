@@ -44,15 +44,6 @@ hr{
   margin-bottom: 1.2em;
 }
 
-
-img {
-    max-width: 100%;
-    width: 100%;
-    /* margin: auto; */
-    margin: 1em;
-    display: block;
-}
-
 code {
     color: var(--light_peach);
     font-family: var(--font-monospace);

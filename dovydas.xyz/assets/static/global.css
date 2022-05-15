@@ -392,6 +392,21 @@ body::-webkit-scrollbar-thumb{
     flex: 2;
 }
 
+/* Image Utils */
+
+img {
+    max-width: 100%;
+    width: 100%;
+    /* margin: auto; */
+    margin: 1em;
+    display: block;
+}
+
+.img-medium {
+    max-width: 25rem;
+}
+
+
 /* large screen */
 @media only screen and (min-width: 600px) {
     .navbar {
