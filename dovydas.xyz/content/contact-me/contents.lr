@@ -1,3 +1,7 @@
 _model: page
 ---
 title: Contact Me
+---
+body: hello world
+---
+logo: contact-me
