@@ -6,8 +6,8 @@
 {% from "macros/pagination.html" import render_pagination %}
 {% from "macros/page-title.html" import render_page_title %}
 {% block title %}{{ this.title }}{% endblock %}
+{% block page_title %}{{ render_page_title('Blog', 'blog') }}{% endblock %}
 {% block body %}
-  {{ render_page_title('Blog', 'blog') }}
   <div class="post-list">
   {% for child in this.pagination.items %}
     {{ post_rework(child) }}

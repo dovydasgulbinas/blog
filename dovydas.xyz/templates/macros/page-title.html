@@ -1,8 +1,20 @@
 {% macro render_page_title(title, symbol) %}
-<div class="page-title">
+<div class="page-title center">
 <svg> 
   <use href="{{ '/static/logo.svg'|url }}#{{ symbol }}"></use>
 </svg>
 <div>{{ title }}</div>
+</div>
+{% endmacro %}
+
+{% macro render_title_post(post, from_index=false) %}
+<div class="page-title center">
+
+{% if post.attachments.images.get('cover.png') %}
+  <img src="{{ post.attachments.images.get('cover.png')|url }}"></img>
+{% else %}
+  <img src="{{ '/static/fallback.png'|url }}"></img>
+{% endif %}
+  <div>{{ post.title }}</div>
 </div>
 {% endmacro %}
