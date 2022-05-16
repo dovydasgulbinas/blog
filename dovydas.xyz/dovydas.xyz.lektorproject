@@ -1,5 +1,6 @@
 [project]
 name = dovydas.xyz
+url = https://namas.duckdns.org
 
 [servers.production]
 target = rsync://media/opt/media/__composites__/swag/config/www/dovydas.xyz
@@ -8,3 +9,4 @@ target = rsync://media/opt/media/__composites__/swag/config/www/dovydas.xyz
 lektor-markdown-highlighter = 0.3.1
 lektor-markdown-admonition = 0.3.1
 lektor-markdown-header-anchors = 0.3.1
+lektor-atom = 0.4.0
