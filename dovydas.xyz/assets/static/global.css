@@ -1,9 +1,12 @@
 :root {
     --font-sans-serif: Helvetica, Arial, sans-serif;
     --font-monospace: 'Courier New', Courier, monospace;
-    font-size: 16px;
+    --serif: "Book Antiqua", "Palatino Linotype", Palatino, "EB Garamond", serif;
+    --sans-serif: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    --monospace: operator mono, sfmono-regular, Consolas, liberation mono, Menlo, Courier, monospace;
+    font-size: 18px;
     line-height: 1.5rem;
-    font-family: var(--font-sans-serif);
+    font-family: var(--sans-serif);
     --light_black: #23232e;
     --black: #000000;
     --dark_blue: #1D2B53;
@@ -31,6 +34,7 @@
 
     --text-primary: var(--white);
     --text-secondary: var(--light_peach);
+
 }
 
 * {
@@ -206,9 +210,10 @@ h3 {
 main {
     /* same as navbar */
    /* margin-left: 5rem;   */
-    max-width: 80ch;
+    max-width: 88ch;
     margin: 0 auto;
     padding: 0 1rem;
+    font-family: var(--serif);
 }
 
 

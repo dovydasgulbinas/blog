@@ -24,7 +24,7 @@ Prerequisites:
  
 ### Check Your Google Chrome Version
 
-Find Chrome version (remember it for later):
+- Find Chrome version (remember it for later):
 
 	… → Help → About Chrome
 
@@ -32,18 +32,18 @@ Find Chrome version (remember it for later):
 
 ### Download the ChromeDriver
 
-[Download](https://sites.google.com/chromium.org/driver/downloads?authuser=0) the Chromedriver Binary (which matches your Chrome version):
+- [Download](https://sites.google.com/chromium.org/driver/downloads?authuser=0) the Chromedriver Binary (which matches your Chrome version):
 
 ![webdriver binary](53f7c7b857b049a324b8984bf693fb2c.png)
 ![dl page](71d44a724d08599bea5601874676b201.png)
 
-Extract the `chromedriver_win32.zip` anywhere.
+- Extract the `chromedriver_win32.zip` anywhere.
 
-Copy the absolute path to `chromedriver.exe` (remember it for later, it is needed for Python and other scripts).
+- Copy the absolute path to `chromedriver.exe` (remember it for later, it is needed for Python and other scripts).
 
 ![090980263de30a2bd06535c027f20acf.png](090980263de30a2bd06535c027f20acf.png)
 
-You can now delete the `chromedriver_win32.zip` it will not be needed anymore.
+- You can now delete the `chromedriver_win32.zip` it will not be needed anymore.
 Your WebDriver installation is complete.
 
 
