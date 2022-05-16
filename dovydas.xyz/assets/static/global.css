@@ -110,8 +110,7 @@ footer {
 
 p{
     margin-top: 1rem;
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: left;
 }
 
 
@@ -147,6 +146,7 @@ h1 {
     font-size: 2.5rem;
     font-weight: bold;
     text-align: center;
+    line-height: 3rem;
 }
 
 h2 {
@@ -210,7 +210,7 @@ h3 {
 main {
     /* same as navbar */
    /* margin-left: 5rem;   */
-    max-width: 88ch;
+    max-width: 80ch;
     margin: 0 auto;
     padding: 0 1rem;
     font-family: var(--serif);
@@ -364,10 +364,19 @@ pre {
 
 }
 
+#whoami p {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 16px;
+    line-height: 24px;
+}
+
 .landing-quote {
 	text-align: center;
 	font-size: 1.15rem;
 	font-style: italic;
+    margin-top: 1rem;
+    font-size: 1rem;
 }
 
 #resume h3 a{

@@ -238,8 +238,7 @@ text-decoration: none;
 .post-text {
   width: 28.125rem;
   height: 6.75rem;
-  text-align: justify;
-  text-justify: inner-word;
+  text-align: left;
   font-family: var(--monospace);
   border-style: solid;
   
