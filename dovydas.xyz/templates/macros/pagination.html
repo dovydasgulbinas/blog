@@ -1,22 +1,22 @@
 {% macro render_pagination(pagination) %}
-  <div class="container-pagination">
-    <div class="item-col-3">
+  <div style="display: flex;">
+    <div style="flex: 1">
     {% if pagination.has_prev %}
-      <a class="enabled" href="{{ pagination.prev|url }}"><i class="arrow left enabled"></i>Previous</a>
+      <a href="{{ pagination.prev|url }}"><i class="arrow left"></i>Previous</a>
     {% else %}
-      <a class="hidden" href="#"><i class="arrow left"></i>Previous</a>
+      <a style="display: none;" href="#"><i class="arrow left"></i>Previous</a>
     {% endif %}
     </div>
 
-    <div class="item-col-3">
+    <div style="flex: 1;">
     {{ pagination.page }} of {{ (pagination.total//pagination.per_page)+1}}
     </div>
 
-    <div class="item-col-3">
+    <div style="flex: 1;">
     {% if pagination.has_next %}
-        <a class="enabled" href="{{ pagination.next|url }}">Next<i class="arrow right enabled"></i></a>
+        <a href="{{ pagination.next|url }}">Next<i class="arrow right"></i></a>
     {% else %}
-        <a class="hidden" href="#">Next<i class="arrow right"></i></a>
+        <a style="display: none;" href="#">Next<i class="arrow right"></i></a>
     {% endif %}
     </div>
   </div>
