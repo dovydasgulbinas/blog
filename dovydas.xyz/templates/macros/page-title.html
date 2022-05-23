@@ -1,20 +1,20 @@
 {% macro render_page_title(title, symbol) %}
-<div class="page-title center">
-<svg> 
-  <use href="{{ '/static/logo.svg'|url }}#{{ symbol }}"></use>
-</svg>
-<div>{{ title }}</div>
-</div>
+<h1 style="text-align: center">
+  <svg style="max-width: 64px; vertical-align: middle; margin-right: 16px;"> 
+    <use href="{{ '/static/logo.svg'|url }}#{{ symbol }}"></use>
+  </svg>
+  <span style="vertical-align:middle">{{ title }}</span>
+</h1>
 {% endmacro %}
 
 {% macro render_title_post(post, from_index=false) %}
-<div class="page-title center">
 
+<h1 style="text-align: center;">
 {% if post.attachments.images.get('cover.png') %}
-  <img src="{{ post.attachments.images.get('cover.png')|url }}"></img>
+  <img style="max-width: 64px; vertical-align: middle; margin-right: 16px;" src="{{ post.attachments.images.get('cover.png')|url }}"></img>
 {% else %}
-  <img src="{{ '/static/fallback.png'|url }}"></img>
+  <img style="max-width: 64px; vertical-align: middle; margin-right: 16px;" src="{{ '/static/fallback.png'|url }}"></img>
 {% endif %}
-  <div>{{ post.title }}</div>
-</div>
+  <span style="vertical-align:middle">{{ post.title }}</span>
+</h1>
 {% endmacro %}
