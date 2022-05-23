@@ -6,6 +6,10 @@ body {
     text-align: center;
 }
 
+body, h1, h2, h3 {
+    color: var(--white);
+}
+
 footer {
     display: none;
 }
@@ -46,7 +50,7 @@ footer {
     flex: 1;
     padding-top: 3rem;
     padding-right: 2rem;
-    /* some values are controlled via media-queries*/
+    max-width: 100%;
 }
 
 #gallery {

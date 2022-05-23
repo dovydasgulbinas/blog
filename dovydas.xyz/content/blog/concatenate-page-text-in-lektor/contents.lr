@@ -6,8 +6,7 @@ body:
 
 In this example, variable `post` is an instance of `Markdown`.
 Snippet was tested with Jinja3 template engine.
-I use this snippet for generating my blog entry previews: 
-<img src="example.png" class="img-medium"></img>
+I use it for generating my blog entry previews.
 
 
 ```
