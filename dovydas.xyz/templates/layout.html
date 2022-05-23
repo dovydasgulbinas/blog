@@ -1,34 +1,16 @@
 <!doctype html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{{ '/static/global.css'|url }}">
-<link rel="stylesheet" href="{{ '/static/pygments.css'|url }}">
-<link rel="icon" href="{{ '/favicon.ico'|url }}" type="image/gif"/>
-{% block head_extras %}{% endblock %}
-<title>{% block title %}Welcome{% endblock %} — dovydas.xyz</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="{{ '/static/global.css'|url }}"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <link rel="stylesheet" href="{{ '/static/pygments.css'|url }}">
+  <link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+  {% block head_extras %}{% endblock %}
+  <link rel="icon" href="{{ '/favicon.ico'|url }}" type="image/gif"/>
+  <title>{% block title %}Welcome{% endblock %} — dovydas.xyz</title>
+</head>
 <body>
-  <nav class="navbar">
-    <ul class="navbar-nav">
-      <li class="logo">
-        <a href="/" class="nav-link">
-          <span class="link-text">home</span>
-          <svg class="logo-snail">
-            <use href="{{ '/static/logo.svg'|url }}#snail"></use>
-          </svg>
-        </a>
-      </li>
-      {% for href, title in bag('navbar-nav').items() %}
-        <li class="nav-item">
-          <a href="{{ href|url }}" class="nav-link">
-            <svg> 
-              <use href="{{ '/static/logo.svg'|url }}#{{ href.lstrip('/') }}"></use>
-            </svg>
-            <span class="link-text">{{ title }}</span>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
   {% block page_title %}{% endblock %}
   <main>
       {% block body %}{% endblock %}

@@ -1,0 +1,22 @@
+<nav class="navbar">
+    <ul class="navbar-nav">
+        <li class="logo">
+            <a href="/" class="nav-link">
+                <span class="link-text">home</span>
+                <svg class="logo-snail">
+                    <use href="{{ '/static/logo.svg'|url }}#snail"></use>
+                </svg>
+            </a>
+        </li>
+        {% for href, title in bag('navbar-nav').items() %}
+        <li class="nav-item">
+            <a href="{{ href|url }}" class="nav-link">
+                <svg>
+                    <use href="{{ '/static/logo.svg'|url }}#{{ href.lstrip('/') }}"></use>
+                </svg>
+                <span class="link-text">{{ title }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

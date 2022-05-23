@@ -1,0 +1,20 @@
+:root{
+    --monospace: operator mono, sfmono-regular, Consolas, liberation mono, Menlo, Courier, monospace;
+    --light_black: #23232e;
+    --black: #000000;
+    --dark_blue: #1D2B53;
+    --dark_purple: #7E2553;
+    --dark_green: #008751;
+    --brown: #AB5236;
+    --dark_grey: #5F574F;
+    --light_grey: #C2C3C7;
+    --white: #FFF1E8;
+    --red: #FF004D;
+    --orange: #FFA300;
+    --yellow: #FFEC27;
+    --green: #00E436;
+    --blue: #29ADFF;
+    --lavender: #83769C;
+    --pink: #FF77A8;
+    --light_peach: #FFCCAA;
+}

@@ -1,4 +1,7 @@
 {% extends "layout.html" %}
+{% block head_extras %}
+  <link rel="stylesheet" href="{{ '/static/landing.css'|url }}">
+{% endblock %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
   {{ this.body }}

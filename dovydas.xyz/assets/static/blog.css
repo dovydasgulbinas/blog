@@ -34,6 +34,7 @@ hr{
 code,
 pre {
    font-family: var(--monospace);
+   line-height: 1.3rem;
 }
 
 code {
@@ -41,19 +42,16 @@ code {
     font-weight: 400;
 }
 
-
 pre {
     /* border: 1px outset var(--dark_blue); */
     /* border: 0.25rem outset var(--dark_blue); */
     background: var(--light_black);
+   font-size: 0.85rem;
     display: block;
     overflow: auto;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    margin-top: 1em;
+    padding: 10px;
     border-radius: 0.25rem;
+    margin-bottom: 1.5rem;
 }
 
 /* List styling */

@@ -1,0 +1,51 @@
+/* landing page */
+
+body {
+    background: var(--black);
+    font-family: var(--monospace);
+    text-align: center;
+}
+
+.landing {
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
+#whoami p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#whoami h3,
+#resume h3 {
+    text-align: left;
+}
+
+
+.landing-quote {
+	font-style: italic;
+}
+
+/* flexbox controls */
+
+.landing-flex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8vh;
+}
+
+#art {
+    flex: 1;
+    padding-top: 3rem;
+    padding-right: 2rem;
+    /* some values are controlled via media-queries*/
+}
+
+#gallery {
+    width: 100%;
+    flex: 2;
+}
