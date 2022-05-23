@@ -5,10 +5,8 @@
 {% block title %}{{ this.title }}{% endblock %}
 {% block page_title %}{{ render_page_title('Blog', 'blog') }}{% endblock %}
 {% block body %}
-  <div class="post-list">
   {% for child in this.pagination.items %}
     {{ post_rework(child) }}
   {% endfor %}
-  </div>
   {{ render_pagination(this.pagination) }}
 {% endblock %}

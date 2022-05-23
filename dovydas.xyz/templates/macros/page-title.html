@@ -1,9 +1,9 @@
 {% macro render_page_title(title, symbol) %}
 <h1 style="text-align: center">
-  <svg style="max-width: 64px; vertical-align: middle; margin-right: 16px;"> 
+  <svg class="h-icon"> 
     <use href="{{ '/static/logo.svg'|url }}#{{ symbol }}"></use>
   </svg>
-  <span style="vertical-align:middle">{{ title }}</span>
+  <span class="h-middle">{{ title }}</span>
 </h1>
 {% endmacro %}
 
@@ -11,10 +11,10 @@
 
 <h1 style="text-align: center;">
 {% if post.attachments.images.get('cover.png') %}
-  <img style="max-width: 64px; vertical-align: middle; margin-right: 16px;" src="{{ post.attachments.images.get('cover.png')|url }}"></img>
+  <img class="h-icon" src="{{ post.attachments.images.get('cover.png')|url }}"></img>
 {% else %}
-  <img style="max-width: 64px; vertical-align: middle; margin-right: 16px;" src="{{ '/static/fallback.png'|url }}"></img>
+  <img class="h-icon" src="{{ '/static/fallback.png'|url }}"></img>
 {% endif %}
-  <span style="vertical-align:middle">{{ post.title }}</span>
+  <span class="h-middle">{{ post.title }}</span>
 </h1>
 {% endmacro %}

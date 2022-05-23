@@ -20,20 +20,23 @@
 {% endmacro %}
 
 {% macro post_rework(post) %}
-<div class="post-card center">
 
-<a class="post-container" href="{{ post|url }}">
-  <div class="post-title">{{ post.title }}</div>
+<article>
+<!-- <p>{{ post.pub_date }}</p> -->
 
-  {% if post.attachments.images.get('cover.png') %}
-    <img class="post-img" src="{{ post.attachments.images.get('cover.png')|url }}"> </img>
-  {% else %}
-    <img class="post-img" src="{{ '/static/fallback.png'|url }}"> </img>
-  {% endif %}
 
-  <div class="post-text">{{ post.body.html | striptags | truncate(length=160, killwords=False, end='...')}}</div>
-  <div class="post-published">{{ post.pub_date }}</div>
-</a>
+<h2>
+{% if post.attachments.images.get('cover.png') %}
+  <img class="h-icon" src="{{ post.attachments.images.get('cover.png')|url }}"></img>
+{% else %}
+  <img class="h-icon" src="{{ '/static/fallback.png'|url }}"></img>
+{% endif %}
+  <span class="h-middle"><a href="{{ post|url }}">{{ post.title }}</a></span>
+  </h2>
+
+
+  <p>{{ post.body.html | striptags | truncate(length=255, killwords=False, end='...')}}
+    <a href="{{ post|url }}">More</a></p>
+</article>
   
-</div>
 {% endmacro %}

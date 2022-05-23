@@ -19,6 +19,17 @@
     --light_peach: #FFCCAA;
 }
 
+.h-icon {
+    max-width: 64px;
+    vertical-align: middle;
+    margin-right: 16px;
+}
+
+.h-middle {
+    vertical-align: middle;
+}
+
+
 /* PAGINATION  */
 .arrow {
   border: solid;
