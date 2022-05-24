@@ -30,6 +30,7 @@
 }
 
 /* NAVBAR STYLING STARTS */
+
 .navbar {
     /* forces the navbar to be in fixed position */
     position: fixed;
@@ -112,8 +113,16 @@
 
 /* large screen */
 @media only screen and (min-width: 600px) {
+
+    /* main,
+    footer {
+        margin-left: 5rem;
+    } */
+
     .navbar {
         top: 0;
+        left: 0;
+        position: fixed;
         width: 5rem;
         height: 100vh;
     }
@@ -132,10 +141,6 @@
 
     .navbar:hover .logo-text {
         left: 0px;
-    }
-
-    #art{
-        width: 100%;
     }
 }
 
@@ -161,10 +166,6 @@
     
       main {
         margin: 0;
-      }
-
-      #art {
-          min-width: 80%;
       }
 
       .link-text{
