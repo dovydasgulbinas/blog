@@ -80,3 +80,5 @@ then certbot prerequisites should be met.
 You can now continue with [Encrypt's certbot](https://certbot.eff.org/) installation.
 ---
 pub_date: 2021-11-30
+---
+cover_image: cover.png

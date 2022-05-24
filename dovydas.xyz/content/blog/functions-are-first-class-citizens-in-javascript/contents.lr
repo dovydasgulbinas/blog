@@ -72,3 +72,5 @@ printDecorated("Decorate Me", randomDecoration);
 1. [Functions as First Class Citizens in JavaScript](http://ryanchristiani.com/functions-as-first-class-citizens-in-javascript/)
 ---
 pub_date: 2021-11-26
+---
+cover_image: cover.png

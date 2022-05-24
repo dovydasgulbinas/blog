@@ -18,3 +18,7 @@ I use it for generating my blog entry previews.
 -  `truncate(length=200, killwords=False, end='...')`: truncate text  to 200 symbols, stop at the nearest word that fits this length, and add "..." in the end of the truncated string. [docs](https://jinja.palletsprojects.com/en/3.1.x/templates/#jinja-filters.truncate)
 ---
 pub_date: 2022-05-08
+---
+cover_image: cover.png
+---
+edit_date: 2022-05-23

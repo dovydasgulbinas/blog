@@ -10,10 +10,10 @@
 {% macro render_title_post(post, from_index=false) %}
 
 <h1 style="text-align: center;">
-{% if post.attachments.images.get('cover.png') %}
-  <img class="h-icon" src="{{ post.attachments.images.get('cover.png')|url }}"></img>
+{% if post.cover_image %}
+  <img class="h-icon" src="{{ post.cover_image|url }}"></img>
 {% else %}
-  <img class="h-icon" src="{{ '/static/fallback.png'|url }}"></img>
+  <img class="h-icon" src="{{ '/static/fallback.png'|asseturl }}"></img>
 {% endif %}
   <span class="h-middle">{{ post.title }}</span>
 </h1>
