@@ -50,10 +50,11 @@ footer {
     flex: 1;
     padding-top: 3rem;
     padding-right: 2rem;
-    max-width: 100%;
+    max-width: 286px;
 }
 
 #gallery {
     width: 100%;
     flex: 2;
+    min-width: 333px;
 }
