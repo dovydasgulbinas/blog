@@ -9,6 +9,8 @@
   <title>{% block title %}Welcome{% endblock %} — dovydas.xyz</title>
 </head>
 <body>
+  {% from "macros/navbar.html" import render_navbar %}
+  {{ render_navbar() }}
   {% block page_title %}{% endblock %}
   <main>
       {% block body %}{% endblock %}
