@@ -67,7 +67,7 @@
 
 .nav-link:hover {
     filter: grayscale(0%) opacity(1);
-    background: var(--button-hover);
+    background: var(--focus);
     color: var(--text-bright);
     text-decoration: none;
 }
