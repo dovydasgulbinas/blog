@@ -2,6 +2,9 @@
 
 body {
     background: var(--black);
+}
+
+h1, h2, h3, p, div.landing-quote {
     font-family: var(--monospace);
     text-align: center;
 }

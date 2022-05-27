@@ -3,9 +3,14 @@
     <ul class="navbar-nav">
         <li class="logo">
             <a href="/" class="nav-link">
-                <span class="link-text">home</span>
+                <svg class="home-logo">
+                    <use href="{{ '/static/logo.svg'|url }}#home"></use>
+                </svg>
                 <svg class="logo-snail">
                     <use href="{{ '/static/logo.svg'|url }}#snail"></use>
+                </svg>
+                <svg id="page-logo">
+                    <use href="{{ '/static/logo.svg'|url }}#dovydasxyz"></use>
                 </svg>
             </a>
         </li>
