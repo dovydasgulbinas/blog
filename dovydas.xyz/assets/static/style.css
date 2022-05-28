@@ -19,6 +19,8 @@
     --animation-duration-slow: 0.4s;
 }
 
+.flex-container {display: flex; align-items: center;}
+
 .h-icon {
     max-width: 64px;
     vertical-align: middle;
@@ -27,6 +29,8 @@
 .h-icon-16px {
     width: 16px; height: 16px; margin: 0 8px;
 }
+/* matches the parent containers size */
+.h-icon-em { width: 1em; height: 1em; margin-right: 0.5em; }
 
 .h-middle {
     vertical-align: middle;
@@ -210,8 +214,6 @@ main article {
     font-style: italic;
     margin: 0;
     font-size: 14px;
-    display: flex;
-    align-items:center;
 }
 
 .excerpt {

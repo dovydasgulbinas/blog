@@ -17,11 +17,18 @@
 
 {% macro post_rework(post) %}
 <article>
-    <a href="{{ post|url }}">
-      <h2>{{ post.title }}</h2>
-    </a>
+  <a href="{{ post|url }}">
+    <h2 class="flex-container">
+    {% if post.cover_image %}
+      <img class="h-icon-em" src="{{ post.attachments.images.get(post.cover_image)|url }}"></img>
+    {% else %}
+      <img class="h-icon-em" src="{{ '/static/fallback.png'|asseturl }}"></img>
+    {% endif %}
+        {{ post.title }}
+      </h2>
+  </a>
 
-    <div class="post-meta">
+    <div class="flex-container post-meta">
         <svg class="h-icon-16px"><use href="{{ '/static/logo.svg'|url }}#created"></use></svg>
         <div>{{ post.pub_date|dateformat }}</div>
         {% if post.edit_date %}
