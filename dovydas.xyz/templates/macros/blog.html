@@ -1,24 +1,36 @@
 {% macro render_blog_post(post, from_index=false) %}
-  <div class="blog-post">
-  {{ post.body }}
-  <p class="meta">
-    written by
-    {% if post.twitter_handle %}
-      <a href="https://twitter.com/{{ post.twitter_handle
-        }}">{{ post.author or post.twitter_handle }}</a>
-    {% else %}
-      {{ post.author }}
-    {% endif %}
-    on {{ post.pub_date }}
-  </p>
-  </div>
-{% endmacro %}
-
-
-{% macro post_rework(post) %}
 <article>
   <a href="{{ post|url }}">
-    <h2 class="flex-container">
+    <h1 class="flex-container">
+    {% if post.cover_image %}
+      <img class="h-icon-em" src="{{ post.attachments.images.get(post.cover_image)|url }}"></img>
+    {% else %}
+      <img class="h-icon-em" src="{{ '/static/fallback.png'|asseturl }}"></img>
+    {% endif %}
+        {{ post.title }}
+      </h1>
+  </a>
+
+    <div class="flex-container post-meta">
+        <svg class="h-icon-16px"><use href="{{ '/static/logo.svg'|url }}#created"></use></svg>
+        <div>{{ post.pub_date|dateformat }}</div>
+        {% if post.edit_date %}
+        <svg class="h-icon-16px"> <use href="{{ '/static/logo.svg'|url }}#updated"></use></svg>
+        <div>{{ post.edit_date|dateformat }}</div>
+        {% endif %}
+    </div>
+    <hr>
+  <div class="blog-post">
+  {{ post.body }}
+  </div>
+
+</article>
+{% endmacro %}
+
+{% macro post_rework(post) %}
+<article class="round-box">
+  <a href="{{ post|url }}">
+    <h2 style="margin-top: auto;" class="flex-container">
     {% if post.cover_image %}
       <img class="h-icon-em" src="{{ post.attachments.images.get(post.cover_image)|url }}"></img>
     {% else %}
@@ -36,25 +48,8 @@
         <div>{{ post.edit_date|dateformat }}</div>
         {% endif %}
     </div>
-
     <p class="excerpt">{{ post.body.html | striptags | truncate(length=255, killwords=False, end='...')}}
       <a href="{{ post|url }}">More</a>
     </p>
-</article>
-{% endmacro %}
-
-
-{% macro post_rework_old(post) %}
-<article>
-<h2>
-{% if post.cover_image %}
-  <img class="h-icon" src="{{ post.attachments.images.get(post.cover_image)|url }}"></img>
-{% else %}
-  <img class="h-icon" src="{{ '/static/fallback.png'|asseturl }}"></img>
-{% endif %}
-  <span class="h-middle"><a href="{{ post|url }}">{{ post.title }}</a></span>
-  </h2>
-  <p>{{ post.body.html | striptags | truncate(length=255, killwords=False, end='...')}}
-    <a href="{{ post|url }}">More</a></p>
 </article>
 {% endmacro %}

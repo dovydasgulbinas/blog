@@ -31,13 +31,10 @@
 }
 /* matches the parent containers size */
 .h-icon-em { width: 1em; height: 1em; margin-right: 0.5em; }
+.h-middle { vertical-align: middle;}
 
-.h-middle {
-    vertical-align: middle;
-}
 
 /* NAVBAR STYLING STARTS */
-
 .navbar {
     /* forces the navbar to be in fixed position */
     position: fixed;
@@ -198,7 +195,6 @@
 
 /* entry list */
 
-main article,
 .round-box {
     background: var(--background-alt);
     padding: 1rem;
