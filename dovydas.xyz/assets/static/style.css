@@ -24,6 +24,9 @@
     vertical-align: middle;
     margin-right: 16px;
 }
+.h-icon-16px {
+    width: 16px; height: 16px; margin: 0 8px;
+}
 
 .h-middle {
     vertical-align: middle;
@@ -199,14 +202,16 @@ main article,
 }
 
 main article {
-    margin-bottom: 24px;
+    margin-bottom: 1rem;
 }
 
 .post-meta {
     color: var(--text-muted);
     font-style: italic;
     margin: 0;
-    font-size: 90%;
+    font-size: 14px;
+    display: flex;
+    align-items:center;
 }
 
 .excerpt {
