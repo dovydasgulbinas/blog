@@ -76,7 +76,7 @@
 .logo {
     width: 100%;
     margin-bottom: 2rem;
-    background: var(--dark_blue);
+    background: var(--light_peach);
     letter-spacing: 0.3ch;
     list-style: none;
 }
