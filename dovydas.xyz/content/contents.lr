@@ -23,7 +23,7 @@ body:
     </div>
     <div id="resume">
       <h3>Resume: <a href="/resume">html</a>
-        <a href="/dovydas-gulbinas-resume.pdf">pdf</a>
+        <a href="/resume/dovydas-gulbinas-resume.pdf">pdf</a>
       </h3>
     </div>
   </div>
