@@ -1,0 +1,111 @@
+_model: page
+---
+title: Dovydas Gulbinas Resume
+---
+body:
+
+> <dovydas.gulbinas@protonmail.com> ▪ +37060243562 ▪ [GitHub][gh] ▪ [LinkedIn][li]\
+> Lithuania, Vilnius
+----
+> A software engineer with a leaning torwards DevOps.
+
+## Experience
+
+**Back-end Engineer** - Auriga Baltics (July 2020 - present):
+Worked on two different projects inside the company, medical equipment and Fintech:
+
+- (present)  Digital banking as a service project (Jython, Java)
+	- Initiated and developed testing environment for running Python unittest module inside Java runtime.
+	- Lead and built two-ended integration between CSI and Lightico for digital PDF document signatures.
+
+- (previous) Hardware state simulation for kidney dialysis machines ([CANape](https://www.vector.com/int/en/products/products-a-z/software/canape/), CPython, ASAP2, Jenkins, C++)
+	-  Improved our C++ code parser written in Python, for generating a2l tags in the source code.
+	-  Designed and built a monitoring tool for relevant linked variable metrics and monitoring.
+
+**Back-end Developer** - Risika A/S (Sep 2019 - July 2020, Copenhagen):
+Worked in a fintech startup specializing in large quantities of business data.
+Helped out with streamlining some essential parts of data pipeline and deployment:
+
+* Redesigned and implemented company’s search engine functionality and end-points (PyPy, Falcon, PostgreSQL).
+* Automated parts of deployment & testing process (Docker, Drone CI).
+* Refactored company's API code base to use JSON schema for payload validation.
+
+**Back-end Developer** - Moment Credit (Apr 2017 - Sep 2019):
+
+Made and deployed multiple applications using (Django/Django Rest frameworks, Unit Test, Oracle SQL).
+My notable contributions were:
+
+* Designed and built and automated passport/ID scanner & text recognizer (Django, OpenCV). It saved hours of manual work in our company, since prior to this project all passport/ID entries were done manually.  The challenging part was to learn Computer Vision and OpenCV4 fundamentals in less than 1 week.
+* Built and designed a system for controlling/limiting access to sensitive web portals (Django, Open LDAP, x509, Fabric v1).
+
+**Odoo Framework ERP Developer** - Digitouch (Oct 2016 - Apr 2017, Vilnius):
+
+Wrote custom Enterprise Resource Planning **ERP** modules used for accounting. Most impactful project:
+
+* Odoo framework module which processed large number of invoices and computed a summary that was later submitted to our local tax authority.  This project proved to be lucrative because it saved more than 4 hours of accountant's labor.
+
+**Back-end Developer** - IT Girnos (Apr 2016 - Oct 2016, Vilnius):
+
+Wrote and designed multiple API endpoints (Flask).  Had a few front-end related tasks (Angular JS). Utmost project:
+
+* Web to Short Message Service **SMS** application (Flask).  The most challenging part was to self-teach and implement SMS (SMPP 1.4) protocol, since SMS was sent directly through the mobile operator's infrastructure.
+
+**Hardware Tooling Suite Engineer** - WiliBox(temp position) (Sep 2015 - Feb 2016, Vilnius):
+
+* Wrote tooling in Python for Wi-Fi router board calibration (CPython, Tkinter).
+
+## Technical Experience
+
+**Programming Languages**
+
+- **Python:** The language of expertise. I have worked with CPython, PyPy and Jython.  
+- **Bash:** Second most used language in my daily work.
+- **JavaScript:** Worked with Angular and Vue. Currently, learning Node.js 
+- **Other:** Git, Java, PHP, SQL, C++, CSS.
+
+**Side Projects**
+
+* [Decluterfy for Spotify][decluterfy]: Machine learning tool that is used for sorting large music playlists on Spotify platform.
+* [Bandcamp MusicBrainz Tool (Project)][bc2mb]: A basic tool for making MusicBrainz entries easier.
+
+## Other Technical Experience
+
+- **Docker:** Proficient.  Wrote multiple "production-ready" containers for: Open LDAP, Kerberos, LAMP stack and others
+- **Apache & NGINX:** Proficient.  Configured multiple web servers and reverse proxies for various projects, additionally used NGINX as a load balancer in round-robin fashion.
+- **Linux:** Competent. I know how to manage services using **systemd** wrote multiple services and timers for it.  Basic knowledge of Linux networking & **iptables** utility.
+- **Technical Documentation Creation:** Wrote API documentation for Risika.com. I have my own blog
+- **Parametric 3D modeling(OpenScad)**
+- **Static Site Generators**: Lektor, Jekyll, Blogit
+
+## Education
+
+2013-2017
+:   **Bachelor's, In Modern Technology Physics** | Vilnius University, Vilnius
+
+##  Other Skills & Hobbies
+
+- Servers and home automation
+- Electronics & Hardware
+- Languages: English (CEFR C1), Lithuanian
+
+[gsi]: https://www.youtube.com/watch?v=6le5cuakBh4
+[x509]: https://dovydas.xyz/ssl/apache2/client-side/python/2017/10/29/using-client-side-certification.html
+[fab]: https://dovydas.xyz/devops/fabric/python/2018/08/19/few-lessons-i-learned-after-using-python-fabric-1x.html
+[tptm]: https://next.podbay.fm/podcast/979020229
+[podinit]: https://next.podbay.fm/podcast/981834425
+[gh]:  https://github.com/dovydasgulbinas/
+[li]: https://www.linkedin.com/in/dovydas-gulbinas-b09126104/
+[bc2mb]: https://github.com/dovydasgulbinas/django-apps/tree/master/bmbhelper
+[decluterfy]: https://github.com/dovydasgulbinas/decluterfy
+---
+_discoverable: no
+---
+show_title: yes
+---
+show_navbar: yes
+---
+show_footer: yes
+---
+show_page_title: yes
+---
+_template: resume.html

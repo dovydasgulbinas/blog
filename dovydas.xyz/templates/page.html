@@ -2,5 +2,4 @@
 {% from "macros/page-title.html" import render_page_title %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block page_title %}{{ render_page_title(this.title, this.logo) }}{% endblock %}
-
-{% block body %}{{ this.body }}{% endblock %}
+{% block body %}<article>{{ this.body }}</article>{% endblock %}

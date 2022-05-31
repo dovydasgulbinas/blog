@@ -10,12 +10,14 @@
 </head>
 <body>
   {% from "macros/navbar.html" import render_navbar %}
-  {{ render_navbar() }}
+  {% block navbar %}{{ render_navbar() }}{% endblock %}
   {% block page_title %}{% endblock %}
   <main>
       {% block body %}{% endblock %}
   </main>
+  {% block footer %}
   <footer style="text-align: center;">
     &copy; Copyright 2022 by D.G.
   </footer>
+  {% endblock %}
 </body>
