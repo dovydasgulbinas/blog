@@ -1,0 +1,1 @@
+{"rule":"EN_DIACRITICS_REPLACE","sentence":"^\\Q(previous) Hardware state simulation for kidney dialysis machines (CANape, CPython, ASAP2, Jenkins, C++)\nImproved our C++ code parser written in Python, for generating a2l tags in the source code.\\E$"}
