@@ -1,0 +1,52 @@
+title: 3D Printing Hitomezashi Patterns
+---
+author: D.G.
+---
+pub_date: 2022-05-25
+---
+body:
+
+[Hitomezashi](https://en.wikipedia.org/wiki/Sashiko) is a traditional Japanese stitching technique.
+It is actually a "sub-technique" of the Sashiko craft.
+The idea of generating these patterns is very simple, yet I can yield beautiful results.
+
+## Hitomezashi Pattern Examples
+
+
+### Useful Links And Tools
+
+- [Learn how to Draw Hitomezashi on paper](https://arbitrarilyclose.com/2020/03/29/mathartchallenge-day-14-hitomezashi-stitching-suggested-by-katherine-seaton/)
+- [Generate patterns in your browser](https://hitomezashi.com/)
+
+## 3D Printed Examples
+...
+
+### My Coaster Generator OpenScad Code
+...
+
+
+## Procedurally Generating Hitomezashi Patterns
+
+
+You start with a grid that has rows (y) and  columns (x) with 90-degree angle between them.
+
+You fill in the grid based on this rule:
+* if row `y` value at index `i` is 1 you start stitching from the origin, and continue on every other grid item
+* else `y[i] = 0`; skip the first stitch and continue on every other grid item
+
+The same applies to `x[i]` but it is simply rotated by 90-degrees across the column direction.
+This is quite simple to encode using an array data structure, let's say we want to draw a 4x4 hitomezashi pattern:
+```
+x = [1,0,1,0] 
+y = [1,0,0,1]
+```
+
+
+
+
+
+
+---
+_discoverable: no
+---
+_hidden: yes
