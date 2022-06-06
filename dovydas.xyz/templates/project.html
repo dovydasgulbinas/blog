@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.name }}{% endblock %}
+{% block body %}
+  <h1>{{ this.name }}</h1>
+  <div class="description">{{ this.description }}</div>
+{% endblock %}
+
+{% block body_extras %}{{ this.body }}{% endblock %}
+
+{% block script %}<script type="text/javascript" src="{{ this.js_file }}"></script>{% endblock %}

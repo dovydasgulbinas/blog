@@ -2,7 +2,7 @@
 name = dovydas.xyz
 url = https://namas.duckdns.org
 
-[servers.production]
+[servers.dev]
 target = rsync://media/opt/media/__composites__/swag/config/www/dovydas.xyz
 
 [packages]

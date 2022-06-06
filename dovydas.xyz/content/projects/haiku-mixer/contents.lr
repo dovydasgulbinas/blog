@@ -1,0 +1,23 @@
+name: Haiku Mixer
+---
+categories: haiku
+---
+cover_image: script.js
+---
+js_file: script.js
+---
+body:
+
+<textarea id="haikus" type="text"></textarea>
+<button id="butt-mixit">Mixit!</button>
+---
+description:
+
+## What is this?
+
+It is a simple tool for taking all the haiku you have written before and remixes them to produce a new one.
+
+
+It works by randomly selecting first, second, and third rows from the haiku text you provide and generates a new and unexpected one.
+---
+date: 2022-06-06
