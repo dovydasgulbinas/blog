@@ -46,6 +46,6 @@ description:
 This is a simple tool for taking all the haiku content you have written before, and remix it to produce new ones.
 
 It works by randomly selecting first, second, and third rows from the haiku text you provide, and remixes them to a new and unexpected one.
-You can generate up-to `n^3` unique haikus, where `n` is the number of complete haikus you provide.
+You can generate up-to `n^3` remixed haikus, where `n` is the number of complete haikus you provide.
 ---
 date: 2022-06-06
