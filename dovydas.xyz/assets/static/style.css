@@ -278,9 +278,8 @@ div.admonition.admonition-warning::before {
 .tag-link {
     /* background: var(--background-alt); */
     padding: 4px 4px;
-    color: var(--text-muted);
-    background-color: var(--background-alt);
+    color: var(--form-text);
+    background-color: var(--button-base);
     margin-right: 0.25em;
-    font-style: italic;
-
+    border-radius: 3px;
 }
