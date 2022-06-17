@@ -76,7 +76,7 @@
 .logo {
     width: 100%;
     margin-bottom: 2rem;
-    background: var(--light_peach);
+    background: var(--blue);
     letter-spacing: 0.3ch;
     list-style: none;
 }
@@ -273,4 +273,14 @@ div.admonition.admonition-warning {
 div.admonition.admonition-warning::before {
   content: "Warning";
   background: var(--red);
+}
+
+.tag-link {
+    /* background: var(--background-alt); */
+    padding: 4px 4px;
+    color: var(--text-muted);
+    background-color: var(--background-alt);
+    margin-right: 0.25em;
+    font-style: italic;
+
 }

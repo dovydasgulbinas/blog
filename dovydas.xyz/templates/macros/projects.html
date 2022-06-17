@@ -1,10 +1,10 @@
 {% macro render_category_nav(active=none) %}
-  <ul>
+  <p>
+  <b>Project Tags:</b>
   {% for category in site.query('/project-categories') %}
-    <li{% if category._id == active %} class="active"{% endif
-      %}><a href="{{ category|url }}">{{ category.name }}</a></li>
+    <a class="active tag-link" href="{{ category|url }}">{{ category.name }}</a> 
   {% endfor %}
-  </ul>
+  </p>
 {% endmacro %}
 
 {% macro render_project_list(projects) %}
