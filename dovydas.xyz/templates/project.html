@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
 {% block title %}{{ this.name }}{% endblock %}
+{% block head_extras %}
+{% if this.css_file %}
+<link rel="stylesheet" href="{{ this.css_file|url }}">
+{% endif %}
+{% endblock %}
+
 {%block navbar %}{% endblock %}
 {% block body %}
   <h1>{{ this.name }}</h1>
@@ -8,4 +14,4 @@
 
 {% block body_extras %}{{ this.body }}{% endblock %}
 
-{% block script %}<script type="text/javascript" src="{{ this.js_file }}"></script>{% endblock %}
+{% block script %}<script type="text/javascript" src="{{ this.js_file|url }}"></script>{% endblock %}

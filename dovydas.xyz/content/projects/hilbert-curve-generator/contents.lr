@@ -4,8 +4,7 @@ date: 2022-06-16
 ---
 description:
 
-Draw Pseudo Hilbert space filling curves on HTML5 canvas.
-https://en.wikipedia.org/wiki/Hilbert_curve
+> Draw n-th order pseudo [Hilbert Curve](https://en.wikipedia.org/wiki/Hilbert_curve) on HTML5 canvas.
 
 ---
 body:
@@ -24,6 +23,9 @@ body:
 
 <button id="btn-draw">Draw</button>
 
+<div class="admonition admonition-note"><p>You can save the result, by right click and saving as image.</p></div>
 
 ---
 js_file: script.js
+---
+css_file: style.css

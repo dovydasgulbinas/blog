@@ -215,3 +215,62 @@ main article {
 .excerpt {
     margin: 10px 0;
 }
+
+/* 
+ADMOTION 
+https://github.com/lektor/lektor-markdown-admonition
+*/
+
+div.admonition {
+    margin: 15px 0;
+    background: var(--background-alt);
+    padding: 10px 15px;
+    padding-bottom: 0;
+    padding-bottom: 0.8rem;
+  }
+
+div.admonition::before {
+	margin: -10px -15px 10px;
+	padding: 10px 15px;
+	line-height: 1rem;
+	display: block;
+	content: "";
+	font-weight: 700;
+	font-size: 1rem;
+}
+
+div.admonition.admonition-note {
+  border: 1px solid var(--lavender);
+}
+
+div.admonition.admonition-note::before {
+  content: "Note";
+  background: var(--lavender);
+}
+
+div.admonition.admonition-info {
+  border: 1px solid var(--dark_blue);
+}
+
+div.admonition.admonition-info::before {
+  content: "Info";
+  background: var(--dark_blue);
+}
+
+div.admonition.admonition-tip {
+  border: 1px solid var(--pink);
+}
+
+div.admonition.admonition-tip::before {
+  content: "Tip";
+  background: var(--pink);
+}
+
+div.admonition.admonition-warning {
+  border: 1px solid var(--red);
+}
+
+div.admonition.admonition-warning::before {
+  content: "Warning";
+  background: var(--red);
+}
