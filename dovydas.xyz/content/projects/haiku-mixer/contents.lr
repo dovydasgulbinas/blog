@@ -39,7 +39,14 @@ screens kept abandoned.
     </pre>
 </div>
 ---
-description:
+description: 
+---
+date: 2022-06-06
+---
+flow:
+
+#### text ####
+text:
 
 > [Haiku](https://writers.com/how-to-write-a-haiku-poem) poems are short-form poems that originated in the 17th century, Japan. 
 
@@ -47,5 +54,19 @@ This is a simple tool for taking all the haiku content you have written before, 
 
 It works by randomly selecting first, second, and third rows from the haiku text you provide, and remixes them to a new and unexpected one.
 You can generate up-to `n^3` remixed haikus, where `n` is the number of complete haikus you provide.
+----
+class: default
 ---
-date: 2022-06-06
+flow_head:
+
+#### text ####
+text:
+
+> [Haiku](https://writers.com/how-to-write-a-haiku-poem) poems are short-form poems that originated in the 17th century, Japan. 
+
+This is a simple tool for taking all the haiku content you have written before, and remix it to produce new ones.
+
+It works by randomly selecting first, second, and third rows from the haiku text you provide, and remixes them to a new and unexpected one.
+You can generate up-to `n^3` remixed haikus, where `n` is the number of complete haikus you provide.
+----
+class: default

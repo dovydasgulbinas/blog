@@ -2,10 +2,7 @@ name: Hilbert Curve Generator
 ---
 date: 2022-06-16
 ---
-description:
-
-> Draw n-th order pseudo [Hilbert Curve](https://en.wikipedia.org/wiki/Hilbert_curve) on HTML5 canvas.
-
+description: 
 ---
 body:
 
@@ -22,10 +19,30 @@ body:
 <input type="number" id="stroke-width" name="stroke-width" min="1" max="10" placeholder="1px" value="1">
 
 <button id="btn-draw">Draw</button>
-
-<div class="admonition admonition-note"><p>You can save the result, by right click and saving as image.</p></div>
-
 ---
 js_file: script.js
 ---
 css_file: style.css
+---
+categories: sfc
+---
+flow:
+
+#### text ####
+text: hello world??
+----
+class: default
+---
+flow_head:
+
+#### text ####
+text: > Draw n-th order pseudo [Hilbert Curve](https://en.wikipedia.org/wiki/Hilbert_curve) on HTML5 canvas.
+----
+class: default
+---
+flow_tail:
+
+#### text ####
+text: ! You can save the result, by right click and saving as image
+----
+class: default
