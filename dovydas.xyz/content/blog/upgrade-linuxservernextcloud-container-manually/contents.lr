@@ -55,7 +55,7 @@ move old used files:
 	cp -r nextcloud-old-17/data nextcloud/data/
 	cp -r nextcloud-old-17/apps/ nextcloud/apps/
 
-Continue to [Upgrading inside the container](#upgrading-inside-the-container)
+Continue to [Completing the Upgrade](#completing-the-upgrade)
 
 ### Related issues 16 to 17
 
@@ -102,7 +102,7 @@ move old used files:
 	cp -r nextcloud-old-17/apps/ nextcloud/apps/
 
 
-Continue to [Upgrading inside the container](#upgrading-inside-the-container)
+Continue to [Completing the Upgrade](#completing-the-upgrade)
 
 
 ### Fixing related issues 17 to 18
@@ -150,7 +150,7 @@ move old used files:
 	cp -r nextcloud-old-18/apps/ nextcloud/apps/
 
 
-Continue to [Upgrading inside the container](#upgrading-inside-the-container)
+Continue to [Completing the Upgrade](#completing-the-upgrade)
 
 
 ### Fixing related issues 18 to 19
@@ -197,7 +197,7 @@ move old used files:
 	cp -r nextcloud-old-19/apps/ nextcloud/apps/
 
 
-Continue to [Upgrading inside the container](#upgrading-inside-the-container)
+Continue to [Completing the Upgrade](#completing-the-upgrade)
 
 
 ### Fixing related issues 19 to 20
@@ -222,10 +222,139 @@ do big int conversion
 
 	sudo -u abc php occ db:convert-filecache-bigint
 
-Continue to [Issue Verification](#issue-verification)
+Continue to [Completing the Upgrade](#completing-the-upgrade)
+
+## Upgrading from version 20 to 21
 
 
-## Upgrading inside the container
+First stop current compose containers:
+
+	docker-compose stop
+	
+go to Nextcloud configuration directory (on host):
+
+	cd <your nextcloud config dir>/config/www
+	
+move old configuration to old folder
+
+	mv nextcloud nextcloud-old-20
+	wget -O nextcloud-21.zip https://download.nextcloud.com/server/releases/nextcloud-21.0.9.zip
+	unzip nextcloud-21.zip
+	
+move old used files:
+
+	cp nextcloud-old-20/config/* nextcloud/config/
+	cp -r nextcloud-old-20/data nextcloud/data/
+	cp -r nextcloud-old-20/apps/ nextcloud/apps/
+
+start the container again:
+
+	docker-compose start
+
+Continue to [Completing the Upgrade](#completing-the-upgrade)
+
+### Fixing related issues 20 to 21
+
+attach to your container:
+
+ 	docker exec -it nextcloud bash
+	cd /config/www/nextcloud
+	
+add missing indices (in the container):
+
+	sudo -u abc php occ db:add-missing-indices
+	exit
+
+Continue to [Completing the Upgrade](#completing-the-upgrade)
+
+## Upgrading from version 21 to 22
+
+First stop current compose containers:
+
+	docker-compose stop
+	
+go to Nextcloud configuration directory (on host):
+
+	cd <your nextcloud config dir>/config/www
+	
+move old configuration to old folder
+
+	mv nextcloud nextcloud-old-21
+	wget -O nextcloud-22.zip https://download.nextcloud.com/server/releases/nextcloud-22.2.9.zip
+	unzip nextcloud-22.zip
+	
+move old used files:
+
+	cp nextcloud-old-21/config/* nextcloud/config/
+	cp -r nextcloud-old-21/data nextcloud/data/
+	cp -r nextcloud-old-21/apps/ nextcloud/apps/
+
+start the container again:
+
+	docker-compose start
+
+Continue to [Completing the Upgrade](#completing-the-upgrade)
+
+### Fixing related issues 21 to 22
+
+attach to your container:
+
+ 	docker exec -it nextcloud bash
+	cd /config/www/nextcloud
+	
+add missing indices (in the container):
+
+	sudo -u abc php occ db:add-missing-indices
+	exit
+
+## Upgrading from version 22 to 23
+
+First stop current compose containers:
+
+	docker-compose stop
+	
+go to Nextcloud configuration directory (on host):
+
+	cd config/www
+	
+move old configuration to old folder
+
+	mv nextcloud nextcloud-old-22
+	wget -O nextcloud-23.zip https://download.nextcloud.com/server/releases/nextcloud-23.0.6.zip
+	unzip nextcloud-23.zip
+	
+move old used files:
+
+	cp nextcloud-old-22/config/* nextcloud/config/
+	cp -r nextcloud-old-22/data nextcloud/data/
+	cp -r nextcloud-old-22/apps/ nextcloud/apps/
+
+start the container again:
+
+	docker-compose start
+
+Continue to [Completing the Upgrade](#completing-the-upgrade)
+
+### Fixing related issues 22 to 23
+
+During the upgrade I noticed that Nextcloud complained about some environment variables were not set I ignored this message and my upgrade was still successful.
+
+	WARNING: The MEDIA_NEXTCLOUD_ROOT variable is not set. Defaulting to a blank string.
+	WARNING: The PROXY_NETWORK variable is not set. Defaulting to a blank string.
+	WARNING: The NETWORK_DB_GLOBAL variable is not set. Defaulting to a blank string.
+
+attach to your container:
+
+ 	docker exec -it nextcloud bash
+	cd /config/www/nextcloud
+	
+add missing indices (in the container):
+
+	sudo -u abc php occ db:add-missing-indices
+	exit
+
+
+## Completing the Upgrade
 
 This section is based on the [official guide](https://docs.nextcloud.com/server/latest/admin_manual/maintenance/manual_upgrade.html) and is adapted for `linuxserver/nextcloud` containers
 
@@ -236,7 +365,26 @@ start compose containers:
 
 	docker exec -it nextcloud bash
 
-you are now at the Nextcloud container:
+
+At this point you have two options how to upgrade your installation:
+
+- Option 1 (easy), you rely on Nextcloud auto-update from the browser.
+- Option 2 (harder), you use Nextcloud CLI inside the docker container.
+
+### Completion Option 1 (easy)
+
+Go to your Nextcloud instance (example.com/nextcloud) and follow the instruction on the web in order to complete the installation (I only tested this when upgrading from versions 21 up to 23). 
+
+![auto-upgrade](auto-upgrade.png)
+
+### Completion Option 2 (harder)
+
+Attach to your container:
+
+ 	docker exec -it nextcloud bash
+	cd /config/www/nextcloud
+
+change file permissions inside the container:
 
 	cd /config/www/
 	chown -R abc:abc nextcloud
@@ -258,18 +406,29 @@ restart the containers:
 
 Continue to [Issue Verification](#issue-verification)
 
-
 ### Issue Verification
-Almost done, open your Nextcloud URL in the browser and verify that it is running.
+Almost done, open your Nextcloud URL example.com/nextcloud/settings/admin/overview in the browser and verify that it is still running.
 
-Finally, verify the Nextcloud version _Settings → Overview → Version_
+Verify the Nextcloud version _Settings → Overview → Version_
 
-- If no errors you are done. ![f038294e713d00212eafbc7751d44a0f.png](f038294e713d00212eafbc7751d44a0f.png)
-- if updating multiple major versions, continue to next paragraphs matching your wanted Nextcloud version.
-- If under *Settings → Overview → Security & Setup* you see message “There are some errors regarding your setup.” Check paragraphs *Fixing Related Issues X to X+1*. ![issue example](07978caa14526aa2428d5f1fd5018ea7.png)
+If under *Settings → Overview → Security & Setup* you see a message like
+> “There are some errors regarding your setup.”
 
-> TO BE UPDATED FOR OTHER MAJOR VERSIONS
+![issue example](07978caa14526aa2428d5f1fd5018ea7.png)
 
+Continue to related guides to fix the issues (if needed)
+-  When you see no errors, you are done. Or continue upgrading to next major version.
+- [Fixing related issues 16 to 17](#fixing-related-issues-16-to-17)
+- [Fixing related issues 17 to 18](#fixing-related-issues-17-to-18)
+- [Fixing related issues 18 to 19](#fixing-related-issues-18-to-19)
+- [Fixing related issues 19 to 20](#fixing-related-issues-19-to-20)
+- [Fixing related issues 21 to 22](#fixing-related-issues-21-to-22)
+- [Fixing related issues 22 to 23](#fixing-related-issues-22-to-23)
+
+You may also want to consider upgrading your Nextcloud docker container to match the version your new Nextcloud installation, so that environment has all the dependencies needed. 
+Nextcloud is quite forgiving if you do not upgrade them, but you will definitely need to do this when you reach version 23.
+
+In my case I only upgraded my Docker image when I reached version 23 and verified, that Nextcloud was running beforehand.
 
 ---
 pub_date: 2022-04-26
