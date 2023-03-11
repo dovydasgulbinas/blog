@@ -15,7 +15,7 @@ Prerequisites:
 	1. [Download Java](#download-java)
 	2. [Add Path Java variable](#add-path-java-variable)
 	3. [Verify Java Installation](#verify-java-installation)
-2. [Download Jython.jar and Guide Stub](#download-jythonjar-and-guide-stub)
+2. [Download Jython.jar and Guide Stub](#download-jython-jar-and-guide-stub)
 3. Run Jython Standalone
 	1. [Verify Jython Installation](#verify-jython-installation)
 	2.  [Run Jython REPL](#run-jython-repl)

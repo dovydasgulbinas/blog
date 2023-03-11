@@ -5,7 +5,7 @@
     {% if pagination.has_prev %}
       <a href="{{ pagination.prev|url }}"><i class="arrow left"></i>Previous</a>
     {% else %}
-      <a style="display: none;" href="#"><i class="arrow left"></i>Previous</a>
+      <a style="display: none;"><i class="arrow left"></i>Previous</a>
     {% endif %}
     </div>
 
@@ -17,7 +17,7 @@
     {% if pagination.has_next %}
         <a href="{{ pagination.next|url }}">Next<i class="arrow right"></i></a>
     {% else %}
-        <a style="display: none;" href="#">Next<i class="arrow right"></i></a>
+        <a style="display: none;">Next<i class="arrow right"></i></a>
     {% endif %}
     </div>
   </div>
