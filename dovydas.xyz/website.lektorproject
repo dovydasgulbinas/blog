@@ -1,0 +1,24 @@
+[project]
+name = dovydas.xyz
+url = https://dovydas.xyz
+
+[servers.dev]
+target = rsync://media/opt/media/__composites__/swag/config/www/dovydas.xyz
+
+[servers.ghpages]
+enabled = yes
+name = Github pages on repo
+target = ghpages://dovydasgulbinas/dovydasgulbinas.github.io?cname=dovydas.xyz
+default = yes
+
+[servers.ghpages-https]
+enabled = yes
+name = Github pages on repo
+target = ghpages+https://dovydasgulbinas/dovydasgulbinas.github.io?cname=dovydas.xyz
+default = not
+
+[packages]
+lektor-markdown-highlighter = 0.3.1
+lektor-markdown-admonition = 0.3.1
+lektor-markdown-header-anchors = 0.3.1
+lektor-atom = 0.4.0
