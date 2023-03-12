@@ -50,7 +50,7 @@ jobs:
         with:
           path: "${{ env.LEKTOR_DIR }}/${{ env.OUTPUT }}"
           config: .htmltest.yml
-          skip_external: true
+          skip_external: false  # when set to false may be very slow
           log_level: 1
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
