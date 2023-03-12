@@ -58,4 +58,4 @@ jobs:
         run: lektor deploy -O "${{ env.LEKTOR_DIR }}/${{ env.OUTPUT }}" ghpages-https
         env:
           LEKTOR_DEPLOY_USERNAME: lektor
-          LEKTOR_DEPLOY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          LEKTOR_DEPLOY_PASSWORD: ${{ secrets.GH_TOKEN_DOVYDAS_XYZ }}
