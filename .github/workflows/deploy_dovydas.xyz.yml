@@ -58,7 +58,7 @@ jobs:
           key: "${{ secrets.SSH_DEP_KEY }}"
           name: "${{ env.SSH_FILENAME }}" # optional
           if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
-          # known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
           # config: ${{ secrets.CONFIG }} # ssh_config; optional
 
       - name: Deploy lektor website
