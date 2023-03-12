@@ -7,15 +7,10 @@ target = rsync://media/opt/media/__composites__/swag/config/www/dovydas.xyz
 
 [servers.ghpages]
 enabled = yes
-name = Github pages on repo
+name = Github pages on repo via SSH
 target = ghpages://dovydasgulbinas/dovydasgulbinas.github.io?cname=dovydas.xyz
 default = yes
 
-[servers.ghpages-https]
-enabled = yes
-name = Github pages on repo
-target = ghpages+https://dovydasgulbinas/dovydasgulbinas.github.io?cname=dovydas.xyz
-default = not
 
 [packages]
 lektor-markdown-highlighter = 0.3.1

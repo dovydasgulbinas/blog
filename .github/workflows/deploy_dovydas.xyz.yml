@@ -22,6 +22,7 @@ env:
     }}
   OUTPUT: _html
   LEKTOR_DIR: ./dovydas.xyz
+  SSH_FILENAME: id_rsa
 
 jobs:
   build:
@@ -42,7 +43,7 @@ jobs:
           python -m pip install lektor
       - name: Build lektor website
         working-directory: "${{ env.LEKTOR_DIR }}"
-        run: lektor build -O '${{ env.OUTPUT }}'
+        run: lektor build -O "${{ env.OUTPUT }}"
 
       - name: Check for broken internal links
         uses: wjdp/htmltest-action@master
@@ -51,11 +52,16 @@ jobs:
           config: .htmltest.yml
           skip_external: true
           log_level: 1
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: "${{ secrets.SSH_DEP_KEY }}"
+          name: "${{ env.SSH_FILENAME }}" # optional
+          if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
+          # known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          # config: ${{ secrets.CONFIG }} # ssh_config; optional
 
       - name: Deploy lektor website
         working-directory: "${{ env.LEKTOR_DIR }}"
         if: env.DEPLOY == 'true'
-        run: lektor deploy -O "${{ env.LEKTOR_DIR }}/${{ env.OUTPUT }}" ghpages-https
-        env:
-          LEKTOR_DEPLOY_USERNAME: lektor
-          LEKTOR_DEPLOY_PASSWORD: ${{ secrets.GH_TOKEN_DOVYDAS_XYZ }}
+        run: lektor deploy --key-file "${{ env.SSH_FILENAME }}" -O "${{ env.LEKTOR_DIR }}/${{ env.OUTPUT }}" ghpages
