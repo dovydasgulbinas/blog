@@ -64,4 +64,4 @@ jobs:
       - name: Deploy lektor website
         working-directory: "${{ env.LEKTOR_DIR }}"
         if: env.DEPLOY == 'true'
-        run: lektor deploy --key-file "~/.ssh/${{ env.SSH_FILENAME }}" -O "${{ env.LEKTOR_DIR }}/${{ env.OUTPUT }}" ghpages
+        run: lektor deploy --key-file "~/.ssh/${{ env.SSH_FILENAME }}" -O "${{ env.OUTPUT }}" ghpages
