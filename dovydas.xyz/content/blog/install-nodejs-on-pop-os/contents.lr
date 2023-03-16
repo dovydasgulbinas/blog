@@ -1,0 +1,40 @@
+title: Install Node on Pop!_OS
+---
+author: D.G.
+---
+body:
+
+I am a the stage with this blog where I want to write some [Playwright](https://playwright.dev/) tests to verify that after publishing it is in a good shape. 
+Since my development machine runs *Pop!_OS*  I could not use `apt` to easily install latest NodeJS LTS version.
+The Node version distributed with my distro was v12.18 (very old).
+
+I have tried using [nodesource](https://github.com/nodesource/distributions), but it failed due to dependency clash with some other package.
+
+## The Solution was Fast Node Manager (FNM)
+
+
+Install `fnm` CLI tool:
+
+	curl -fsSL https://fnm.vercel.app/install | bash
+	source ~/.bashrc  # or re-open a new terminal tab if using other shells
+
+List available node versions:
+
+	fnm list-remote
+
+!! Versions in parentheses indicate that it is *Long-Term Support (LTS)* e.g. `v18.15.0` is LTS because it contains: `(Hydrogen)`
+
+Install Node package (I chose v18.15):
+
+	fnm install v18.15.0
+	fnm use v18.15.0
+
+	node --version
+	npm --version
+
+
+
+---
+pub_date: 2023-03-16
+---
+cover_image: cover.png
