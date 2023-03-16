@@ -1,0 +1,23 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "for testing my staticly generated pages with Lektor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dovydasgulbinas/blog.git"
+  },
+  "author": "Dovydas Gulbinas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dovydasgulbinas/blog/issues"
+  },
+  "homepage": "https://github.com/dovydasgulbinas/blog#readme",
+  "dependencies": {
+    "@playwright/test": "^1.31.2",
+    "prettier": "^2.8.4"
+  }
+}
