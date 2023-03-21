@@ -4,7 +4,10 @@
   "description": "for testing my staticly generated pages with Lektor",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tests:chrome": "playwright test --config=playwright.config.ts --project=Chromium",
+    "tests:firefox": "playwright test --config=playwright.config.ts --project=Firefox",
+    "tests:webkit": "playwright test --config=playwright.config.ts --project=Webkit",
+    "tests:dovydas.xyz": "playwright test --config=dovydas.xyz/config.ts --project=Chromium"
   },
   "repository": {
     "type": "git",

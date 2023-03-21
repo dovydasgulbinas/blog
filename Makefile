@@ -1,3 +1,5 @@
+test: test-dovydas-xyz
+
 install-lektor: update-apt install-apt-deps install-pip-deps install-dev-deps install-lektor-deps install-nodejs finish-install-nodejs install-node-deps
 
 update-apt:
@@ -35,3 +37,6 @@ install-node-deps:
 		@playwright/test \
 		prettier
 
+test-dovydas-xyz:
+	cd tests && \
+		npm run tests:dovydas.xyz
