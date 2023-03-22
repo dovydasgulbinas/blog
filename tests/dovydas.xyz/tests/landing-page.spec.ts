@@ -6,7 +6,8 @@ test.describe('Landing page related tests.', () => {
 
   test.beforeEach(async ({ page }) => {
     homePage = new HomePage(page)
-    homePage.visit()
+
+    await homePage.visit()
   })
 
   test('Resume HTML link is visible.', async ({ page }) => {
