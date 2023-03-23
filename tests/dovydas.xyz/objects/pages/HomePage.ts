@@ -14,6 +14,7 @@ export class HomePage {
   }
 
   async visit() {
+    // TODO: Create dynamic url selection if local env use localhost else ... public
     //await this.page.goto('https://dovydas.xyz')
     await this.page.goto('http://localhost:5000')
   }

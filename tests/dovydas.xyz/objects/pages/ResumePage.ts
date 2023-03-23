@@ -63,6 +63,4 @@ export class ResumePage {
         throw new Error(`Non-existent page link: ${pageLink}`)
     }
   }
-
-
 }

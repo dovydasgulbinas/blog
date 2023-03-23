@@ -7,7 +7,8 @@
     "tests:chrome": "playwright test --config=playwright.config.ts --project=Chromium",
     "tests:firefox": "playwright test --config=playwright.config.ts --project=Firefox",
     "tests:webkit": "playwright test --config=playwright.config.ts --project=Webkit",
-    "tests:dovydas.xyz": "playwright test --config=dovydas.xyz/config.ts --project=Chromium"
+    "tests:dovydas.xyz": "playwright test --config=dovydas.xyz/config.ts --project=Chromium",
+    "tests:dovydas.xyz:components": "playwright test --config=dovydas.xyz/components.config.ts --project=Chromium"
   },
   "repository": {
     "type": "git",
