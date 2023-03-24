@@ -11,6 +11,7 @@ const config: PlaywrightTestConfig = {
     ignoreHTTPSErrors: true,
     video: 'off',
     screenshot: 'off',
+    baseURL: 'http://127.0.0.1:3000',
   },
   projects: [
     {
@@ -26,6 +27,10 @@ const config: PlaywrightTestConfig = {
       use: { browserName: 'webkit' },
     },
   ],
+  webServer: {
+    command: 'npm run start',
+    url: 'http://127.0.0.1:3000',
+  }
 }
 
 export default config

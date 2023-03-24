@@ -4,10 +4,16 @@
   "description": "for testing my staticly generated pages with Lektor",
   "main": "index.js",
   "scripts": {
-    "tests:chrome": "playwright test --config=playwright.config.ts --project=Chromium",
-    "tests:firefox": "playwright test --config=playwright.config.ts --project=Firefox",
-    "tests:webkit": "playwright test --config=playwright.config.ts --project=Webkit",
+    "create:builddir": "mkdir -p ./dovydas.xyz/.build-output",
+    "lektor:build": "cd ../dovydas.xyz && lektor build -O ../tests/dovydas.xyz/.build-output",
+
+    "serve": "http-server --port 3000 ./dovydas.xyz/.build-output",
+    "start": "run-s create:builddir lektor:build serve",
+    "test": "run-s tests:dovydas.xyz",
+    "test:all": "run-s tests:dovydas.xyz:all",
+
     "tests:dovydas.xyz": "playwright test --config=dovydas.xyz/config.ts --project=Chromium",
+    "tests:dovydas.xyz:all": "playwright test --config=dovydas.xyz/config.ts --project=Chromium --project=Firefox --project=Webkit",
     "tests:dovydas.xyz:components": "playwright test --config=dovydas.xyz/components.config.ts --project=Chromium"
   },
   "repository": {
@@ -23,5 +29,8 @@
   "dependencies": {
     "@playwright/test": "^1.31.2",
     "prettier": "^2.8.4"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }

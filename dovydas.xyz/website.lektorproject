@@ -2,8 +2,6 @@
 name = dovydas.xyz
 url = https://dovydas.xyz
 
-[servers.dev]
-target = rsync://media/opt/media/__composites__/swag/config/www/dovydas.xyz
 
 [servers.ghpages]
 enabled = yes

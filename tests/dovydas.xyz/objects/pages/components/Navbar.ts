@@ -1,14 +1,5 @@
 import { Locator, Page, expect } from '@playwright/test'
 
-/*
-test('test', async ({ page }) => {
-  await page.getByRole('list').getByRole('link').first().click();
-  await page.getByRole('link', { name: 'Blog' }).click();
-  await page.getByRole('link', { name: 'Projects' }).click();
-  await page.getByRole('link', { name: 'Contact Me' }).click();
-});
-*/
-
 export enum NavbarLocator {
     home,
     blog,
@@ -49,6 +40,7 @@ export class NavbarComponent {
     }
   }
 
+  // TODO: could be part of abstract page
   async clickOnLink(locator: NavbarLocator){
         await this.selectLocator(locator).click()
     
