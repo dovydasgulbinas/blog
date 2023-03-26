@@ -13,6 +13,7 @@ export enum ContactMeLink {
 
 
 export class ContactMePage extends AbstractPage {
+  readonly locatorEnum: ContactMeLink
   readonly blogFeed: Locator
   readonly pixelfedProfile: Locator
   readonly pixelfedFeed: Locator
