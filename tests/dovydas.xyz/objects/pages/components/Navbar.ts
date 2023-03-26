@@ -44,29 +44,7 @@ export class NavbarComponent {
   async clickOnLink(locator: NavbarLocator){
         await this.selectLocator(locator).click()
     
-    // switch (locator){
-    //   case NavbarLocator.home:
-    //     // await this.linkHome.click()
-    //     await this.selectLocator(locator).click()
-    //     break
-    //   case NavbarLocator.blog:
-    //     // await this.linkBlog.click()
-    //     await this.selectLocator(locator).click()
-    //     break
-    //   case NavbarLocator.projects:
-    //     await this.linkProjects.click()
-    //     break
-    //   case NavbarLocator.contactMe:
-    //     await this.linkContactMe.click()
-    //     break
-    //   default:
-    //     throw new Error(`Non-existent locator: ${locator}`)
-    // }
-    
   }
-  // async clickOnLink(locator: NavbarLocator){
-  //   (await this.selectLocator(locator)).click()
-  // }
 
 
 

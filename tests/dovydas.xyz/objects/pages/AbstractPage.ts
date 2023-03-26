@@ -24,13 +24,23 @@ export abstract class AbstractPage {
     await this.page.goto(this.pagePath)
   }
 
+  throwOnMissingCase(locatorConstant: any){
+    throw new Error(`Non-existent locator: ${locatorConstant}`)
+  }
+  
+
   abstract selectLocator(locatorConstant: any): Locator
 
   async clickOnLink(locatorConstant: any){
-        await this.selectLocator(locatorConstant).click()
+    await this.selectLocator(locatorConstant).click()
   }
 
   async assertAttributeValue(locatorConstant: any, attribute: string, valueExpected: string) {
-        await expect(this.selectLocator(locatorConstant)).toHaveAttribute(attribute, valueExpected)
+    await expect(this.selectLocator(locatorConstant)).toHaveAttribute(attribute, valueExpected)
   }
+
+  async assertLinkText(locatorConstant: any, valueExpected: string){
+    await expect(this.selectLocator(locatorConstant)).toHaveText(valueExpected)
+  }
+
 }

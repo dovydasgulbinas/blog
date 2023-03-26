@@ -32,7 +32,7 @@ export class HomePage extends AbstractPage {
       case HomePageLocator.pageHeading:
         return this.pageHeading
       default:
-        throw new Error(`Non-existent locator: ${locatorConstant}`)
+        this.throwOnMissingCase(locatorConstant)
     }
   }
 

@@ -37,7 +37,7 @@ selectLocator(locatorConstant: PageLink): Locator {
       case PageLink.linkedin:
         return this.linkLinkedin
       default:
-        throw new Error(`Non-existent locator: ${locatorConstant}`)
+        this.throwOnMissingCase(locatorConstant)
     }
   }
 

@@ -6,6 +6,7 @@
   "scripts": {
     "create:builddir": "mkdir -p ./dovydas.xyz/.build-output",
     "lektor:build": "cd ../dovydas.xyz && lektor build -O ../tests/dovydas.xyz/.build-output",
+    "dev": "playwright codegen https://dovydas.xyz -b chromium",
 
     "serve": "http-server --port 3000 ./dovydas.xyz/.build-output",
     "start": "run-s create:builddir lektor:build serve",
@@ -15,6 +16,7 @@
     "tests:dovydas.xyz": "playwright test --config=dovydas.xyz/config.ts --project=Chromium",
     "tests:dovydas.xyz:all": "playwright test --config=dovydas.xyz/config.ts --project=Chromium --project=Firefox --project=Webkit",
     "tests:dovydas.xyz:components": "playwright test --config=dovydas.xyz/components.config.ts --project=Chromium"
+
   },
   "repository": {
     "type": "git",
