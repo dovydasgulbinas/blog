@@ -30,6 +30,4 @@ test.describe('Navbar component suite', () => {
   })
 
 
-
-
 })

@@ -25,7 +25,7 @@ export class BlogPage extends AbstractPage {
     this.textNumberOfPages = page.locator('#page-enumeration')
   }
 
-  async visitPage(n: number){
+  async visitPage(n: Number){
     if (n == 1){
       // first page is the same as blog page and format `.../page/1` does not exist
       await this.visit()
@@ -34,11 +34,18 @@ export class BlogPage extends AbstractPage {
     await this.page.goto(`${this.pagePath}/page/${n}`)
   }
 
-  async getLastPageNumber(){
-    // await targetPage.assertRegexPatternMatches(BlogLocator.textNumberOfPages, /\d+ of \d+/)
-    const text = await this.selectLocator(BlogLocator.textNumberOfPages).textContent()
-    
+  async getLastPageNumber(): Promise<Number|null>{
+    let pattern = /\d+ of (\d+)/
+    const txt = await this.selectLocator(BlogLocator.textNumberOfPages).textContent()
+    if (txt == null){
+      return null  
+    }
+    const numberString = txt.match(pattern) 
+    if (numberString == null || numberString[1] == null){
+      return null
+    }
 
+    return Number(numberString[1])
   }
 
 

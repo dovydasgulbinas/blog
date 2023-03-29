@@ -9,13 +9,13 @@ test.describe.parallel('Projects page suite', () => {
     await targetPage.visit()
   })
 
-  test('All expected elements are visible (on the fist page)', async ({page}) => {
+  test('All expected elements are visible (on the fist page).', async ({page}) => {
     await expect(targetPage.selectLocator(BlogLocator.textHeading)).toBeVisible()
     await expect(targetPage.selectLocator(BlogLocator.linkNext)).toBeVisible()
     await expect(targetPage.selectLocator(BlogLocator.textNumberOfPages)).toBeVisible()
   })
 
-  test('[Previous] is not visible (on the first page)', async ({ page }) => {
+  test('[Previous] is not visible (on the first page).', async ({ page }) => {
     await expect(targetPage.selectLocator(BlogLocator.linkPrevious)).not.toBeVisible()
   })
 
@@ -23,9 +23,11 @@ test.describe.parallel('Projects page suite', () => {
     await targetPage.assertRegexPatternMatches(BlogLocator.textNumberOfPages, /\d+ of \d+/)
   })
 
-  test.skip('[Next] is not visible (on the last posts page)', async ({ page }) => {
-    await expect(targetPage.selectLocator(BlogLocator.textNumberOfPages)).toBeVisible()
-    await targetPage.assertRegexPatternMatches(BlogLocator.textNumberOfPages, /\d+ of \d+/)
+  test('[Next] not visible and [Previous] visible (on the last posts page).', async ({ page }) => {
+    const n =  await targetPage.getLastPageNumber()
+    await targetPage.visitPage(n)
+    await expect(targetPage.selectLocator(BlogLocator.linkNext)).not.toBeVisible()
+    await expect(targetPage.selectLocator(BlogLocator.linkPrevious)).toBeVisible()
   })
 
 })
