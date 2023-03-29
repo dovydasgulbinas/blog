@@ -6,7 +6,6 @@ test.describe('Landing page related tests.', () => {
 
   test.beforeEach(async ({ page }) => {
     homePage = new HomePage(page)
-
     await homePage.visit()
   })
 
@@ -21,4 +20,13 @@ test.describe('Landing page related tests.', () => {
     await expect(homePage.linkResumePDF).toContainText('pdf')
     await homePage.clickOnResumePDF()
   })
+
+  test('Page heading says Dovydas Gulbinas', async ({ page }) => {
+    await expect(homePage.pageHeading).toBeVisible()
+  })
+
+  test('My image is visible', async ({ page }) => {
+    await expect(homePage.imagePortrait).toBeVisible()
+  })
+
 })

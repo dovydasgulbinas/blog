@@ -6,20 +6,23 @@ export enum HomePageLocator {
     resumeHTML,
     resumePDF,
     pageHeading,
+    imagePortrait,
   }
 
 export class HomePage extends AbstractPage {
   readonly linkResumeHTML: Locator
   readonly linkResumePDF: Locator
   readonly pageHeading: Locator
+  readonly imagePortrait: Locator
 
   constructor(page: Page) {
     super(page, 'HomePage', '/')
 
     // you can only assign to RO props via constructor
-    this.linkResumeHTML = page.locator('#resume > h3:nth-child(1) > a:nth-child(1)')
-    this.linkResumePDF = page.locator('#resume > h3:nth-child(1) > a:nth-child(2)')
-    this.pageHeading = page.locator('.landing > header:nth-child(1) > h1:nth-child(1)')
+    this.linkResumeHTML = page.getByRole('link', { name: 'html' })
+    this.linkResumePDF = page.getByRole('link', { name: 'pdf' })
+    this.pageHeading = page.getByRole('heading', { name: 'Dovydas Gulbinas' })
+    this.imagePortrait = page.getByRole('img', { name: 'D.G.' })
   }
 
 
@@ -31,6 +34,8 @@ export class HomePage extends AbstractPage {
         return this.linkResumePDF
       case HomePageLocator.pageHeading:
         return this.pageHeading
+      case HomePageLocator.imagePortrait:
+        return this.imagePortrait
       default:
         this.throwOnMissingCase(locatorConstant)
     }
