@@ -6,9 +6,11 @@
   "scripts": {
     "create:builddir": "mkdir -p ./dovydas.xyz/.build-output",
     "lektor:build": "cd ../dovydas.xyz && lektor build -O ../tests/dovydas.xyz/.build-output",
-    "dev": "playwright codegen https://dovydas.xyz -b chromium",
-
+    "codegen:dev":"playwright codegen -b chromium http://127.0.0.1:3000",  
+    "codegen:prod":"playwright codegen -b chromium https://dovydas.xyz",  
     "serve": "http-server --port 3000 ./dovydas.xyz/.build-output",
+
+    "dev": "run-s lektor:build codegen:dev",
     "start": "run-s create:builddir lektor:build serve",
     "test": "run-s tests:dovydas.xyz",
     "test:all": "run-s tests:dovydas.xyz:all",

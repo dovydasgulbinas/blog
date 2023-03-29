@@ -43,4 +43,8 @@ export abstract class AbstractPage {
     await expect(this.selectLocator(locatorConstant)).toHaveText(valueExpected)
   }
 
+  async assertRegexPatternMatches(locatorConstant: any, regex: RegExp){
+    const text = await this.selectLocator(locatorConstant).textContent()
+    expect(text).toEqual(expect.stringMatching(regex))
+  }
 }
