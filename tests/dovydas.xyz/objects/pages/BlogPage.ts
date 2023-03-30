@@ -31,7 +31,7 @@ export class BlogPage extends AbstractPage {
       await this.visit()
       return
     }
-    await this.page.goto(`${this.pagePath}/page/${n}`)
+    await this.page.goto(`${this.pagePath}/page/${n}/`)
   }
 
   async getLastPageNumber(): Promise<Number|null>{
