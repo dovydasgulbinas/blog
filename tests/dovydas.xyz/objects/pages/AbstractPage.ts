@@ -47,4 +47,10 @@ export abstract class AbstractPage {
     const text = await this.selectLocator(locatorConstant).textContent()
     expect(text).toEqual(expect.stringMatching(regex))
   }
+
+  async assertVisible(locatorConstant: any){
+    await expect(this.selectLocator(locatorConstant)).toBeVisible()
+  }
+
+
 }
