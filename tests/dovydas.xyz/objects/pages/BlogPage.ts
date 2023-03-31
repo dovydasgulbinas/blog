@@ -25,7 +25,10 @@ export class BlogPage extends AbstractPage {
     this.textNumberOfPages = page.locator('#page-enumeration')
   }
 
-  async visitPage(n: Number){
+  async visitPage(n: Number | null){
+    if (n == null){
+      throw new Error('Page number is null')
+    }
     if (n == 1){
       // first page is the same as blog page and format `.../page/1` does not exist
       await this.visit()
