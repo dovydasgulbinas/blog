@@ -13,10 +13,12 @@
     "create:builddir": "mkdir -p ./$npm_package_config_site/.build-output",
     "lektor:build": "cd ../$npm_package_config_site && lektor build -O ../tests/$npm_package_config_site/.build-output",
     "codegen:dev":"playwright codegen -b chromium $npm_package_config_serverdev",  
+    "codegen:mobile":"playwright codegen --device=\"iPhone 11\"  $npm_package_config_serverdev",  
     "codegen:prod":"playwright codegen -b chromium $npm_package_config_serverprod",  
     "serve": "http-server --port $npm_package_config_serverport ./$npm_package_config_site/.build-output",
 
     "dev": "run-s lektor:build codegen:dev",
+    "dev-mobile": "run-s lektor:build codegen:dev",
     "start": "run-s create:builddir lektor:build serve",
     "test": "playwright test --config=$npm_package_config_site/playwright.config.ts --project=Chromium",
     "test:all": "playwright test --config=$npm_package_config_site/playwright.config.ts --project=Chromium --project=Firefox --project=Webkit",
