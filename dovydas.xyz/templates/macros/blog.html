@@ -42,10 +42,10 @@
 
     <div class="flex-container post-meta">
         <svg class="h-icon-16px"><use href="{{ '/static/logo.svg'|url }}#created"></use></svg>
-        <div>{{ post.pub_date|dateformat }}</div>
+        <div id="date-published">{{ post.pub_date|dateformat }}</div>
         {% if post.edit_date %}
         <svg class="h-icon-16px"> <use href="{{ '/static/logo.svg'|url }}#updated"></use></svg>
-        <div>{{ post.edit_date|dateformat }}</div>
+        <div id="date-edited">{{ post.edit_date|dateformat }}</div>
         {% endif %}
     </div>
     <p class="excerpt">{{ post.body.html | striptags | truncate(length=255, killwords=False, end='...')}}

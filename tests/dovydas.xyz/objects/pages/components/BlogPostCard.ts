@@ -6,8 +6,8 @@ export enum PostCardLocator {
     cardImage,
     cardHeading,
     datePublished,
-    dateUpdated,
-    textSummary,
+    dateEdited,
+    textExcerpt,
     linkMore,
   }
 
@@ -19,8 +19,8 @@ export class PostCardComponent extends AbstractPage {
   readonly cardImage: Locator
   readonly cardHeading: Locator
   readonly datePublished: Locator
-  readonly dateUpdated: Locator
-  readonly textSummary: Locator
+  readonly dateEdited: Locator
+  readonly textExcerpt: Locator
   readonly linkMore: Locator
 
 
@@ -29,10 +29,10 @@ export class PostCardComponent extends AbstractPage {
     this.container = page.locator('article').first() 
     this.cardImage = this.container.getByRole('img')
     this.cardHeading = this.container.getByRole('heading')
-    this.datePublished = this.container.locator('.post-meta div')
-    // this.dateUpdated = this.containerCard.
-    // this.textSummary = this.containerCard.
-    // this.linkMore = this.containerCard.
+    this.datePublished = this.container.locator('#date-published')
+    this.dateEdited = this.container.locator('#date-edited')
+    this.textExcerpt = this.container.locator('.excerpt')
+    this.linkMore = this.textExcerpt.getByRole('link')
   }
 
   selectLocator(locator: PostCardLocator): Locator {
@@ -45,10 +45,10 @@ export class PostCardComponent extends AbstractPage {
         return this.cardHeading
       case PostCardLocator.datePublished:
         return this.datePublished
-      case PostCardLocator.dateUpdated:
-        return this.dateUpdated
-      case PostCardLocator.textSummary:
-        return this.textSummary
+      case PostCardLocator.dateEdited:
+        return this.dateEdited
+      case PostCardLocator.textExcerpt:
+        return this.textExcerpt
       case PostCardLocator.linkMore:
         return this.linkMore
       default:
