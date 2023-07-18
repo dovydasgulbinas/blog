@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
+{% from "macros/page-title.html" import render_page_title %}
 {% from "macros/projects.html" import
   render_project_list, render_category_nav %}
-{% block title %}Projects{% endblock %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block page_title %}{{ render_page_title('Projects', 'projects') }}{% endblock %}
+
 {% block body %}
-  <h1>Projects</h1>
   {{ render_category_nav(active=none) }}
 <hr/>
   {{ render_project_list(this.children) }}

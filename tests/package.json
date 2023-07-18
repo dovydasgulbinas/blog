@@ -18,7 +18,7 @@
     "serve": "http-server --port $npm_package_config_serverport ./$npm_package_config_site/.build-output",
 
     "dev": "run-s lektor:build codegen:dev",
-    "dev-mobile": "run-s lektor:build codegen:mobile",
+    "dev-mobile": "playwright codegen --device=\"iPhone 11\" http://localhost:5000",
     "start": "run-s create:builddir lektor:build serve",
     "test": "playwright test --config=$npm_package_config_site/playwright.config.ts --project=Chromium",
     "test:all": "playwright test --config=$npm_package_config_site/playwright.config.ts --project=Chromium --project=Firefox --project=Webkit",

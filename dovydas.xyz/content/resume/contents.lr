@@ -4,7 +4,7 @@ title: Dovydas Gulbinas
 ---
 body:
 
-> Lithuania, Vilnius ▪ <dovydas.gulbinas@protonmail.com> ▪ <a href="tel:0037060243562">+37060243562</a> ▪ [GitHub][gh] ▪ [LinkedIn][li]
+> Lithuania/Remote,  Šiauliai ▪ <dovydas.gulbinas@protonmail.com> ▪ <a href="tel:0037060243562">+37060243562</a> ▪ [GitHub][gh] ▪ [LinkedIn][li] ▪ [Blog][blog]
 
 ## Experience
 
@@ -12,9 +12,13 @@ body:
 
 Worked on two different projects inside the company, medical equipment and Fintech:
 
-- (present) Digital banking as a service project (Jython, Java)
+- (present from July 2021 - present) Digital banking as a service project (Jython, Java)
 	- Initiated and developed testing environment for running Python unittest module inside Java runtime.
 	- Lead and built two-ended integration between CSI and Lightico for digital PDF document signatures.
+	- Lead and implemented document verification using Socure's DocV.
+	- Directed continuous integration using GitLab's CI and OpenShift clusters.
+	- Initiated and directed multiple code quality improvements in the project.
+	- Was promoted to team-lead and was financially incentivized three times.
 
 - (previous) Hardware state simulation for kidney dialysis machines ([CANape](https://www.vector.com/int/en/products/products-a-z/software/canape/), CPython, ASAP2, Jenkins, C++)
 	-  Improved our C++ code parser written in Python, for generating a2l tags in the source code.
@@ -59,21 +63,17 @@ Wrote and designed multiple API endpoints (Flask).  Had a few front-end related 
 
 - **Python:** The language of expertise. I have worked with CPython, PyPy and Jython.  
 - **Bash:** Second most used language in my daily work.
-- **JavaScript:** Worked with Angular and Vue. Currently, learning Node.js 
+- **JavaScript:** Worked with Angular and Vue, Node.js and Playwright(TypeScript)
 - **Other:** Git, Java, PHP, SQL, C++, CSS.
-
-**Side Projects**
-
-* [Decluterfy for Spotify][decluterfy]: Machine learning tool that is used for sorting large music playlists on Spotify platform.
-* [Bandcamp MusicBrainz Tool (Project)](https://github.com/dovydasgulbinas/django-apps/tree/master/bmbhelper): A basic tool for making MusicBrainz entries easier.
 
 ## Other Technical Experience
 
 - **Docker:** Proficient.  Wrote multiple “production-ready” containers for: Open LDAP, Kerberos, LAMP stack and others
+- **Ansible:** Proficient. Created multiple scripts for server deployments
 - **Apache & NGINX:** Proficient.  Configured multiple web servers and reverse proxies for various projects, additionally used NGINX as a load balancer in round-robin fashion.
 - **Linux:** Competent. I know how to manage services using **systemd** wrote multiple services and timers for it.  Basic knowledge of Linux networking & **iptables** utility.
 - **Technical Documentation Creation:** Wrote API documentation for Risika.com. I have my own blog
-- **Parametric 3D modeling(OpenScad)**
+- **Parametric 3D modeling OpenScad, FreeCAD**
 - **Static Site Generators**: Lektor, Jekyll, Blogit.
 
 ## Education
@@ -91,6 +91,7 @@ Wrote and designed multiple API endpoints (Flask).  Had a few front-end related 
 [li]: https://www.linkedin.com/in/dovydas-gulbinas-b09126104/
 [bc2mb]: https://github.com/dovydasgulbinas/django-apps/tree/master/bmbhelper
 [decluterfy]: https://github.com/dovydasgulbinas/decluterfy
+[blog]: https://dovydas.xyz
 ---
 _discoverable: no
 ---
