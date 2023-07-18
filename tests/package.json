@@ -22,6 +22,7 @@
     "start": "run-s create:builddir lektor:build serve",
     "test": "playwright test --config=$npm_package_config_site/playwright.config.ts --project=Chromium",
     "test:all": "playwright test --config=$npm_package_config_site/playwright.config.ts --project=Chromium --project=Firefox --project=Webkit",
+    "update-snapshots": "playwright test --update-snapshots --config=$npm_package_config_site/playwright.config.ts --project=Chromium --project=Firefox --project=Webkit",
     "test:comp": "playwright test --config=$npm_package_config_site/playwright.components.config.ts --project=Chromium"
   },
   "repository": {

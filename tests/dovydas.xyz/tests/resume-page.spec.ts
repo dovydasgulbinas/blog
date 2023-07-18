@@ -25,5 +25,8 @@ test.describe('Resume page suite', () => {
   test('Resume LinkedIn link is visible.', async ({ page }) => {
     await resumePage.assertAttributeValue(PageLink.linkedin, 'href', 'https://www.linkedin.com/in/dovydas-gulbinas-b09126104/')
   })
+  test('Resume Blog link is visible.', async ({ page }) => {
+    await resumePage.assertAttributeValue(PageLink.blog, 'href', 'https://dovydas.xyz')
+  })
 
 })
