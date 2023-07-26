@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
-{% from "macros/music.html" import song_card %}
+{% block head_extras %}<link rel="stylesheet" href="{{ '/static/music.css'|asseturl }}">{% endblock %}
+{% from "macros/song.html" import song_card %}
 {% from "macros/pagination.html" import render_pagination %}
 {% from "macros/page-title.html" import render_page_title %}
 {% block title %}{{ this.title }}{% endblock %}
