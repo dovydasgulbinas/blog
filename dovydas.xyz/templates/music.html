@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% from "macros/music.html" import song_card %}
+{% from "macros/pagination.html" import render_pagination %}
+{% from "macros/page-title.html" import render_page_title %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block page_title %}{{ render_page_title('Music', 'music') }}{% endblock %}
+{% block body %}
+  {% for child in this.pagination.items %}
+    {{ song_card(child) }}
+  {% endfor %}
+  {{ render_pagination(this.pagination) }}
+{% endblock %}

@@ -1,0 +1,9 @@
+_model: music
+---
+title: Music
+---
+body: LOL
+---
+logo: music
+---
+_template: music.html

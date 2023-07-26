@@ -15,3 +15,7 @@ lektor-markdown-highlighter = 0.3.1
 lektor-markdown-admonition = 0.3.1
 lektor-markdown-header-anchors = 0.3.1
 lektor-atom = 0.4.0
+
+[attachment_types]
+.mp3 = audio
+.ogg = audio
