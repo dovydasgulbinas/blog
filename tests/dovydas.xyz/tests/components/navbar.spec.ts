@@ -38,4 +38,9 @@ test.describe('Navbar component suite', () => {
     await targetComponent.clickOnLink(NavbarLocator.contactMe)
   })
 
+  test('Navbar component link "Music" is clickable', async ({ page }) => {
+    await targetComponent.assertAttributeValue(NavbarLocator.music, 'href', 'music/')
+    await targetComponent.clickOnLink(NavbarLocator.music)
+  })
+
 })

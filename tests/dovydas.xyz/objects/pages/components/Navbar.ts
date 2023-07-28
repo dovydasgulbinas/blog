@@ -7,6 +7,7 @@ export enum NavbarLocator {
     blog,
     projects,
     contactMe,
+    music,
   }
 
 
@@ -19,6 +20,7 @@ export class NavbarComponent extends AbstractPage {
   readonly linkBlog: Locator
   readonly linkProjects: Locator
   readonly linkContactMe: Locator
+  readonly linkMusic: Locator
 
 
   constructor(page: Page) {
@@ -28,6 +30,7 @@ export class NavbarComponent extends AbstractPage {
     this.linkBlog = this.container.getByRole('link').filter({ hasText: 'Blog' })
     this.linkProjects = this.container.getByRole('link').filter({ hasText: 'Projects' })
     this.linkContactMe = this.container.getByRole('link').filter({ hasText: 'Contact Me' })
+    this.linkMusic = this.container.getByRole('link').filter({ hasText: 'Music' })
   }
 
   selectLocator(locator: NavbarLocator): Locator {
@@ -42,6 +45,8 @@ export class NavbarComponent extends AbstractPage {
         return this.linkProjects
       case NavbarLocator.contactMe:
         return this.linkContactMe
+      case NavbarLocator.music:
+        return this.linkMusic
       default:
         this.throwOnMissingCase(locator)
     }
