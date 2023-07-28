@@ -4,14 +4,27 @@
     <svg class="h-icon-16px">
       <use href="{{ '/static/logo.svg'|url }}#created"></use>
     </svg>
+    {% if post.pub_date %}
     <div id="date-published">{{ post.pub_date|dateformat }}</div>
+    {% else %}
+    <div id="date-published"></div>
+    {% endif %}
   </div>
 
   <div class="player">
     <div class="cover">
+      {% if post.cover_image %}
       <img src="{{ post.attachments.images.get(post.cover_image)|url }}" />
+      {% else %}
+      <img src="{{ '/static/fallback.png'|asseturl }}" />
+      {% endif %}
     </div>
-    <div style="margin-top: auto" id="song-title" class="flex-container song-title">
+
+    <div
+      style="margin-top: auto"
+      id="song-title"
+      class="flex-container song-title"
+    >
       {{ post.title }}
     </div>
     <audio controls>
