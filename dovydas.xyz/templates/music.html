@@ -6,8 +6,10 @@
 {% block title %}{{ this.title }}{% endblock %}
 {% block page_title %}{{ render_page_title('Music', 'music') }}{% endblock %}
 {% block body %}
+  <div class="flex-rows">
   {% for child in this.pagination.items %}
     {{ song_card(child) }}
   {% endfor %}
+  </div>
   {{ render_pagination(this.pagination) }}
 {% endblock %}

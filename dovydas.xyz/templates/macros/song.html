@@ -1,35 +1,26 @@
 {% macro song_card(post) %}
-<article class="round-box">
-  <a href="{{ post|url }}">
-    <h2 style="margin-top: auto;" class="flex-container">
-    {% if post.cover_image %}
-      <img class="h-icon-em" src="{{ post.attachments.images.get(post.cover_image)|url }}"></img>
-    {% else %}
-      <img class="h-icon-em" src="{{ '/static/fallback.png'|asseturl }}"></img>
-    {% endif %}
-        {{ post.title }}
-      </h2>
-  </a>
+<article class="song-card">
+  <div class="flex-container post-meta">
+    <svg class="h-icon-16px">
+      <use href="{{ '/static/logo.svg'|url }}#created"></use>
+    </svg>
+    <div id="date-published">{{ post.pub_date|dateformat }}</div>
+  </div>
 
-    <div class="flex-container post-meta">
-        <svg class="h-icon-16px"><use href="{{ '/static/logo.svg'|url }}#created"></use></svg>
-        <div id="date-published">{{ post.pub_date|dateformat }}</div>
-        {% if post.edit_date %}
-        <svg class="h-icon-16px"> <use href="{{ '/static/logo.svg'|url }}#updated"></use></svg>
-        <div id="date-edited">{{ post.edit_date|dateformat }}</div>
-        {% endif %}
+  <div class="player">
+    <div class="cover">
+      <img src="{{ post.attachments.images.get(post.cover_image)|url }}" />
     </div>
-
-
-    <div class="player">
-        <div class="cover">
-            <img src="{{ post.attachments.images.get(post.cover_image)|url }}">
-        </div>
-        <audio controls>
-          <source src="{{ post.attachments.audio.get(post.track)|url }}" type="audio/mpeg">
-          Your browser does not support the audio tag.
-        </audio>
+    <div style="margin-top: auto" class="flex-container song-title">
+      {{ post.title }}
     </div>
-
+    <audio controls>
+      <source
+        src="{{ post.attachments.audio.get(post.track)|url }}"
+        type="{{ post.attachments.images.get(post.track).format }}"
+      />
+      Your browser does not support the audio tag.
+    </audio>
+  </div>
 </article>
 {% endmacro %}

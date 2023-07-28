@@ -7,7 +7,8 @@
     "site": "dovydas.xyz",
     "serverprod": "https://dovydas.xyz",
     "serverdev": "http://127.0.0.1:3000",
-    "serverport": "3000"
+    "serverport": "3000",
+    "serverlektor": "http://127.0.0.1:5000"
   },
   "scripts": {
     "create:builddir": "mkdir -p ./$npm_package_config_site/.build-output",
@@ -18,12 +19,17 @@
     "serve": "http-server --port $npm_package_config_serverport ./$npm_package_config_site/.build-output",
 
     "dev": "run-s lektor:build codegen:dev",
-    "dev-mobile": "playwright codegen --device=\"iPhone 11\" http://localhost:5000",
     "start": "run-s create:builddir lektor:build serve",
     "test": "playwright test --config=$npm_package_config_site/playwright.config.ts --project=Chromium",
     "test:all": "playwright test --config=$npm_package_config_site/playwright.config.ts --project=Chromium --project=Firefox --project=Webkit",
     "update-snapshots": "playwright test --update-snapshots --config=$npm_package_config_site/playwright.config.ts --project=Chromium --project=Firefox --project=Webkit",
-    "test:comp": "playwright test --config=$npm_package_config_site/playwright.components.config.ts --project=Chromium"
+    "test:comp": "playwright test --config=$npm_package_config_site/playwright.components.config.ts --project=Chromium",
+  
+    "dev-iphone": "playwright codegen --device=\"iPhone 11\" $npm_package_config_serverlektor",
+    "dev-android": "playwright codegen --device=\"iPhone 11\" $npm_package_config_serverlektor",
+    "dev-cr": "playwright cr $npm_package_config_serverlektor",
+    "dev-ff": "playwright ff $npm_package_config_serverlektor",
+    "dev-wk": "playwright wk $npm_package_config_serverlektor"
   },
   "repository": {
     "type": "git",
