@@ -1,0 +1,13 @@
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="16" height="16" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+	<path d="m3 1v1h-1v1h-1v10h1v1h1v1h10v-1h1v-1h1v-10h-1v-1h-1v-1z" style="fill:#eeeeee"/>
+	<path d="m3 1v1h-1v1h-1v1 8 1h1v1h1v1h2v-1h-1v-1h-1v-1h-1v-8h1v-1h1v-1h1v-1h-2z" style="fill:#edc7b0"/>
+	<path d="m0 5v1h3v-1zm0 5v1h3v-1z" style="fill:#395c98"/>
+	<path d="m13 3v1h-1v1h-1v1h-1v1h-1v1h-1v1h2v-1h1v-1h1v-1h1v-1h1v-1h1v-1h-2z" style="fill:#d38441"/>
+	<path d="m14 4v1h1v-1h-1zm0 1h-1v1h1v-1zm-1 1h-1v1h1v-1zm-1 1h-1v1h1v-1zm-1 1h-1v1h1v-1zm-1 1h-1v1h1v-1z" style="fill:#e9c35b"/>
+	<g id="blacks">
+		<path d="m2 0v1h-1v1h-1v1 2h1v-2h1v-1h1v-1h10v1h1v1h1v10h-1v1h-1v1h-10v-1h-1v-1h-1v-2h-1v2 1h1v1h1v1h12v-1h1v-1h1v-1-10-1h-1v-1h-1v-1h-12zm-2 6v4h1v-4h-1z"/>
+		<path d="m4 5v1h5v-1zm0 2v1h3v-1zm0 2v1h3v-1zm0 2v1h4v-1z"/>
+		<path d="m8 9h1v1h-1z" style="fill:#000000"/>
+	</g>
+</svg>

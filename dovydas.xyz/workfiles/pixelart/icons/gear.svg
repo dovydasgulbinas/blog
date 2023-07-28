@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aeda, 2022-05-15)"
+   xml:space="preserve"
+   sodipodi:docname="gear.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="11.411116"
+     inkscape:cx="5.1265803"
+     inkscape:cy="11.655302"
+     inkscape:window-width="1440"
+     inkscape:window-height="900"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     showguides="false"><inkscape:grid
+       type="xygrid"
+       id="grid9"
+       empspacing="4"
+       color="#ffffff"
+       opacity="0.14901961"
+       empcolor="#ffffff"
+       empopacity="0.48627451" /></sodipodi:namedview><defs
+     id="defs2" /><g
+     inkscape:label="art"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"><path
+       id="path451"
+       style="opacity:1;fill:#70c6a9;stroke-width:2.3094"
+       d="M 7,1 V 3 H 6 V 4 H 5 V 3 H 4 V 2 H 3 V 3 H 2 V 4 H 3 V 5 H 4 V 6 H 3 V 7 H 1 v 2 h 2 v 1 h 1 v 1 H 3 v 1 H 2 v 1 h 1 v 1 h 1 v -1 h 1 v -1 h 1 v 1 h 1 v 2 h 2 v -2 h 1 v -1 h 1 v 1 h 1 v 1 h 1 v -1 h 1 v -1 h -1 v -1 h -1 v -1 h 1 V 9 h 2 V 7 H 13 V 6 H 12 V 5 h 1 V 4 h 1 V 3 H 13 V 2 H 12 V 3 H 11 V 4 H 10 V 3 H 9 V 1 Z m 0,4 h 2 v 1 h 1 v 1 h 1 v 2 h -1 v 1 H 9 v 1 H 7 V 10 H 6 V 9 H 5 V 7 H 6 V 6 h 1 z" /><path
+       id="path445"
+       style="stroke-width:1.41421"
+       d="M 7,0 V 1 H 9 V 0 Z m 2,1 v 2 h 1 V 1 Z m 1,2 v 1 h 1 V 3 Z m 1,0 h 1 V 2 h -1 z m 1,-1 h 1 V 1 h -1 z m 1,0 v 1 h 1 V 2 Z m 1,1 v 1 h 1 V 3 Z m 0,1 h -1 v 1 h 1 z m -1,1 h -1 v 1 h 1 z m 0,1 v 1 h 2 V 6 Z m 2,1 v 2 h 1 V 7 Z m 0,2 h -2 v 1 h 2 z m -2,1 h -1 v 1 h 1 z m 0,1 v 1 h 1 v -1 z m 1,1 v 1 h 1 v -1 z m 0,1 h -1 v 1 h 1 z m -1,1 h -1 v 1 h 1 z m -1,0 v -1 h -1 v 1 z m -1,-1 v -1 h -1 v 1 z m -1,0 H 9 v 2 h 1 z M 9,15 H 7 v 1 H 9 Z M 7,15 V 13 H 6 v 2 z M 6,13 V 12 H 5 v 1 z M 5,13 H 4 v 1 H 5 Z M 4,14 H 3 v 1 H 4 Z M 3,14 V 13 H 2 v 1 z M 2,13 V 12 H 1 v 1 z M 2,12 H 3 V 11 H 2 Z M 3,11 H 4 V 10 H 3 Z M 3,10 V 9 H 1 v 1 z M 1,9 V 7 H 0 V 9 Z M 1,7 H 3 V 6 H 1 Z M 3,6 H 4 V 5 H 3 Z M 3,5 V 4 H 2 V 5 Z M 2,4 V 3 H 1 V 4 Z M 2,3 H 3 V 2 H 2 Z M 3,2 H 4 V 1 H 3 Z M 4,2 V 3 H 5 V 2 Z M 5,3 V 4 H 6 V 3 Z M 6,3 H 7 V 1 H 6 Z" /><path
+       id="path461"
+       d="M 7,5 V 6 H 9 V 5 Z m 2,1 v 1 h 1 V 6 Z m 1,1 v 2 h 1 V 7 Z m 0,2 H 9 v 1 h 1 z M 9,10 H 7 v 1 H 9 Z M 7,10 V 9 H 6 v 1 z M 6,9 V 7 H 5 V 9 Z M 6,7 H 7 V 6 H 6 Z" /></g></svg>
