@@ -4,27 +4,33 @@ title: Dovydas Gulbinas
 ---
 body:
 
- <img src="personal-photo.png" alt="me" width="125"> 
+ <!-- <img src="personal-photo.png" alt="me" width="125"> -->
 
-> Lithuania/Remote,  Šiauliai ▪ <dovydas.gulbinas@505hq.com> ▪ <a href="tel:0037060243562">+37060243562</a> ▪ [GitHub][gh] ▪ [LinkedIn][li] ▪ [Blog][blog]
+> ▪ [Lithuania (Šiauliai)](https://osm.org/go/0lXArlB--?relation=1714886) or Remote ▪ <dovydas.gulbinas@protonmail.com> ▪ <a href="tel:0037060243562">+37060243562</a> ▪ [GitHub][gh] ▪ [LinkedIn][li] ▪ [Blog][blog]
 
 ## Experience
 
-➤ **Back-end Engineer** - *505  HQ (Feb 2024 -  present)*
+➤ **Back-end Engineer II** - *[505  HQ](https://505hq.com/) (July 2024 -  present)*
 
-Worked on patient genome archiving project.
+Working as a sub-contractor for:  
 
-➤ **Back-end Engineer II** - *Tromzo (Oct 2023 - Feb 2024)*
-
-Worked at a cyber security start-up, specializing in vulnerability aggregation,of large datasets.
-Worked mostly on integrations of security tools.
+- [*Sanitex*](https://sanitex.eu/) Logistics company with specialization of forming UBL documents
 
 
-➤ **Back-end Engineer** — *Auriga Baltics (July 2020 — August 2023):*
+➤ **Back-end Engineer II** - *[Tromzo](https://tromzo.com/) (Oct 2023 - July 2024)*
 
-Worked on two different projects inside the company, medical equipment and Fintech:
+Worked at a cyber security start-up, specializing in vulnerability aggregation,of large datasets (Django, GraphQL, MySQL).
 
-- (present from July 2021 - present) Digital banking as a service project (Jython, Java)
+- Identified and fixed infrastructure issues related with webhook handling and load management 
+- Initiated and built integration error reporting dashboards
+- Maintained 3-way Jira integration 
+
+
+➤ **Back-end Engineer** — *[Auriga Baltics](https://auriga.com/) (July 2020 — August 2023):*
+
+Worked on two different projects as a sub-contractor in fintech and medical equipment fields:
+
+- [*Nymbus*](https://nymbus.com/) Digital banking as a service project (Jython, Java)
 	- Initiated and developed testing environment for running Python unittest module inside Java runtime.
 	- Lead and built two-ended integration between CSI and Lightico for digital PDF document signatures.
 	- Lead and implemented document verification using Socure's DocV.
@@ -32,11 +38,11 @@ Worked on two different projects inside the company, medical equipment and Finte
 	- Initiated and directed multiple code quality improvements in the project.
 	- Was promoted to team-lead and was financially incentivized three times.
 
-- (previous) Hardware state simulation for kidney dialysis machines ([CANape](https://www.vector.com/int/en/products/products-a-z/software/canape/), CPython, ASAP2, Jenkins, C++)
+- [*Fresenius*](https://www.freseniuskidneycare.com/) Hardware state simulation for kidney dialysis machines (CANape, CPython, ASAP2, Jenkins, C++)
 	-  Improved our C++ code parser written in Python, for generating a2l tags in the source code.
 	-  Designed and built a monitoring tool for relevant linked variable metrics and monitoring.
 
-➤ **Back-end Developer** — *Risika A/S (Sep 2019 – July 2020, Copenhagen):*
+➤ **Back-end Developer** — *[Risika A/S](https://risika.dk) (Sep 2019 – July 2020, Copenhagen):*
 
 Worked in a fintech startup specializing in large quantities of business data.
 Helped out with streamlining some essential parts of data pipeline and deployment:
@@ -45,7 +51,7 @@ Helped out with streamlining some essential parts of data pipeline and deploymen
 * Automated parts of deployment & testing process (Docker, Drone CI).
 * Refactored company's API code base to use JSON schema for payload validation.
 
-➤ **Back-end Developer** — *Moment Credit (Apr 2017 – Sep 2019):*
+➤ **Back-end Developer** — *[Moment Credit](https://www.momentcredit.lt/) (Apr 2017 – Sep 2019):*
 
 Made and deployed multiple applications using (Django/Django Rest frameworks, Unit Test, Oracle SQL).
 My notable contributions were:
@@ -53,7 +59,7 @@ My notable contributions were:
 * Designed and built and automated passport/ID scanner & text recognizer (Django, OpenCV). It saved hours of manual work in our company, since prior to this project all passport/ID entries were done manually.  The challenging part was to learn Computer Vision and OpenCV4 fundamentals in less than 1 week.
 * Built and designed a system for controlling/limiting access to sensitive web portals (Django, Open LDAP, x509, Fabric v1).
 
-➤ **Odoo Framework ERP Developer** — *Digitouch (Oct 2016 – Apr 2017, Vilnius):*
+➤ **Odoo Framework ERP Developer** — *[Digitouch](https://digitouch.lt/) (Oct 2016 – Apr 2017, Vilnius):*
 
 Wrote custom Enterprise Resource Planning **ERP** modules used for accounting. Most impactful project:
 
@@ -75,7 +81,8 @@ Wrote and designed multiple API endpoints (Flask).  Had a few front-end related 
 
 - **Python:** The language of expertise. I have worked with CPython, PyPy and Jython.  
 - **Bash:** Second most used language in my daily work.
-- **JavaScript:** Worked with Angular and Vue, Node.js and Playwright(TypeScript)
+- **Java:** Developed financial products using this language.
+- **JavaScript:** Worked with Angular, Vue, Node.js and Playwright(TypeScript)
 - **Other:** Git, Java, PHP, SQL, C++, CSS.
 
 ## Other Technical Experience
@@ -83,10 +90,10 @@ Wrote and designed multiple API endpoints (Flask).  Had a few front-end related 
 - **Docker:** Proficient.  Wrote multiple “production-ready” containers for: Open LDAP, Kerberos, LAMP stack and others
 - **Ansible:** Proficient. Created multiple scripts for server deployments
 - **Apache & NGINX:** Proficient.  Configured multiple web servers and reverse proxies for various projects, additionally used NGINX as a load balancer in round-robin fashion.
-- **Linux:** Competent. I know how to manage services using **systemd** wrote multiple services and timers for it.  Basic knowledge of Linux networking & **iptables** utility.
+- **Linux:** Proficient. I know how to manage services using **systemd** wrote multiple services and timers for it.  Basic knowledge of Linux networking & **iptables** utility.
 - **Technical Documentation Creation:** Wrote API documentation for Risika.com. I have my own blog
 - **Parametric 3D modeling OpenScad, FreeCAD**
-- **Static Site Generators**: Lektor, Jekyll, Blogit.
+- **E2E Testing:** Proficient with Playwright both in Python and TypeScript runtimes.
 
 ## Education
 
