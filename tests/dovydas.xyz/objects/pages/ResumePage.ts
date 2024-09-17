@@ -24,7 +24,7 @@ export class ResumePage extends AbstractPage {
     this.linkEmail = page.getByRole('link', { name: 'dovydas.gulbinas@protonmail.com' }) 
     this.linkPhone = page.getByRole('link', { name: '+37060243562' })
     this.linkGithub = page.getByRole('link', { name: 'GitHub' })
-    this.linkLinkedin = page.locator('body > main:nth-child(2) > article:nth-child(1) > blockquote:nth-child(1) > p:nth-child(1) > a:nth-child(4)')
+    this.linkLinkedin = page.getByRole('link', { name: 'LinkedIn' })
     this.linkBlog = page.getByRole('link', { name: 'Blog' })
   }
 
