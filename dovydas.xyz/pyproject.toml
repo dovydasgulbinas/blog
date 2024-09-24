@@ -1,0 +1,108 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dovydas_xyz"
+version = "0.1.0"
+description = "Test package for my blog"
+authors = [
+    { name = "Dovydas Gulbinas", email = "dovydas.gulbinas@protonmail.com" }
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["example", "project"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+requires-python = ">=3.12"
+dependencies = [
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+  "pytest-asyncio<0.23", # NOTE: https://github.com/pytest-dev/pytest-asyncio/issues/706
+  "pytest-cov",
+  "pytest-randomly",
+  "pytest-timeout",
+
+  "flake8",
+  "flake8-annotations-complexity",
+  "flake8-bandit",
+  "flake8-black",
+
+  "mypy",
+
+  "import-linter",
+  "pip-audit",
+]
+dev = ["black", "bumpver", "build", "isort", "nox", "pre-commit"]
+
+[project.urls]
+homepage = "https://dovydas.xyz"
+repository = "https://github.com/dovydasgulbinas/blog"
+
+
+[tool.isort]
+profile = "black"
+atomic = true
+lines_after_imports = 2
+lines_between_types = 1
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "$MYPY_CONFIG_FILE_DIR/typings"
+show_error_codes = true
+follow_imports_for_stubs = true
+strict = true
+disallow_untyped_decorators = true
+warn_unreachable = true
+enable_error_code = "redundant-expr, truthy-bool, ignore-without-code, unused-awaitable"
+overrides = [
+  { module = [
+    "argcomplete.*",
+    "importlib_resources.*",
+    "py.*",
+    "pydantic.*",
+    "setuptools.*",
+    "sqlakeyset.*",
+    "trio.*",
+    "wsproto.*",
+  ], ignore_missing_imports = true },
+]
+
+[tool.black]
+line-length = 120
+
+
+[tool.flake8]
+max-line-length = 120
+max-complexity = 10
+max-cognitive-complexity = 7
+max-annotations-complexity = 3
+docstring-convention = "google"
+ban-relative-imports = true
+ignore = [
+]
+extend-ignore = ["W503", "E203", "E501", "E503", "FS003"]
+exclude = ["__pycache__"]
+per-file-ignores = [
+  "tests/*:D102,D103",
+  "**/conftest.py:F401",
+  "noxfile.py:INP001,D100,D103,E800",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+# asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+tested_website = "https://dovydas.xyz"
+addopts = [
+  "-s",
+  "--browser",
+  "chromium",
+]
