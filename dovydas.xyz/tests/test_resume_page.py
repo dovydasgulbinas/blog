@@ -1,36 +1,42 @@
+from collections.abc import AsyncGenerator
+
 import pytest
-from playwright.async_api import Page
-from .objects.resume_page import ResumePage, PageLink  # Adjust the import based on your project structure
+import pytest_asyncio
+
+from playwright.async_api import Browser, Page, async_playwright
+
+from .objects.resume_page import PageLink, ResumePage
 
 
+@pytest_asyncio.fixture(scope="function")
+async def resume_page(browser: Browser, tested_website) -> AsyncGenerator[ResumePage]:
+    # FIXME: create abstract page to mimic playwright api
+    async with async_playwright():
+        page = await browser.new_page()
 
+        resume_page = ResumePage(page)
+        # FIXME: this could be made nicer tested website opened by default
+        await page.goto(tested_website + resume_page.page_path)
+        yield resume_page
 
-@pytest.fixture
-async def page() -> Page:
-    async with async_playwright() as p:
-        browser = await p.chromium.launch()
-        context = await browser.new_context()
-        page = await context.new_page()
-        yield page
-        await browser.close()
-
-
-@pytest.fixture(autouse=False)
-async def resume_page(page: Page):
-    resume_page = ResumePage(page)
-    await resume_page.visit()
-    yield resume_page
+        await resume_page.page.close()
 
 
 @pytest.mark.asyncio
 class TestResumePage:
-    # TODO: port back the IDs the labels of the each entry
-    @pytest.mark.parametrize("link, expected_href", [
-        (PageLink.email, 'mailto:dovydas.gulbinas@protonmail.com'),
-        (PageLink.phone, 'tel:0037060243562'),
-        (PageLink.github, 'https://github.com/dovydasgulbinas/'),
-        (PageLink.linkedin, 'https://www.linkedin.com/in/dovydas-gulbinas-b09126104/'),
-        (PageLink.blog, 'https://dovydas.xyz')
-    ])
-    async def test_resume_link_is_visible(self, resume_page, link: PageLink, expected_href: str):
-        await resume_page.assert_attribute_value(link, 'href', expected_href)
+
+    @pytest.mark.parametrize(
+        ("link", "expected_href"),
+        [
+            (PageLink.phone, "tel:0037060243562"),
+            (PageLink.github, "https://github.com/dovydasgulbinas/"),
+            (PageLink.email, "mailto:dovydas.gulbinas@protonmail.com"),
+            (
+                PageLink.linkedin,
+                "https://www.linkedin.com/in/dovydas-gulbinas-b09126104/",
+            ),
+            (PageLink.blog, "https://dovydas.xyz"),
+        ],
+    )
+    async def test_resume_link_is_visible(self, resume_page: ResumePage, link, expected_href) -> None:
+        await resume_page.assert_attribute_value(link, "href", expected_href)

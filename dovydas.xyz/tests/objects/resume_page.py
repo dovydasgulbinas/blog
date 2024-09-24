@@ -1,6 +1,11 @@
-from playwright.async_api import Page, Locator, expect
 from enum import Enum
-from .abstract_page import AbstractPage  # Adjust the import based on your project structure
+
+from playwright.async_api import Locator, Page, expect
+
+from .abstract_page import (  # Adjust the import based on your project structure
+    AbstractPage,
+)
+
 
 class PageLink(Enum):
     email = 1
@@ -8,6 +13,7 @@ class PageLink(Enum):
     github = 3
     linkedin = 4
     blog = 5
+
 
 class ResumePage(AbstractPage):
     page_name = "ResumePage"
@@ -33,5 +39,3 @@ class ResumePage(AbstractPage):
             return self.link_linkedin
         elif locator_constant == PageLink.blog:
             return self.link_blog
-        else:
-            self.throw_on_missing_case(locator_constant)

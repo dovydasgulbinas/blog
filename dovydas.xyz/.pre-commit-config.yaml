@@ -1,0 +1,72 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ['--maxkb=2000']
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.1.1
+    hooks:
+      - id: flake8
+        additional_dependencies: [
+          "flake8-annotations-complexity",
+          "flake8-bandit",
+          "flake8-black",
+          "flake8-bugbear",
+          "flake8-cognitive-complexity",
+          "flake8-comprehensions",
+          "flake8-datetime-import",
+          "flake8-datetimez",
+          "flake8-docstrings",
+          "flake8-eradicate",
+          "flake8-functions",
+          "flake8-future-annotations",
+          "flake8-logging-format",
+          "flake8-mutable",
+          "flake8-new-union-types",
+          "flake8-newspaper-style",
+          "flake8-no-pep420",
+          "flake8-pep585",
+          "flake8-pie",
+          "flake8-print",
+          "flake8-pyi",
+          "flake8-pyproject",
+          "flake8-pytest-style",
+          "flake8-simplify",
+          "flake8-tidy-imports",
+          "flake8-use-fstring",
+          "flake8-use-pathlib",
+          "darglint",
+          "pep8-naming",
+        ]
+
+  - repo: https://github.com/trailofbits/pip-audit
+    rev: v2.7.3
+    hooks:
+      - id: pip-audit
+      # args: ["--ignore-vuln=GHSA-w3h3-4rj7-4ph4"]
+
+  - repo: https://github.com/python/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+        language_version: python3.12
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        name: isort (python)
+      - id: isort
+        name: isort (cython)
+        types: [cython]
+      - id: isort
+        name: isort (pyi)
+        types: [pyi]
