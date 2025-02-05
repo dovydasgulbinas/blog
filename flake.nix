@@ -21,8 +21,12 @@
           pkgs.nodejs_23 
           pkgs.lektor 
           pkgs.pre-commit
+          pkgs.bash-completion
         ];
         shellHook = ''
+            export LC_ALL="C.UTF-8"
+            export LANG="C.UTF-8"
+
           echo "Activating dovydas.xyz Dev Shell!"
         '';
       };
