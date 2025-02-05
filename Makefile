@@ -1,6 +1,9 @@
-test: test-dovydas-xyz
+test: test-dovydas-xyz nix-test
 
 install-lektor: update-apt install-apt-deps install-pip-deps install-dev-deps install-lektor-deps install-nodejs finish-install-nodejs install-node-deps
+
+nix-test:
+	nix flake check
 
 update-apt:
 	sudo apt update
