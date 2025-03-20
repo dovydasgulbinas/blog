@@ -21,29 +21,18 @@
       default = pkgs.lektor;
     });
 
-    programs = {
-      bash = {
-        completion = {
-          enable = true;
-        };
-      };
-    };
-
     devShells = forAllSystems (system: let
       pkgs = import nixpkgs {inherit system;};
       oldpkgs = import oldnix {inherit system;};
     in {
       default = pkgs.mkShell {
         buildInputs = [
-          pkgs.neovim
           pkgs.nodejs_23
           pkgs.lektor
           pkgs.pre-commit
-          pkgs.bash
-          pkgs.bash-completion
         ];
         shellHook = ''
-          shopt -s hostcomplete
+          # shopt -s hostcomplete
           export LC_ALL="C.UTF-8"
           export LANG="C.UTF-8"
 

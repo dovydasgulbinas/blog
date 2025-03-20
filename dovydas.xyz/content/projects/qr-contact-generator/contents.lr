@@ -1,0 +1,7 @@
+name: QR Contact Generator
+---
+body: <qr-form></qr-form>
+---
+js_file: qr-form.js
+---
+css_file: 
