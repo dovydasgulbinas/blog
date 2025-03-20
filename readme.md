@@ -1,3 +1,6 @@
+enable dev environment:
+    
+    nix develop
 
 test dovydas.xyz by calling:
 
