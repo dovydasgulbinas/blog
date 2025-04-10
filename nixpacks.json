@@ -1,0 +1,14 @@
+{
+  "phases": {
+    "install": {
+      "cmds": ["nix build"]
+    },
+    "build": {
+      "cmds": ["nix run"]
+    },
+    "build": {
+      "cmds": ["nix run"]
+    }
+  }
+}
+
