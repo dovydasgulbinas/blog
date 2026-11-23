@@ -233,7 +233,6 @@ I have used make it mandatory.
 `redirect_uri`
 : parameter instructs the AS to where the user should be redirected. When redirected
 the CL (javascript) will get few more goodies because AS will attach a juicy Token.
-## 
 
 
 ### IM summary

@@ -45,6 +45,8 @@ timeZone = "Europe/Vilnius"
 [markup.goldmark.renderer]
   unsafe = true
 
+[markup.goldmark.parser]
+  autoHeadingIDType = "github-ascii"   # same ASCII anchors Lektor produced (Jeruzalė → #jeruzale)
 [markup.goldmark.parser.attribute]
   block = true
 

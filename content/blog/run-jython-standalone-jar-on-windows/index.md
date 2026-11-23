@@ -64,7 +64,7 @@ Assert Java version is correct:
 If you see `OpenJDK 64-Bit Server VM` your installation was successful.
 
 
-## Download Jython.jar and Guide Stub
+## Download Jython.jar and Guide Stub {#download-jython-jar-and-guide-stub}
 
 This tutorial includes a zip file containing folder structure and a test script.
 
