@@ -33,3 +33,10 @@ test("unknown URL serves the 404 page", async ({ page }) => {
   expect(res?.status()).toBe(404);
   await expect(page.getByText("SYNTAX ERROR LINE 404")).toBeVisible();
 });
+
+test("résumé PDF is served", async ({ request }) => {
+  const res = await request.get("/resume/dovydas-gulbinas-resume.pdf");
+  expect(res.ok()).toBeTruthy();
+  expect(res.headers()["content-type"]).toContain("pdf");
+  expect((await res.body()).subarray(0, 5).toString()).toBe("%PDF-");
+});

@@ -29,6 +29,10 @@ test *args: build
 test-visual *args: build
     cd tests && npx playwright test --project=visual {{ args }}
 
+# Print /resume/ to content/resume/dovydas-gulbinas-resume.pdf (CI also regenerates it on every deploy)
+resume-pdf: build
+    cd tests && node scripts/resume-pdf.mjs ../public ../content/resume/dovydas-gulbinas-resume.pdf
+
 # Everything CI runs
 ci: links test
 

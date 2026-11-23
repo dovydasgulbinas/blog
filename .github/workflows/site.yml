@@ -46,6 +46,11 @@ jobs:
           npm ci
           npx playwright install --with-deps chromium
 
+      # The résumé PDF is printed from the built /resume/ page, so it always matches the HTML.
+      - name: Build résumé PDF
+        working-directory: tests
+        run: node scripts/resume-pdf.mjs ../_site ../_site/resume/dovydas-gulbinas-resume.pdf
+
       - name: Playwright smoke tests
         working-directory: tests
         env:
