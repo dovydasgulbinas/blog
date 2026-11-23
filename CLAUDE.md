@@ -63,6 +63,8 @@ tests/               Playwright tests, run against `public/` served on :3000
 - Fonts are self-hosted woff2 in `static/fonts/` (Pixelify Sans display, Silkscreen labels, VT323 body/code). No third-party requests from pages.
 - CSS and JS go through Hugo Pipes (`resources.Get` → `minify` → `fingerprint`), linked with `integrity`. No npm build step, no frameworks.
 - JS is progressive enhancement only: every page must read and navigate with JS off.
+- Forms use the design-book primitives in `assets/css/forms.css`: `.form`/`.form-row`/`.form-label`/`.form-hint`/`.form-error`, `.field` (set `aria-invalid="true"` for the error state), `.select`, `.cb`, `.rd`, and `.btn-ui` with `--primary`, `--create`, `--secondary`, `--ghost` or `--danger`. Bare `<input>`/`<button>` in Markdown keep the plain prose look.
+- A Project's script is its `js` front matter file; name it `.mjs` to load it as an ES module that can import other bundle files (see `content/projects/qr-contact-generator/`). Third-party code is vendored into the bundle with its licence header; no CDN imports.
 - Images: process with `.Process`/`images.Dither` via `partials/func/dither.html` (Atkinson; Hugo has no Bayer); always emit `width`, `height` and `alt`. Pixel art uses the `.pixel` class (`image-rendering: pixelated`) and integer scales only.
 - Keep layouts small: `baseof.html` + section templates + partials. Logic that repeats goes in a partial; never copy markup between templates.
 - Use Hugo's own features before writing code: taxonomies for tags, `.Paginate` for paging, `.NextInSection` for older/newer, output formats for RSS and the search index, render hooks for headings/links/images/alerts.

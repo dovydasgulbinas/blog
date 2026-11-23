@@ -1,6 +1,7 @@
 /* pico8 theme. Rules: palette tokens only, no opacity/blur/gradients, hard 4px steps. */
 
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; } /* components set display; hidden must still win */
 
 html { background: var(--bg); color-scheme: dark; }
 body {
@@ -238,10 +239,10 @@ a.tag:hover { background: var(--white); color: var(--black); }
 .prose pre code { padding: 0; background: none; color: var(--white); }
 .prose .highlight { margin: 0; }
 .prose .highlight pre { margin: 0; }
-.prose textarea { width: 100%; padding: 12px; border: 0; background: var(--dark-blue); color: var(--white); font: 24px var(--font-body); }
-.prose button { min-height: 44px; padding: 8px 20px; border: 0; background: var(--yellow); color: var(--black); font-family: var(--font-label); font-size: 16px; cursor: pointer; }
-.prose button:hover { background: var(--white); }
-.prose input, .prose select { min-height: 44px; padding: 8px 12px; border: 0; background: var(--dark-blue); color: var(--white); font: 24px var(--font-body); }
+.prose textarea:not([class]) { width: 100%; padding: 12px; border: 0; background: var(--dark-blue); color: var(--white); font: 24px var(--font-body); }
+.prose button:not([class]) { min-height: 44px; padding: 8px 20px; border: 0; background: var(--yellow); color: var(--black); font-family: var(--font-label); font-size: 16px; cursor: pointer; }
+.prose button:not([class]):hover { background: var(--white); }
+.prose input:not([class]), .prose select:not([class]) { min-height: 44px; padding: 8px 12px; border: 0; background: var(--dark-blue); color: var(--white); font: 24px var(--font-body); }
 
 /* Alerts: `> [!NOTE]` etc. */
 .callout { display: flex; gap: 16px; padding: 16px 20px; color: var(--white); background: var(--surface); }
