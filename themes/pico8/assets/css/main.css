@@ -65,9 +65,8 @@ p { margin: 0; }
 .logo { display: flex; align-items: center; gap: 12px; padding: 4px 8px !important; font-family: var(--font-display); font-weight: 700; font-size: 28px; }
 .logo:hover { background: transparent !important; color: var(--white) !important; }
 .logo__tld { color: var(--pink); }
-/* Snail: two-frame sprite sheet (34×28 frames) shown at 2×, breathing in place. */
-.snail { width: 68px; height: 56px; display: block; flex-shrink: 0; background: var(--img-snail-crawl) 0 0 / 136px 56px no-repeat; image-rendering: pixelated; animation: crawl 1.2s steps(2) infinite; animation-play-state: paused; }
-.logo:hover .snail, .logo:focus-visible .snail { animation-play-state: running; }
+/* Snail: two-frame sprite sheet (34×28 frames) shown at 2×, breathing in place. Pure CSS, always on. */
+.snail { width: 68px; height: 56px; display: block; flex-shrink: 0; background: var(--img-snail-crawl) 0 0 / 136px 56px no-repeat; image-rendering: pixelated; animation: crawl 1.2s steps(2) infinite; }
 @keyframes crawl { to { background-position: -136px 0; } }
 @media (prefers-reduced-motion: reduce) { .snail { animation: none; } }
 
