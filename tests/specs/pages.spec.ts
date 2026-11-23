@@ -82,7 +82,7 @@ for (const { path, type } of jsonLd) {
     expect(raw).toBeTruthy();
     const graph: Record<string, unknown>[] = JSON.parse(raw!)["@graph"];
     const types = graph.map((n) => n["@type"]);
-    expect(types).toContain("Person");
+    expect(graph.find((n) => n["@type"] === "Person")?.sameAs).toContain("https://github.com/dovydasgulbinas");
     expect(types).toContain(type);
     if (path !== "/") {
       expect(graph.find((n) => n["@type"] === type)?.url).toBe(`https://dovydas.xyz${path}`);

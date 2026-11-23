@@ -9,6 +9,7 @@
 
 {{- $sameAs := slice }}
 {{- range site.Params.social }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+{{- range site.Params.profiles }}{{ $sameAs = $sameAs | append . }}{{ end }}
 {{- $graph := slice
   (dict "@type" "Person" "@id" $personID "name" site.Params.author "url" $home "sameAs" $sameAs)
   (dict "@type" "WebSite" "@id" $websiteID "url" $home "name" site.Title "description" site.Params.description "inLanguage" site.Language.Locale "publisher" $person)

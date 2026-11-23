@@ -101,6 +101,12 @@ timeZone = "Europe/Vilnius"
   intro = "Twenty-something y.o. software engineer located in some Remote location, with a preference to work Remotely. I used to convert coffee to physics equations, but now coffee is converted to source code."
   musicArtist = "hermes33"
 
+  # Other profiles of the same person, for the JSON-LD `sameAs` (not shown in the footer).
+  profiles = [
+    "https://github.com/dovydasgulbinas",
+    "https://www.linkedin.com/in/dovydas-gulbinas-b09126104/",
+  ]
+
   # One entry per Category: tag colour (palette token) and the Ramp its images are dithered to.
   [params.categories.python]
     color = "green"
