@@ -90,3 +90,17 @@ for (const { path, type } of jsonLd) {
     }
   });
 }
+
+test("pages have a 1200×630 share image", async ({ page, request }) => {
+  for (const path of ["/", "/blog/3d-printing-hitomezashi-patterns/", "/projects/qr-contact-generator/"]) {
+    await page.goto(path);
+    const og = await page.locator('meta[property="og:image"]').getAttribute("content");
+    expect(og).toBe(`https://dovydas.xyz${path}og.png`);
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute("content", "1200");
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute("content", "630");
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute("content", "summary_large_image");
+    const png = await (await request.get(`${path}og.png`)).body();
+    expect(png.readUInt32BE(16)).toBe(1200); // PNG IHDR width
+    expect(png.readUInt32BE(20)).toBe(630);
+  }
+});

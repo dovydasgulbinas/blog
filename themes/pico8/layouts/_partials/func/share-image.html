@@ -1,0 +1,70 @@
+{{- /*
+  A page's 1200×630 link-preview image (og:image), published next to the page as og.png.
+  Left: label and title in the pixel fonts. Right: the page's thumbnail dithered to its Ramp,
+  scaled up with hard pixels, on a 4px-style offset block. Bottom: a stripe in the label colour.
+  Arg: the page. Returns an image resource.
+*/}}
+{{- $p := . }}
+{{- $pal := site.Params.palette }}
+{{- $W := 1200 }}{{ $H := 630 }}{{ $pad := 64 }}{{ $art := 480 }}
+{{- $display := resources.Get "fonts/pixelify-sans-bold.ttf" }}
+{{- $label := resources.Get "fonts/silkscreen.ttf" }}
+{{- $seed := resources.Get "img/portrait/all.png" }}{{/* any opaque image: it is only resized and flood-filled */}}
+
+{{- /* A solid block in one palette colour: any image dithered to a single colour. */}}
+{{- $solid := dict }}
+{{- range $name, $hex := $pal }}
+  {{- $c := strings.TrimPrefix "#" $hex }}
+  {{- $solid = merge $solid (dict $name (images.Dither (dict "colors" (slice $c $c)))) }}
+{{- end }}
+
+{{- /* What the image says. */}}
+{{- $cat := partial "func/category.html" $p }}
+{{- $accent := $cat.color }}
+{{- $kicker := "" }}
+{{- $title := $p.Title }}
+{{- if $p.IsHome }}
+  {{- $kicker = site.Title }}{{ $title = site.Params.author }}{{ $accent = "pink" }}
+{{- else if eq $p.Section "blog" }}
+  {{- $kicker = $cat.name | default "Blog" }}
+{{- else if eq $p.Section "projects" }}
+  {{- $kicker = cond $p.IsPage "Project" "Projects" }}{{ $accent = "green" }}
+{{- else if eq $p.Section "music" }}
+  {{- $kicker = cond $p.IsPage (printf "Music · %s" site.Params.musicArtist) "Music" }}{{ $accent = "blue" }}
+{{- else }}
+  {{- $kicker = site.Title }}{{ $accent = "yellow" }}
+{{- end }}
+{{- $accentHex := index $pal $accent }}
+
+{{- /* Art: the page's thumbnail, else the portrait, scaled up 3× with hard pixels. */}}
+{{- $small := partial "func/thumb.html" (dict "page" $p "size" "160x160") }}
+{{- if not $small }}
+  {{- $small = partial "func/dither.html" (dict "img" (resources.Get "img/portrait/all.png") "ramp" $cat.ramp "size" "160x160") }}
+{{- end }}
+{{- $big := $small.Process (printf "resize %dx%d NearestNeighbor png" $art $art) }}
+
+{{- /* Text column on its own canvas so lines wrap before the art. */}}
+{{- $colW := sub (sub $W (mul $pad 3)) $art }}
+{{- $colH := sub $H (mul $pad 2) }}
+{{- $col := $seed.Process (printf "resize %dx%d NearestNeighbor png" $colW $colH) | images.Filter (index $solid "black") }}
+{{- $col = $col | images.Filter
+  (images.Text ($kicker | upper) (dict "font" $label "size" 28 "color" $accentHex "x" 0 "y" 0))
+  (images.Text $title (dict "font" $display "size" 64 "linespacing" 10 "color" $pal.white "x" 0 "y" 64))
+  (images.Text "dovydas.xyz" (dict "font" $label "size" 24 "color" (index $pal "light-grey") "x" 0 "y" (sub $colH 32)))
+}}
+
+{{- /* Compose on black. */}}
+{{- $artX := sub (sub $W $pad) $art }}
+{{- $artY := div (sub $H $art) 2 }}
+{{- $shadow := $seed.Process (printf "resize %dx%d NearestNeighbor png" $art $art) | images.Filter (index $solid $accent) }}
+{{- $stripe := $seed.Process (printf "resize %dx16 NearestNeighbor png" $W) | images.Filter (index $solid $accent) }}
+{{- $img := $seed.Process (printf "resize %dx%d NearestNeighbor png" $W $H) | images.Filter
+  (index $solid "black")
+  (images.Overlay $col $pad $pad)
+  (images.Overlay $shadow (add $artX 12) (add $artY 12))
+  (images.Overlay $big $artX $artY)
+  (images.Overlay $stripe 0 (sub $H 16))
+}}
+{{- $rel := strings.TrimPrefix "/" $p.RelPermalink }}
+{{- $target := cond (strings.HasSuffix $rel ".html") (replace $rel ".html" "-og.png") (path.Join $rel "og.png") }}
+{{- return resources.Copy $target $img }}
