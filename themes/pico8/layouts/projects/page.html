@@ -11,5 +11,6 @@
 {{- end }}{{ end }}
 {{ end }}
 {{ define "scripts" }}
-{{- with .Params.js }}{{ with $.Resources.Get . }}<script src="{{ .RelPermalink }}"></script>{{ end }}{{ end }}
+{{- /* A Project's own script: `js` in front matter. A .mjs file loads as an ES module and may import other bundle files. */}}
+{{- with .Params.js }}{{ with $.Resources.Get . }}<script src="{{ .RelPermalink }}"{{ if hasSuffix .Name ".mjs" }} type="module"{{ end }}></script>{{ end }}{{ end }}
 {{ end }}

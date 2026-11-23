@@ -1,0 +1,15 @@
+/* QR Contact Generator layout. Colours and controls come from the theme's form primitives. */
+.qr-app { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 320px); gap: 48px; align-items: start; }
+.qr-preview { position: sticky; top: 32px; display: flex; flex-direction: column; gap: 16px; }
+.qr-screen { --line: var(--white); margin: 4px; aspect-ratio: 1; background: var(--white); display: flex; align-items: center; justify-content: center; }
+.qr-code { width: 100%; height: 100%; }
+.qr-code svg { display: block; width: 100%; height: 100%; }
+.qr-screen .empty-state { color: var(--dark-grey); }
+.qr-preview .btn-row { flex-direction: column; align-items: stretch; }
+.qr-vcard summary { cursor: pointer; }
+.qr-vcard pre { margin-top: 12px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 20px; }
+
+@media (max-width: 760px) {
+  .qr-app { grid-template-columns: 1fr; }
+  .qr-preview { position: static; max-width: 360px; }
+}
