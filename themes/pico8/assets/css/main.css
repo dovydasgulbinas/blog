@@ -335,3 +335,32 @@ a.tag:hover { background: var(--white); color: var(--black); }
   .prose strong, .prose em, .prose h4 { color: var(--black); }
   a { color: var(--black); }
 }
+
+/* Résumé on paper: the original PDF's look (Liberation Serif 10pt, ruled section titles), not the pixel theme. */
+@media print {
+  /* Original: 1cm page margin + 5px body padding. Side margins live on the content so they
+     survive browsers or print dialogs that ignore @page margins. */
+  @page { margin: 1cm 0; }
+  body:has(.resume) { font-size: 10pt; }
+  .resume, .resume * { font-family: "Liberation Serif", "Times New Roman", Times, serif !important; font-size: 10pt; line-height: 1.2; }
+  .resume { padding: 5px calc(1cm + 5px); gap: 0; max-width: calc(800px + 2cm + 10px); margin: 0 auto; }
+  .resume > h1 { font-size: 15pt; font-weight: 700; text-align: center; margin-bottom: 15px; }
+  .resume .prose { gap: 0; }
+  .resume .prose > * + * { margin-top: 7px; }
+  .resume .prose h2 { display: block; margin: 5pt 0; padding: 2px 0; font-size: 11pt; text-align: center; text-transform: uppercase; border-top: 1px solid var(--black); border-bottom: 1px solid var(--black); }
+  .resume .prose h2::before, .resume .prose .anchor { display: none; }
+  .resume .prose h3 { font-size: 10pt; margin-top: 7px; }
+  .resume .prose blockquote { border: 0; padding: 0; background: none; box-shadow: none; text-align: center; }
+  .resume .prose strong { font-weight: 700; }
+  .resume .prose em { font-style: italic; }
+  .resume .prose ul { padding-left: 3%; gap: 0; list-style: square; }
+  .resume .prose li { margin: 0; }
+  .resume .prose li ul { margin-top: 0; }
+  .resume .prose li > p { margin: 0; }
+  .resume .prose dl { margin-top: 7px; }
+  .resume .prose dt { float: left; clear: left; width: 17%; margin: 0; }
+  .resume .prose dd { margin: 0 0 0 17%; }
+  .resume .prose li::marker { color: var(--black); }
+  .resume .prose code { border: 0; padding: 0; }
+  .resume a { color: var(--dark-blue); text-decoration: underline; }
+}
