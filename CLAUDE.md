@@ -69,6 +69,7 @@ tests/               Playwright tests, run against `public/` served on :3000
 - Keep layouts small: `baseof.html` + section templates + partials. Logic that repeats goes in a partial; never copy markup between templates.
 - Use Hugo's own features before writing code: taxonomies for tags, `.Paginate` for paging, `.NextInSection` for older/newer, output formats for RSS and the search index, render hooks for headings/links/images/alerts.
 - Prefer `hugo.toml` `params` over hard-coded strings in templates (author, socials, intro text).
+- Every page also renders as Markdown (`<page>/index.md`, output format `markdown`, template `_partials/markdown-page.md`), and the home page writes `/llms.txt` (an index of the site for AI agents) and `/llms-full.txt` (all posts). A page whose body comes from `params` (e.g. Contact) must add that to `markdown-page.md` too.
 
 ## Accessibility and quality bar
 

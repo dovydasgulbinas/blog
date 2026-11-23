@@ -1,0 +1,10 @@
+# {{ site.Title }}: all blog posts
+
+> {{ site.Params.description }}
+
+Index of the whole site: {{ "llms.txt" | absURL }}
+{{ range (site.GetPage "/blog").RegularPages.ByDate.Reverse }}
+---
+
+{{ partial "markdown-page.md" . }}
+{{ end -}}

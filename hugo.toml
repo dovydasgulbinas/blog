@@ -25,7 +25,8 @@ timeZone = "Europe/Vilnius"
   project_tags = "/project-categories/:slug/"
 
 [outputs]
-  home = ["html", "rss", "searchindex"]
+  home = ["html", "rss", "searchindex", "llms", "llmsfull"]
+  page = ["html", "markdown"]
   section = ["html"]
   taxonomy = ["html"]
   term = ["html"]
@@ -36,6 +37,25 @@ timeZone = "Europe/Vilnius"
 [outputFormats.searchindex]
   mediaType = "application/json"
   baseName = "search"
+  isPlainText = true
+  notAlternative = true
+
+# Plain-text copies for AI agents and LLM tools (https://llmstxt.org).
+[outputFormats.markdown]
+  mediaType = "text/markdown"
+  baseName = "index"
+  isPlainText = true
+  rel = "alternate"
+
+[outputFormats.llms]
+  mediaType = "text/plain"
+  baseName = "llms"
+  isPlainText = true
+  notAlternative = true
+
+[outputFormats.llmsfull]
+  mediaType = "text/plain"
+  baseName = "llms-full"
   isPlainText = true
   notAlternative = true
 

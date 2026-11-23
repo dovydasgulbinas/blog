@@ -1,0 +1,25 @@
+{{- define "item" -}}
+{{- $md := or (.OutputFormats.Get "markdown") . -}}
+- [{{ .Title }}]({{ $md.Permalink }}){{ with or .Description .Summary }}: {{ . | plainify | strings.TrimSpace }}{{ end }}
+{{ end -}}
+# {{ site.Title }}
+
+> {{ site.Params.description }}
+
+Personal site of {{ site.Params.author }}: blog posts, small browser tools, music and a résumé.
+Every page also has a Markdown copy: add `index.md` to its URL (links below already point to it).
+The full text of every blog post is in one file: {{ "llms-full.txt" | absURL }}
+
+## Blog
+{{ range (site.GetPage "/blog").RegularPages.ByDate.Reverse }}{{ template "item" . }}{{ end }}
+## Projects
+{{ range (site.GetPage "/projects").RegularPages.ByDate.Reverse }}{{ template "item" . }}{{ end }}
+## Music
+{{ range (site.GetPage "/music").RegularPages.ByDate.Reverse }}{{ template "item" . }}{{ end }}
+## About
+{{ with site.GetPage "/resume" }}{{ template "item" . }}{{ end }}
+{{- with site.GetPage "/contact-me" }}{{ template "item" . }}{{ end }}
+## Optional
+
+- [RSS feed]({{ "feed.xml" | absURL }}): the 20 newest posts
+- [Sitemap]({{ "sitemap.xml" | absURL }})
