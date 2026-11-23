@@ -1,0 +1,17 @@
+{{- /*
+  Cloudflare Web Analytics: no cookies, no personal data. Set params.cloudflareAnalyticsToken to enable.
+  Loads only in production builds and only on the real host, so local previews and tests send nothing.
+*/}}
+{{- with site.Params.cloudflareAnalyticsToken }}
+{{- if hugo.IsProduction }}
+<script>
+if (location.hostname === "{{ (urls.Parse site.BaseURL).Hostname }}") {
+  const s = document.createElement("script");
+  s.type = "module"; // as in the snippet Cloudflare gives
+  s.src = "https://static.cloudflareinsights.com/beacon.min.js";
+  s.dataset.cfBeacon = JSON.stringify({ token: {{ . }} });
+  document.head.append(s);
+}
+</script>
+{{- end }}
+{{- end }}

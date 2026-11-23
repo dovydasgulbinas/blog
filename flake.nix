@@ -42,6 +42,15 @@
           };
           alejandra.enable = true;
 
+          # Spelling in posts and our own code; config and allowed words in _typos.toml.
+          typos = {
+            enable = true;
+            settings = {
+              configPath = "_typos.toml";
+              force-exclude = true; # honour _typos.toml excludes for staged files too
+            };
+          };
+
           # Build the site (drafts included) and check its internal links and anchors.
           # Template, front matter, config or link errors fail the commit, not the deploy.
           hugo-build = {

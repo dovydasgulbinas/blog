@@ -62,6 +62,18 @@ timeZone = "Europe/Vilnius"
 [services.rss]
   limit = 20
 
+# Related posts: same Category first, then the closest in date.
+[related]
+  includeNewer = true
+  threshold = 0
+  toLower = true
+  [[related.indices]]
+    name = "categories"
+    weight = 100
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
 [markup.goldmark.renderer]
   unsafe = true
 
@@ -100,6 +112,10 @@ timeZone = "Europe/Vilnius"
   tagline = "Well, you wonder why I always dress in black..."
   intro = "Twenty-something y.o. software engineer located in some Remote location, with a preference to work Remotely. I used to convert coffee to physics equations, but now coffee is converted to source code."
   musicArtist = "hermes33"
+  fediverseCreator = "@dovydas@mastodon.social" # Mastodon shows "by @…" on link previews
+  # Cloudflare Web Analytics site token (dash → Analytics & Logs → Web Analytics). Empty = off.
+  cloudflareAnalyticsToken = "9f8f5562dfba4c008f722db1a28dc2b8"
+  oldPostYears = 3 # posts not updated for this long get an "old post" notice
 
   # Other profiles of the same person, for the JSON-LD `sameAs` (not shown in the footer).
   profiles = [

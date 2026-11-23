@@ -30,6 +30,7 @@ Git hooks come from `git-hooks.nix` in `flake.nix` and are installed by `nix dev
 | `SEO` (Posts) | title 20–60 chars, `description` 50–160 chars, one category |
 | `optimize images` | strips metadata and recompresses PNG/JPEG losslessly (re-stage and commit again when it changes a file) |
 | `theme colours` | no hex colours outside `tokens.css` |
+| `typos` | spelling in posts and code; add real words it doesn't know (names, file names) to `_typos.toml` |
 | housekeeping | whitespace/EOF, YAML/TOML/JSON, merge markers, files > 2 MB, alejandra, no `public/`/`result`/`node_modules` |
 
 Run them by hand with `pre-commit run --all-files`. Don't bypass them with `--no-verify`; fix the cause.
@@ -60,7 +61,7 @@ tests/               Playwright tests, run against `public/` served on :3000
 
 - The design source of truth is the "dovydas.xyz — PICO-8 redesign" canvas. Its rules: 16 PICO-8 colours only, no `rgba()`/opacity/blur/gradients, hard 4px offsets, ordered dither for "in between".
 - Colours live as CSS custom properties in `assets/css/tokens.css` (`--c0`…`--c15` plus role names). Never write a hex value anywhere else.
-- Fonts are self-hosted woff2 in `static/fonts/` (Pixelify Sans display, Silkscreen labels, VT323 body/code). No third-party requests from pages.
+- Fonts are self-hosted woff2 in `static/fonts/` (Pixelify Sans display, Silkscreen labels, VT323 body/code). No third-party requests from pages, with one exception: the Cloudflare Web Analytics beacon (`partials/analytics.html`, cookie-free, only on dovydas.xyz itself).
 - CSS and JS go through Hugo Pipes (`resources.Get` → `minify` → `fingerprint`), linked with `integrity`. No npm build step, no frameworks.
 - JS is progressive enhancement only: every page must read and navigate with JS off.
 - Forms use the design-book primitives in `assets/css/forms.css`: `.form`/`.form-row`/`.form-label`/`.form-hint`/`.form-error`, `.field` (set `aria-invalid="true"` for the error state), `.select`, `.cb`, `.rd`, and `.btn-ui` with `--primary`, `--create`, `--secondary`, `--ghost` or `--danger`. Bare `<input>`/`<button>` in Markdown keep the plain prose look.

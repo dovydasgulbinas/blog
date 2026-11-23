@@ -252,8 +252,12 @@ a.tag:hover { background: var(--white); color: var(--black); }
 .callout--warning, .callout--caution { background: var(--dark-purple); }
 .callout--warning .callout__label, .callout--caution .callout__label { color: var(--pink); }
 .callout--important .callout__label { color: var(--blue); }
+.callout--old { margin-bottom: 8px; background: var(--dark-blue); }
+.callout--old .callout__label { color: var(--light-peach); }
 @media (max-width: 520px) { .callout { flex-direction: column; gap: 8px; } }
 
+.related { margin-top: 48px; padding-top: 24px; border-top: 4px solid var(--dark-grey); }
+.related__title { margin-bottom: 16px; font-size: 32px; }
 .post-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 48px 0 0; padding-top: 24px; border-top: 4px solid var(--dark-grey); }
 .post-nav a { display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: var(--white); padding: 8px; }
 .post-nav a:hover { color: var(--black); }

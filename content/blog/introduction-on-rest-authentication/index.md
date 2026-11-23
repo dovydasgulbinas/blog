@@ -317,7 +317,7 @@ and the [RFC6749](https://tools.ietf.org/html/rfc6749) I mentioned before.
 
 HTTP Header
 :  All data found in the HTTP request that starts after very first `\n`
-and end at the boundries of two `\n\n`  characters.  HTTP headers usually look
+and end at the boundaries of two `\n\n`  characters.  HTTP headers usually look
 similar to this example: `User-Agent: XBMC Addon Radio`
 
 REST
@@ -329,7 +329,7 @@ session cookie can be used by unauthorized attacker.
 
 Redirect URI (RURI)
 : An endpoint in client application that accepts Access Tokens OR Authorization Codes.
-Imporant part in RURIs are their URL parameters.  eg. https://dovydas.xyz/?**acces_token=12345**.
+Important part in RURIs are their URL parameters.  eg. https://dovydas.xyz/?**acces_token=12345**.
 In order to receive and `access_token` your Client must have an endpoint enabled and listen
 on that URL in order to receive that code.  If you are using mobile apps and need
 to fetch URL parameters this can be done not by listening on a specific endpoint

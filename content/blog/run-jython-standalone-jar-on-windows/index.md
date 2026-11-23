@@ -13,7 +13,7 @@ Using Jython standalone, you will be able to execute Python scripts, or use Pyth
 > Pip install for Jython is not covered.
 
 Prerequisites:
-- Basic knowlege of Windows PowerShell
+- Basic knowledge of Windows PowerShell
 
 ## Guide outline
 1. Install OpenJDK 17

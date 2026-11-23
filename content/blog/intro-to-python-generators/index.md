@@ -20,7 +20,7 @@ def smart_yield():
         yield item
 
 
-print("# We can only access value of a generator by itterating over it.")
+print("# We can only access value of a generator by iterating over it.")
 print()
 
 for item in smart_yield():
@@ -87,7 +87,7 @@ If you are lazy and don't want to run his code. Here is the output:
 
     # Let's begin with a complex example
 
-    # We can only access value of a generator by itterating over it.
+    # We can only access value of a generator by iterating over it.
 
     smart_yield item: 0
     smart_yield item: 1

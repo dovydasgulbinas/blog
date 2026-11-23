@@ -34,7 +34,7 @@ test("category chip filters to that category", async ({ page }) => {
 
 test("post shows meta, alerts, code and older/newer links", async ({ page }) => {
   await page.goto("/blog/upgrade-linuxservernextcloud-container-manually/");
-  await expect(page.getByRole("link", { name: "self-host" })).toHaveAttribute("href", "/categories/self-host/");
+  await expect(page.getByRole("link", { name: "self-host", exact: true })).toHaveAttribute("href", "/categories/self-host/");
   await expect(page.locator("time").first()).toHaveAttribute("datetime", "2022-04-26");
   await expect(page.locator(".callout--warning")).toContainText("Upgrade one major version at a time");
   await expect(page.locator(".prose pre").first()).toBeVisible();

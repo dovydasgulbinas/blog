@@ -25,8 +25,24 @@
   </figure>
   {{- end }}{{ end }}
   <div class="prose">
+    {{- $years := site.Params.oldPostYears | default 3 }}
+    {{- $last := .Lastmod | default .Date }}
+    {{- if gt (now.Sub $last).Hours (mul $years 8766.0) }}
+    <div class="callout callout--old" role="note">
+      <span class="callout__label">OLD POST</span>
+      <div class="callout__body"><p>Last updated in {{ $last.Format "January 2006" }}. Commands, versions and links may have changed since.</p></div>
+    </div>
+    {{- end }}
     {{ .Content }}
   </div>
+  {{- with (where site.RegularPages "Section" "blog").Related . | first 3 }}
+  <section class="related" aria-labelledby="related-title">
+    <h2 id="related-title" class="related__title">Related posts</h2>
+    <ol class="post-list">
+      {{- range . }}{{ partial "post-row.html" . }}{{ end }}
+    </ol>
+  </section>
+  {{- end }}
   {{- if or .PrevInSection .NextInSection }}
   <nav class="post-nav" aria-label="More posts">
     {{- with .PrevInSection }}<a class="older" href="{{ .RelPermalink }}" rel="prev"><small>◀ Older</small><span>{{ .Title }}</span></a>{{ end }}

@@ -30,6 +30,9 @@
 <meta property="og:image:height" content="{{ $og.Height }}">
 <meta property="og:image:alt" content="{{ .Title | default site.Title }}: {{ site.Title }}">
 <meta name="twitter:card" content="summary_large_image">
+{{- with site.Params.fediverseCreator }}
+<meta name="fediverse:creator" content="{{ . }}">
+{{- end }}
 {{- partial "json-ld.html" (dict "page" . "image" $og) }}
 
 <link rel="preload" href="/fonts/vt323-latin.woff2" as="font" type="font/woff2" crossorigin>

@@ -135,7 +135,7 @@ def which_user(caller=local):
 
 which_user(caller=local)  # this will print user of your local machine
 which_user(caller=run)  # this will print `troubled.man`
-which_user(caller=root)  # this will print `root` (because in linux sudo command temporaraly changes your user to root)
+which_user(caller=root)  # this will print `root` (because in linux sudo command temporarily changes your user to root)
 ```
 You made a function that does 3 different things by passing a single parameter.
 That is why you want consistency in your code execution functions.
@@ -149,7 +149,7 @@ when doing fabric calls, see example below:
 
 ```
 $ source activate py27  # activating anaconda python=2.7 env
-$ python manage.py runserver  # for example let's call django app writen in 3.X
+$ python manage.py runserver  # for example let's call django app written in 3.X
 
   File "manage.py", line 15
     ) from exc
