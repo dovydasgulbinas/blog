@@ -1,0 +1,8 @@
+<ul class="chips" aria-label="Filter by project tag">
+  <li><span class="meta">Project tags</span></li>
+  <li><a class="chip" href="{{ "projects/" | relURL }}"{{ if not .active }} aria-current="page"{{ end }}>all</a></li>
+  {{- range site.Taxonomies.project_tags }}
+  {{- $cfg := index site.Params.projectTags (.Page.Title | lower) | default dict }}
+  <li><a class="chip" data-c="{{ $cfg.color | default "light-grey" }}" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
+  {{- end }}
+</ul>

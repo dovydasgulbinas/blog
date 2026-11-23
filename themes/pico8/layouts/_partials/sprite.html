@@ -1,0 +1,4 @@
+{{- /* Pixel sprite at a whole-number scale. Args: name, scale (default 2), alt (default ""). */}}
+{{- $s := resources.Get (printf "img/sprites/%s.png" .name) | fingerprint }}
+{{- $scale := .scale | default 2 }}
+{{- with $s }}<img class="pixel" src="{{ .RelPermalink }}" alt="{{ $.alt }}" width="{{ mul .Width $scale }}" height="{{ mul .Height $scale }}">{{ end -}}

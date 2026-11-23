@@ -1,0 +1,15 @@
+{{- /* Search box (shown by JS) and Category links. Args: page, active (category name or ""). */}}
+<div class="filters">
+  <label class="search" hidden data-search>
+    <span class="label">Search posts</span>
+    <input class="px" type="search" placeholder="nextcloud, jython, django…" autocomplete="off" data-search-input>
+  </label>
+  <ul class="chips" aria-label="Filter by category">
+    <li><a class="chip" href="{{ "blog/" | relURL }}"{{ if not .active }} aria-current="page"{{ end }}>all</a></li>
+    {{- range $name, $cfg := site.Params.categories }}
+    {{- with site.GetPage (printf "/categories/%s" $name) }}
+    <li><a class="chip" data-c="{{ $cfg.color }}" href="{{ .RelPermalink }}"{{ if eq $.active $name }} aria-current="page"{{ end }}>{{ $name }}</a></li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</div>

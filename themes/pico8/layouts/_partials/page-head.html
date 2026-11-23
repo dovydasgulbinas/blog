@@ -1,0 +1,7 @@
+{{- /* Section header. Args: page, sprite, kicker. */}}
+<header class="wrap page-head">
+  {{- with .kicker }}<span class="meta">{{ . }}</span>{{ end }}
+  <h1>{{ with .sprite }}{{ partial "sprite.html" (dict "name" . "scale" 4) }}{{ end }}{{ .page.Title }}</h1>
+  {{- with .page.Description }}<p>{{ . }}</p>{{ end }}
+  {{- with .extra }}{{ . }}{{ end }}
+</header>

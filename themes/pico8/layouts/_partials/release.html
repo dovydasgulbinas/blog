@@ -1,0 +1,39 @@
+{{- $p := .page }}
+{{- $track := $p.Resources.Get $p.Params.track }}
+{{- $cover := or ($p.Resources.Get "cover-dither.png") ($p.Resources.Get $p.Params.cover) }}
+<article class="release">
+  {{- with $cover }}
+  <div class="release__cover px">
+    <img class="pixel" src="{{ .RelPermalink }}" alt="{{ $p.Params.cover_alt | default (printf "Cover art for %s" $p.Title) }}" width="512" height="512" loading="lazy">
+  </div>
+  {{- end }}
+  <div class="release__body">
+    <div class="post-meta">
+      <span class="tag" data-c="blue">single</span>
+      <span>{{ partial "sprite.html" (dict "name" "created" "scale" 2 "alt" "Released") }}<time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format "Jan 2 2006" }}</time></span>
+    </div>
+    {{ printf "<%s>" .heading | safeHTML }}{{ if eq .heading "h2" }}<a href="{{ $p.RelPermalink }}" style="color:inherit;text-decoration:none">{{ $p.Title }}</a>{{ else }}{{ $p.Title }}{{ end }}{{ printf "</%s>" .heading | safeHTML }}
+    <span class="meta">{{ site.Params.musicArtist }}{{ with $track }} · {{ .MediaType.SubType }}{{ end }}</span>
+    {{- with $track }}
+    <div class="player" data-player>
+      <div class="player__row">
+        <button type="button" class="player__play px-drop" aria-label="Play {{ $p.Title }}" data-play>▶</button>
+        <div class="player__eq" aria-hidden="true">
+          {{- range $i, $_ := seq 16 }}<span data-c="{{ index (slice "blue" "green" "white") (mod $i 3) }}"></span>{{ end -}}
+        </div>
+      </div>
+      <button type="button" class="player__seek" aria-label="Seek" data-seek>
+        {{- range seq 24 }}<span></span>{{ end -}}
+      </button>
+      <div class="player__time"><span data-time>0:00</span><span data-duration>–:––</span></div>
+      <audio controls preload="metadata" src="{{ .RelPermalink }}">
+        <a href="{{ .RelPermalink }}">Download {{ $p.Title }}</a>
+      </audio>
+    </div>
+    <div class="links">
+      <a href="{{ .RelPermalink }}" download>Download .{{ .MediaType.SubType }}</a>
+      {{- if eq $.heading "h2" }}<a href="{{ $p.RelPermalink }}">Track page</a>{{ end }}
+    </div>
+    {{- end }}
+  </div>
+</article>

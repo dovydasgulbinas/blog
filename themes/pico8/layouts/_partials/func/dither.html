@@ -1,0 +1,5 @@
+{{- /* Reduce an image resource to a Ramp. Args: img, ramp, size ("WxH"). Returns a PNG resource. */}}
+{{- $colors := index site.Params.ramps .ramp | default site.Params.ramps.night }}
+{{- $f := images.Dither (dict "colors" $colors "method" (site.Params.ditherMethod | default "ClusteredDot4x4")) }}
+{{- $out := .img.Process (printf "fill %s center png" .size) | images.Filter $f }}
+{{- return $out }}

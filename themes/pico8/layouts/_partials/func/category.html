@@ -1,0 +1,6 @@
+{{- /* Returns dict {name, color, ramp, url} for a page's Category. */}}
+{{- $name := index (.Params.categories | default (slice "")) 0 }}
+{{- $cfg := index site.Params.categories ($name | lower) | default dict }}
+{{- $url := "" }}
+{{- with site.GetPage (printf "/categories/%s" ($name | urlize)) }}{{ $url = .RelPermalink }}{{ end }}
+{{- return dict "name" $name "color" ($cfg.color | default "light-grey") "ramp" ($cfg.ramp | default "night") "url" $url }}

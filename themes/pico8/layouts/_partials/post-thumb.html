@@ -1,0 +1,8 @@
+{{- /* Post thumbnail at 2× of a WxW source; falls back to the Blog sprite. Args: page, px (display size). */}}
+{{- $src := div .px 2 }}
+{{- with partial "func/thumb.html" (dict "page" .page "size" (printf "%dx%d" $src $src)) }}
+<img class="pixel" src="{{ .RelPermalink }}" alt="" width="{{ $.px }}" height="{{ $.px }}" loading="lazy">
+{{- else }}
+{{- $s := resources.Get "img/sprites/blog.png" | fingerprint }}
+<img class="pixel" src="{{ $s.RelPermalink }}" alt="" width="{{ .px }}" height="{{ .px }}" loading="lazy">
+{{- end }}

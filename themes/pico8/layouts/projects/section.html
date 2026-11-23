@@ -1,0 +1,6 @@
+{{ define "main" }}
+{{- $extra := partial "project-filters.html" (dict "active" "") }}
+{{ partial "page-head.html" (dict "page" . "sprite" "projects" "kicker" (printf "%d carts · all run in the browser" (len .Pages)) "extra" $extra) }}
+<div class="band band--sea band--inset" aria-hidden="true"></div>
+<div class="wrap">{{ partial "carts.html" .Pages }}</div>
+{{ end }}

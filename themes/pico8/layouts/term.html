@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{- $name := .Data.Term }}
+{{- if eq .Data.Plural "categories" }}
+<header class="wrap page-head">
+  <span class="meta">{{ len .Pages }} posts in {{ $name }} · <a href="{{ "feed.xml" | relURL }}">RSS</a></span>
+  <h1>{{ partial "sprite.html" (dict "name" "blog" "scale" 4) }}Blog</h1>
+  {{ partial "filters.html" (dict "page" . "active" $name) }}
+</header>
+<div class="band band--sea band--inset" aria-hidden="true"></div>
+<div class="wrap">
+  <ol class="post-list">
+    {{- range .Pages.ByDate.Reverse }}{{ partial "post-row.html" . }}{{ end }}
+  </ol>
+</div>
+{{- else }}
+{{ partial "page-head.html" (dict "page" . "sprite" "projects" "kicker" "Project tag") }}
+<div class="band band--sea band--inset" aria-hidden="true"></div>
+<div class="wrap">{{ partial "carts.html" .Pages }}</div>
+{{- end }}
+{{ end }}

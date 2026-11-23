@@ -1,0 +1,11 @@
+{{- if gt .TotalPages 1 }}
+<nav aria-label="Pages">
+  <ul class="pager">
+    {{- with .Prev }}<li><a class="pager__step" href="{{ .URL }}" rel="prev">◀ Prev</a></li>{{ end }}
+    {{- range .Pagers }}
+    <li>{{ if eq .PageNumber $.PageNumber }}<span aria-current="page">{{ .PageNumber }}</span>{{ else }}<a href="{{ .URL }}">{{ .PageNumber }}</a>{{ end }}</li>
+    {{- end }}
+    {{- with .Next }}<li><a class="pager__step" href="{{ .URL }}" rel="next">Next ▶</a></li>{{ end }}
+  </ul>
+</nav>
+{{- end }}

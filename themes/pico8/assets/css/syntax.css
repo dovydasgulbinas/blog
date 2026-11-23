@@ -1,0 +1,25 @@
+/* Chroma highlighting in the palette (markup.highlight.noClasses = false). */
+.chroma { color: var(--white); background: var(--dark-blue); }
+.chroma .err { color: var(--red); }
+.chroma .hl { display: block; background: var(--dark-purple); }
+.chroma .ln, .chroma .lnt { color: var(--lavender); margin-right: 12px; }
+/* Keywords */
+.chroma :is(.k, .kc, .kd, .kn, .kp, .kr, .kt) { color: var(--pink); }
+/* Names */
+.chroma :is(.nb, .bp) { color: var(--blue); }
+.chroma :is(.nc, .nf, .fm, .nn) { color: var(--yellow); }
+.chroma :is(.nd, .na) { color: var(--green); }
+.chroma :is(.nt) { color: var(--pink); }
+.chroma :is(.nv, .vc, .vg, .vi) { color: var(--light-peach); }
+/* Literals */
+.chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss) { color: var(--green); }
+.chroma :is(.m, .mb, .mf, .mh, .mi, .il, .mo) { color: var(--orange); }
+/* Comments */
+.chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: var(--light-grey); }
+/* Operators and generic */
+.chroma :is(.o, .ow) { color: var(--light-peach); }
+.chroma .gd { color: var(--red); }
+.chroma .gi { color: var(--green); }
+.chroma .gh, .chroma .gu { color: var(--blue); }
+.chroma .gp { color: var(--yellow); }
+.chroma .go { color: var(--light-grey); }
