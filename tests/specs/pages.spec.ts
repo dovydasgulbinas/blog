@@ -40,3 +40,53 @@ test("résumé PDF is served", async ({ request }) => {
   expect(res.headers()["content-type"]).toContain("pdf");
   expect((await res.body()).subarray(0, 5).toString()).toBe("%PDF-");
 });
+
+test("robots.txt points crawlers at the sitemap", async ({ request }) => {
+  const body = await (await request.get("/robots.txt")).text();
+  expect(body).toContain("Sitemap: https://dovydas.xyz/sitemap.xml");
+});
+
+test("llms.txt lists every post as a Markdown link that resolves", async ({ request, page }) => {
+  const body = await (await request.get("/llms.txt")).text();
+  expect(body).toMatch(/^# dovydas\.xyz\n\n> /);
+  const links = [...body.matchAll(/\]\(https:\/\/dovydas\.xyz(\/blog\/[^)]+\/index\.md)\)/g)].map((m) => m[1]);
+  expect(links.length).toBeGreaterThan(20);
+  const md = await (await request.get(links[0])).text();
+  expect(md).toMatch(/^# .+\n/);
+  expect(md).toContain("- URL: https://dovydas.xyz/blog/");
+
+  await page.goto(links[0].replace(/index\.md$/, ""));
+  await expect(page.locator('link[rel="alternate"][type="text/markdown"]')).toHaveAttribute("href", `https://dovydas.xyz${links[0]}`);
+});
+
+test("llms-full.txt holds the text of every post", async ({ request }) => {
+  const body = await (await request.get("/llms-full.txt")).text();
+  expect(body).toContain("# 3D Printing Hitomezashi Patterns");
+  expect(body.split("\n---\n").length).toBeGreaterThan(20);
+});
+
+const jsonLd = [
+  { path: "/", type: "WebSite" },
+  { path: "/blog/3d-printing-hitomezashi-patterns/", type: "BlogPosting" },
+  { path: "/projects/qr-contact-generator/", type: "WebApplication" },
+  { path: "/music/post-war-bliss/", type: "MusicRecording" },
+  { path: "/resume/", type: "ProfilePage" },
+  { path: "/contact-me/", type: "ContactPage" },
+  { path: "/blog/", type: "CollectionPage" },
+];
+
+for (const { path, type } of jsonLd) {
+  test(`${path} has ${type} structured data`, async ({ request }) => {
+    const html = await (await request.get(path)).text();
+    const raw = html.match(/<script type=["']?application\/ld\+json["']?>(.*?)<\/script>/s)?.[1];
+    expect(raw).toBeTruthy();
+    const graph: Record<string, unknown>[] = JSON.parse(raw!)["@graph"];
+    const types = graph.map((n) => n["@type"]);
+    expect(graph.find((n) => n["@type"] === "Person")?.sameAs).toContain("https://github.com/dovydasgulbinas");
+    expect(types).toContain(type);
+    if (path !== "/") {
+      expect(graph.find((n) => n["@type"] === type)?.url).toBe(`https://dovydas.xyz${path}`);
+      expect(types).toContain("BreadcrumbList");
+    }
+  });
+}

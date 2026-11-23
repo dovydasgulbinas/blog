@@ -69,13 +69,14 @@ tests/               Playwright tests, run against `public/` served on :3000
 - Keep layouts small: `baseof.html` + section templates + partials. Logic that repeats goes in a partial; never copy markup between templates.
 - Use Hugo's own features before writing code: taxonomies for tags, `.Paginate` for paging, `.NextInSection` for older/newer, output formats for RSS and the search index, render hooks for headings/links/images/alerts.
 - Prefer `hugo.toml` `params` over hard-coded strings in templates (author, socials, intro text).
+- Every page also renders as Markdown (`<page>/index.md`, output format `markdown`, template `_partials/markdown-page.md`), and the home page writes `/llms.txt` (an index of the site for AI agents) and `/llms-full.txt` (all posts). A page whose body comes from `params` (e.g. Contact) must add that to `markdown-page.md` too.
 
 ## Accessibility and quality bar
 
 - Text contrast ≥ 4.5:1 (the canvas lists the allowed text/background pairs). Dark grey `--c5` is for rules only.
 - Real `<a>`/`<button>`, visible focus (`4px dashed` yellow), touch targets ≥ 44px, `aria-current` on the active nav link.
 - Heading IDs are `github-ascii` so old Lektor anchors (`#jeruzale`) keep working; pin an id with `{#id}` if a title change would break a link.
-- Every page has a unique `<title>`, meta description, canonical URL and Open Graph tags (from `partials/head.html`).
+- Every page has a unique `<title>`, meta description, canonical URL, Open Graph tags and schema.org JSON-LD (`partials/head.html`, `partials/json-ld.html`). A new section needs its schema type added to `json-ld.html`.
 - `just ci` must pass before merging: build with `--panicOnWarning`, htmltest, Playwright.
 
 ## Things to avoid
