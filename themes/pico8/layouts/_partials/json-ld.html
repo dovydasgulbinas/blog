@@ -1,0 +1,52 @@
+{{- /* schema.org structured data for search engines, one @graph per page. Args: page, image (resource or ""). */}}
+{{- $p := .page }}
+{{- $home := site.Home.Permalink }}
+{{- $iso := "2006-01-02T15:04:05Z07:00" }}
+{{- $personID := print $home "#person" }}
+{{- $websiteID := print $home "#website" }}
+{{- $person := dict "@id" $personID }}
+{{- $website := dict "@id" $websiteID }}
+
+{{- $sameAs := slice }}
+{{- range site.Params.social }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+{{- $graph := slice
+  (dict "@type" "Person" "@id" $personID "name" site.Params.author "url" $home "sameAs" $sameAs)
+  (dict "@type" "WebSite" "@id" $websiteID "url" $home "name" site.Title "description" site.Params.description "inLanguage" site.Language.Locale "publisher" $person)
+}}
+
+{{- if not $p.IsHome }}
+  {{- $node := dict "@id" (print $p.Permalink "#page") "url" $p.Permalink "name" $p.Title "inLanguage" site.Language.Locale "isPartOf" $website }}
+  {{- with or $p.Description $p.Params.summary $p.Summary | plainify | strings.TrimSpace }}{{ $node = merge $node (dict "description" (strings.Truncate 160 .)) }}{{ end }}
+  {{- with .image }}{{ $node = merge $node (dict "image" .Permalink) }}{{ end }}
+  {{- $dates := dict }}
+  {{- if and $p.IsPage (not $p.Date.IsZero) }}
+    {{- $dates = dict "datePublished" ($p.Date.Format $iso) "dateModified" ($p.Lastmod.Format $iso) }}
+  {{- end }}
+
+  {{- if not $p.IsPage }}
+    {{- $node = merge $node (dict "@type" "CollectionPage") }}
+  {{- else if eq $p.Section "blog" }}
+    {{- $node = merge $node $dates (dict "@type" "BlogPosting" "headline" $p.Title "mainEntityOfPage" $p.Permalink "author" $person "publisher" $person) }}
+    {{- with $p.GetTerms "categories" }}{{ $node = merge $node (dict "articleSection" (index . 0).LinkTitle) }}{{ end }}
+  {{- else if eq $p.Section "projects" }}
+    {{- $node = merge $node $dates (dict "@type" "WebApplication" "applicationCategory" "UtilitiesApplication" "operatingSystem" "Any (runs in a web browser)" "isAccessibleForFree" true "author" $person) }}
+  {{- else if eq $p.Section "music" }}
+    {{- $node = merge $node $dates (dict "@type" "MusicRecording" "byArtist" (dict "@type" "Person" "name" site.Params.musicArtist "alternateName" site.Params.author)) }}
+    {{- with $p.Params.track }}{{ $node = merge $node (dict "audio" (dict "@type" "AudioObject" "contentUrl" ((path.Join $p.RelPermalink .) | absURL))) }}{{ end }}
+  {{- else if eq $p.Layout "contact" }}
+    {{- $node = merge $node (dict "@type" "ContactPage" "about" $person) }}
+  {{- else if and $p.File (eq $p.File.ContentBaseName "resume") }}
+    {{- $node = merge $node (dict "@type" "ProfilePage" "mainEntity" $person) }}
+  {{- else }}
+    {{- $node = merge $node (dict "@type" "WebPage") }}
+  {{- end }}
+  {{- $graph = $graph | append $node }}
+
+  {{- /* Breadcrumbs: Home › Section › Page. */}}
+  {{- $items := slice }}
+  {{- range $i, $a := $p.Ancestors.Reverse | append $p }}
+    {{- $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "name" (cond $a.IsHome site.Title $a.LinkTitle) "item" $a.Permalink) }}
+  {{- end }}
+  {{- $graph = $graph | append (dict "@type" "BreadcrumbList" "itemListElement" $items) }}
+{{- end }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>

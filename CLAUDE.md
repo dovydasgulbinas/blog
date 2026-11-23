@@ -76,7 +76,7 @@ tests/               Playwright tests, run against `public/` served on :3000
 - Text contrast ≥ 4.5:1 (the canvas lists the allowed text/background pairs). Dark grey `--c5` is for rules only.
 - Real `<a>`/`<button>`, visible focus (`4px dashed` yellow), touch targets ≥ 44px, `aria-current` on the active nav link.
 - Heading IDs are `github-ascii` so old Lektor anchors (`#jeruzale`) keep working; pin an id with `{#id}` if a title change would break a link.
-- Every page has a unique `<title>`, meta description, canonical URL and Open Graph tags (from `partials/head.html`).
+- Every page has a unique `<title>`, meta description, canonical URL, Open Graph tags and schema.org JSON-LD (`partials/head.html`, `partials/json-ld.html`). A new section needs its schema type added to `json-ld.html`.
 - `just ci` must pass before merging: build with `--panicOnWarning`, htmltest, Playwright.
 
 ## Things to avoid

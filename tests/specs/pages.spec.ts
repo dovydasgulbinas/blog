@@ -64,3 +64,29 @@ test("llms-full.txt holds the text of every post", async ({ request }) => {
   expect(body).toContain("# 3D Printing Hitomezashi Patterns");
   expect(body.split("\n---\n").length).toBeGreaterThan(20);
 });
+
+const jsonLd = [
+  { path: "/", type: "WebSite" },
+  { path: "/blog/3d-printing-hitomezashi-patterns/", type: "BlogPosting" },
+  { path: "/projects/qr-contact-generator/", type: "WebApplication" },
+  { path: "/music/post-war-bliss/", type: "MusicRecording" },
+  { path: "/resume/", type: "ProfilePage" },
+  { path: "/contact-me/", type: "ContactPage" },
+  { path: "/blog/", type: "CollectionPage" },
+];
+
+for (const { path, type } of jsonLd) {
+  test(`${path} has ${type} structured data`, async ({ request }) => {
+    const html = await (await request.get(path)).text();
+    const raw = html.match(/<script type=["']?application\/ld\+json["']?>(.*?)<\/script>/s)?.[1];
+    expect(raw).toBeTruthy();
+    const graph: Record<string, unknown>[] = JSON.parse(raw!)["@graph"];
+    const types = graph.map((n) => n["@type"]);
+    expect(types).toContain("Person");
+    expect(types).toContain(type);
+    if (path !== "/") {
+      expect(graph.find((n) => n["@type"] === type)?.url).toBe(`https://dovydas.xyz${path}`);
+      expect(types).toContain("BreadcrumbList");
+    }
+  });
+}

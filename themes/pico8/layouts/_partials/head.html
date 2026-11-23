@@ -28,6 +28,7 @@
 {{- with partial "func/thumb.html" (dict "page" . "size" "256x256") }}{{ $og = . }}{{ end }}
 {{- with $og }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}
 <meta name="twitter:card" content="summary">
+{{- partial "json-ld.html" (dict "page" . "image" $og) }}
 
 <link rel="preload" href="/fonts/vt323-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
