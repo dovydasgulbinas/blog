@@ -1,0 +1,11 @@
+{{- $c := partial "func/category.html" . }}
+<li data-category="{{ $c.name }}" data-search="{{ printf "%s %s %s" .Title $c.name .Plain | lower | plainify | strings.Truncate 2000 }}">
+  <a class="row" href="{{ .RelPermalink }}" data-c="{{ $c.color }}">
+    {{ partial "post-thumb.html" (dict "page" . "px" 64) }}
+    <span class="row__body">
+      <span class="row__meta">{{ partial "sprite.html" (dict "name" "created" "scale" 1 "alt" "Published") }}{{ $c.name }} · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2 2006" }}</time></span>
+      <span class="row__title">{{ .Title }}</span>
+      <span class="row__excerpt">{{ .Summary | plainify | strings.Truncate 140 }}</span>
+    </span>
+  </a>
+</li>

@@ -1,0 +1,8 @@
+{{- $c := partial "func/category.html" . }}
+<li>
+  <a class="card px-drop" href="{{ .RelPermalink }}" data-c="{{ $c.color }}">
+    {{ partial "post-thumb.html" (dict "page" . "px" 128) }}
+    <span class="card__meta">{{ $c.name }} · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2 2006" }}</time></span>
+    <span class="card__title">{{ .Title }}</span>
+  </a>
+</li>

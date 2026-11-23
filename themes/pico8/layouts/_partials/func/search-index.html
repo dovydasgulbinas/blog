@@ -1,0 +1,9 @@
+{{- /* Every Post as a small record for client-side search (all pages, not just the current one). */}}
+{{- $out := slice }}
+{{- range where site.RegularPages "Section" "blog" }}
+  {{- $c := partial "func/category.html" . }}
+  {{- $thumb := "" }}
+  {{- with partial "func/thumb.html" (dict "page" . "size" "32x32") }}{{ $thumb = .RelPermalink }}{{ end }}
+  {{- $out = $out | append (dict "t" .Title "u" .RelPermalink "c" $c.name "k" $c.color "d" (.Date.Format "Jan 2 2006") "dt" (.Date.Format "2006-01-02") "x" (.Summary | plainify | strings.Truncate 140) "s" (printf "%s %s %s" .Title $c.name .Plain | lower | plainify) "i" $thumb) }}
+{{- end }}
+{{- return sort $out "dt" "desc" }}

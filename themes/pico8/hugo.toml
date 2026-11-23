@@ -1,0 +1,36 @@
+# pico8 theme defaults. Site config overrides any of these.
+
+[module.hugoVersion]
+  min = "0.146.0"
+  extended = false
+
+[params]
+  # Hugo has no Bayer ditherer. Atkinson reads closest to the canvas; ClusteredDot4x4 is the ordered option.
+  ditherMethod = "Atkinson"
+
+  # The 16 PICO-8 colours, by token name. Mirrors assets/css/tokens.css.
+  [params.palette]
+    black = "#000000"
+    dark-blue = "#1D2B53"
+    dark-purple = "#7E2553"
+    dark-green = "#008751"
+    brown = "#AB5236"
+    dark-grey = "#5F574F"
+    light-grey = "#C2C3C7"
+    white = "#FFF1E8"
+    red = "#FF004D"
+    orange = "#FFA300"
+    yellow = "#FFEC27"
+    green = "#00E436"
+    blue = "#29ADFF"
+    lavender = "#83769C"
+    pink = "#FF77A8"
+    light-peach = "#FFCCAA"
+
+  # Ramps: four palette colours, dark to light, used to dither photos.
+  [params.ramps]
+    night = ["000000", "1D2B53", "83769C", "FFF1E8"]
+    ember = ["000000", "7E2553", "FF004D", "FFCCAA"]
+    copper = ["000000", "AB5236", "FFA300", "FFCCAA"]
+    sea = ["000000", "1D2B53", "29ADFF", "FFF1E8"]
+    moss = ["000000", "008751", "00E436", "FFF1E8"]

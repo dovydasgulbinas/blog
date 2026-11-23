@@ -1,0 +1,148 @@
+baseURL = "https://dovydas.xyz/"
+locale = "en"
+title = "dovydas.xyz"
+theme = "pico8"
+copyright = "D.G."
+enableRobotsTXT = true
+timeZone = "Europe/Vilnius"
+
+[pagination]
+  pagerSize = 5   # Lektor used 5, so /blog/page/1…6/ keep working
+
+[taxonomies]
+  category = "categories"
+  project_tag = "project_tags"
+
+[permalinks.page]
+  blog = "/blog/:contentbasename/"
+  projects = "/projects/:contentbasename/"
+  music = "/music/:contentbasename/"
+
+# Keep the Lektor URLs for project tags.
+[permalinks.taxonomy]
+  project_tags = "/project-categories/"
+[permalinks.term]
+  project_tags = "/project-categories/:slug/"
+
+[outputs]
+  home = ["html", "rss", "searchindex"]
+  section = ["html"]
+  taxonomy = ["html"]
+  term = ["html"]
+
+[outputFormats.rss]
+  baseName = "feed"
+
+[outputFormats.searchindex]
+  mediaType = "application/json"
+  baseName = "search"
+  isPlainText = true
+  notAlternative = true
+
+[services.rss]
+  limit = 20
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.goldmark.parser]
+  wrapStandAloneImageWithinParagraph = false
+  autoHeadingIDType = "github-ascii"   # same ASCII anchors Lektor produced (Jeruzalė → #jeruzale)
+[markup.goldmark.parser.attribute]
+  block = true
+
+[markup.highlight]
+  noClasses = false
+  codeFences = true
+  guessSyntax = false
+
+
+[[menus.main]]
+  name = "Blog"
+  pageRef = "/blog"
+  weight = 10
+[[menus.main]]
+  name = "Projects"
+  pageRef = "/projects"
+  weight = 20
+[[menus.main]]
+  name = "Music"
+  pageRef = "/music"
+  weight = 30
+[[menus.main]]
+  name = "Contact Me"
+  pageRef = "/contact-me"
+  weight = 40
+
+[params]
+  author = "Dovydas Gulbinas"
+  description = "Software engineer. Notes on Python, self-hosting, hardware hacks and life in Vilnius."
+  tagline = "Well, you wonder why I always dress in black..."
+  intro = "Twenty-something y.o. software engineer located in some Remote location, with a preference to work Remotely. I used to convert coffee to physics equations, but now coffee is converted to source code."
+  musicArtist = "hermes33"
+
+  # One entry per Category: tag colour (palette token) and the Ramp its images are dithered to.
+  [params.categories.python]
+    color = "green"
+    ramp = "moss"
+  [params.categories.self-host]
+    color = "blue"
+    ramp = "sea"
+  [params.categories.linux]
+    color = "lavender"
+    ramp = "night"
+  [params.categories.hardware]
+    color = "orange"
+    ramp = "copper"
+  [params.categories.java]
+    color = "light-grey"
+    ramp = "night"
+  [params.categories.web]
+    color = "yellow"
+    ramp = "copper"
+  [params.categories.life]
+    color = "pink"
+    ramp = "ember"
+
+  [params.projectTags.haiku]
+    color = "pink"
+  [params.projectTags.SFC]
+    color = "blue"
+
+  [[params.social]]
+    name = "Mastodon"
+    url = "https://mastodon.social/@dovydas"
+  [[params.social]]
+    name = "Pixelfed"
+    url = "https://pixelfed.social/Trismegistus"
+
+  # Contact Me page rows.
+  [[params.contacts]]
+    name = "Blog"
+    note = "New posts in any RSS reader"
+    color = "orange"
+    links = [{ label = "Feed", url = "/feed.xml" }]
+  [[params.contacts]]
+    name = "Pixelfed"
+    note = "@Trismegistus · pixelfed.social"
+    color = "pink"
+    links = [
+      { label = "Profile", url = "https://pixelfed.social/Trismegistus" },
+      { label = "Feed", url = "https://pixelfed.social/users/Trismegistus.atom" },
+    ]
+  [[params.contacts]]
+    name = "Mastodon"
+    note = "@dovydas · mastodon.social"
+    color = "blue"
+    links = [
+      { label = "Profile", url = "https://mastodon.social/@dovydas" },
+      { label = "Feed", url = "https://mastodon.social/@dovydas.rss" },
+    ]
+  [[params.contacts]]
+    name = "E-mail & phone"
+    note = "Listed in my résumé"
+    color = "green"
+    links = [
+      { label = "Résumé pdf", url = "/resume/dovydas-gulbinas-resume.pdf" },
+      { label = "html", url = "/resume/" },
+    ]

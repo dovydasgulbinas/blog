@@ -1,0 +1,25 @@
+{{ define "main" }}
+{{ partial "page-head.html" (dict "page" . "sprite" "contact-me" "kicker" "My online presence") }}
+<div class="band band--ember band--inset" aria-hidden="true"></div>
+<div class="wrap contact">
+  <aside class="contact__aside">
+    <div class="px">
+      {{- $p := resources.Get "img/portrait/ember.png" | fingerprint }}
+      <img class="pixel" src="{{ $p.RelPermalink }}" alt="Dithered portrait of Dovydas in the ember ramp" width="256" height="256">
+    </div>
+    <span class="meta">Player 1 · {{ site.Params.author }}</span>
+  </aside>
+  <ul class="contact__list">
+    {{- range site.Params.contacts }}
+    <li data-c="{{ .color }}">
+      <div class="contact__name"><strong>{{ .name }}</strong><span>{{ .note }}</span></div>
+      <div class="contact__keys">
+        {{- range $i, $l := .links }}
+        <a class="key{{ if $i }} key--ghost{{ end }}" href="{{ if hasPrefix $l.url "/" }}{{ $l.url | relURL }}{{ else }}{{ $l.url }}{{ end }}"{{ if not (hasPrefix $l.url "/") }} rel="me"{{ end }}>{{ $l.label }}</a>
+        {{- end }}
+      </div>
+    </li>
+    {{- end }}
+  </ul>
+</div>
+{{ end }}

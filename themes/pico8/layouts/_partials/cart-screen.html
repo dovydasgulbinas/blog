@@ -1,0 +1,11 @@
+{{- /* A Project's "label screenshot": cart.png in its bundle, else its first haiku-like block. */}}
+{{- $p := .page }}
+{{- with $p.Resources.Get "cart.png" }}
+<div class="cart__screen{{ if eq $p.Params.cart_bg "light" }} cart__screen--light{{ end }}">
+  <img class="pixel" src="{{ .RelPermalink }}" alt="{{ $p.Params.cart_alt | default "" }}" width="{{ mul .Width $.scale }}" height="{{ mul .Height $.scale }}" loading="lazy">
+</div>
+{{- else }}
+<div class="cart__screen cart__screen--ember">
+  {{- with $p.Params.cart_text }}<p class="haiku">{{ . }}</p>{{ end }}
+</div>
+{{- end }}

@@ -1,0 +1,11 @@
+{{- /* A page's thumbnail dithered to its Category's Ramp: `cover`, else its first image. Args: page, size, ramp (optional). */}}
+{{- $p := .page }}
+{{- $img := "" }}
+{{- with $p.Params.cover }}{{ $img = $p.Resources.Get . }}{{ end }}
+{{- if not $img }}{{ $img = index ($p.Resources.Match "*.{png,jpg,jpeg}") 0 }}{{ end }}
+{{- $out := false }}
+{{- if and $img (in (slice "png" "jpg" "jpeg") $img.MediaType.SubType) }}
+  {{- $ramp := .ramp | default (partial "func/category.html" $p).ramp }}
+  {{- $out = partial "func/dither.html" (dict "img" $img "ramp" $ramp "size" .size) }}
+{{- end }}
+{{- return $out }}

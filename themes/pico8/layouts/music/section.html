@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ partial "page-head.html" (dict "page" . "sprite" "music" "kicker" (printf "%d track%s · as %s" (len .Pages) (cond (eq (len .Pages) 1) "" "s") site.Params.musicArtist)) }}
+<div class="band band--sea band--inset" aria-hidden="true"></div>
+<div class="wrap">
+  {{- range .Pages.ByDate.Reverse }}{{ partial "release.html" (dict "page" . "heading" "h2") }}{{ end }}
+</div>
+{{ end }}
+{{ define "scripts" }}{{ partial "script.html" "js/player.js" }}{{ end }}

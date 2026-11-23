@@ -1,0 +1,50 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) }}
+<title>{{ $title }}</title>
+{{- $desc := or .Description .Summary site.Params.description | plainify | strings.Truncate 160 }}
+<meta name="description" content="{{ $desc }}">
+<meta name="author" content="{{ site.Params.author }}">
+<meta name="theme-color" content="{{ site.Params.palette.black }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{- with .OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{- else }}
+<link rel="alternate" type="application/rss+xml" href="{{ "feed.xml" | absURL }}" title="{{ site.Title }}">
+{{- end }}
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ .Title | default site.Title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+{{- if .IsPage }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- with .Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+{{- end }}
+{{- $og := "" }}
+{{- with partial "func/thumb.html" (dict "page" . "size" "256x256") }}{{ $og = . }}{{ end }}
+{{- with $og }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}
+<meta name="twitter:card" content="summary">
+
+<link rel="preload" href="/fonts/vt323-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+{{- if and .File (eq .File.ContentBaseName "resume") }}
+{{- /* The printed résumé uses Liberation Serif; load it up front so the print dialog has it. */}}
+{{- range slice "regular" "bold" "italic" }}
+<link rel="preload" href="/fonts/liberation-serif-{{ . }}.woff2" as="font" type="font/woff2" crossorigin>
+{{- end }}
+{{- end }}
+{{- $css := slice (resources.Get "css/tokens.css") (resources.Get "css/syntax.css") (resources.Get "css/main.css") | resources.Concat "css/site.css" }}
+{{- if hugo.IsProduction }}{{ $css = $css | minify | fingerprint }}{{ end }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ with $css.Data.Integrity }} integrity="{{ . }}"{{ end }}>
+{{- /* Theme images referenced from CSS, fingerprinted by Hugo. */}}
+{{- $img := dict
+  "band-night" "img/bands/night.png"
+  "band-sea" "img/bands/sea.png"
+  "band-ember" "img/bands/ember.png"
+  "sky" "img/bands/sky.png"
+  "snail-crawl" "img/sprites/snail-crawl.png" }}
+<style>:root{ {{- range $k, $v := $img }}--img-{{ $k }}:url({{ (resources.Get $v | fingerprint).RelPermalink }});{{ end -}} }</style>
+{{- with resources.Get "img/sprites/snail.png" }}
+<link rel="icon" type="image/png" href="{{ (. | fingerprint).RelPermalink }}">
+{{- end }}

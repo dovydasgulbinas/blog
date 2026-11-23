@@ -1,0 +1,15 @@
+<footer class="site-footer">
+  <div class="band band--night" aria-hidden="true"></div>
+  <div class="site-footer__inner">
+    <div class="wrap site-footer__row">
+      <ul>
+        {{- range site.Params.social }}
+        <li><a href="{{ .url }}" rel="me">{{ .name }}</a></li>
+        {{- end }}
+        <li><a href="{{ "feed.xml" | relURL }}">RSS</a></li>
+        <li><a href="{{ "contact-me/" | relURL }}">Contact Me</a></li>
+      </ul>
+      <small>© {{ now.Year }} {{ site.Copyright }} · 16 colours · 0 gradients</small>
+    </div>
+  </div>
+</footer>

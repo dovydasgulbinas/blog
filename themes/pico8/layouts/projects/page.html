@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article class="article project">
+  <a class="back" href="{{ "projects/" | relURL }}">◀ All projects</a>
+  <h1>{{ .Title }}</h1>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{- with .Params.css }}{{ with $.Resources.Get . }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{- end }}{{ end }}
+{{ end }}
+{{ define "scripts" }}
+{{- with .Params.js }}{{ with $.Resources.Get . }}<script src="{{ .RelPermalink }}"></script>{{ end }}{{ end }}
+{{ end }}

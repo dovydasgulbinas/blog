@@ -1,0 +1,10 @@
+{{ define "main" }}
+{{ partial "page-head.html" (dict "page" .) }}
+<div class="wrap">
+  <ul class="chips">
+    {{- range .Data.Terms.Alphabetical }}
+    <li><a class="chip" href="{{ .Page.RelPermalink }}">{{ .Page.Title }} · {{ .Count }}</a></li>
+    {{- end }}
+  </ul>
+</div>
+{{ end }}

@@ -1,0 +1,13 @@
+{{- $u := urls.Parse .Destination }}
+{{- $img := "" }}
+{{- if not $u.IsAbs }}{{ with .PageInner.Resources.Get $u.Path }}{{ $img = . }}{{ end }}{{ end }}
+{{- $src := .Destination }}
+{{- $attrs := "" }}
+{{- with $img }}
+  {{- $src = .RelPermalink }}
+  {{- if in (slice "png" "jpeg" "gif" "webp") .MediaType.SubType }}{{ $attrs = printf " width=\"%d\" height=\"%d\"" .Width .Height }}{{ end }}
+{{- end }}
+{{- $tag := printf "<img src=%q alt=%q%s loading=\"lazy\" decoding=\"async\">" $src .PlainText $attrs }}
+{{- if .IsBlock }}
+<figure>{{ $tag | safeHTML }}{{ with .Title }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>
+{{- else }}{{ $tag | safeHTML }}{{ end -}}

@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{- $c := partial "func/category.html" . }}
+<div class="xp" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden data-xp>
+  {{- range seq 20 }}<span></span>{{ end -}}
+</div>
+<article class="article" data-c="{{ $c.color }}">
+  <a class="back" href="{{ "blog/" | relURL }}">◀ All posts</a>
+  <div class="post-meta">
+    {{- with $c.url }}<a class="tag" data-c="{{ $c.color }}" href="{{ . }}">{{ $c.name }}</a>{{ end }}
+    <span>{{ partial "sprite.html" (dict "name" "created" "scale" 2 "alt" "Published") }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2 2006" }}</time></span>
+    {{- if and .Lastmod (gt (.Lastmod.Sub .Date).Hours 24.0) }}
+    <span>{{ partial "sprite.html" (dict "name" "updated" "scale" 2 "alt" "Updated") }}<time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2 2006" }}</time></span>
+    {{- end }}
+    <span>· {{ .ReadingTime }} min</span>
+  </div>
+  <h1>{{ .Title }}</h1>
+  {{- with .Params.cover }}{{ with $.Resources.Get . }}
+  {{- $a := partial "func/dither.html" (dict "img" . "ramp" $c.ramp "size" "384x192") }}
+  {{- $alt := cond (eq $c.ramp "sea") "copper" "sea" }}
+  {{- $b := partial "func/dither.html" (dict "img" . "ramp" $alt "size" "384x192") }}
+  <figure class="cover">
+    <img class="pixel cover__a" src="{{ $a.RelPermalink }}" alt="{{ $.Params.cover_alt | default $.Title }}" width="768" height="384">
+    <img class="pixel cover__b" src="{{ $b.RelPermalink }}" alt="" width="768" height="384" aria-hidden="true">
+    <figcaption>{{ $c.ramp }} ramp · hover for pal() swap · <a href="{{ .RelPermalink }}">full-colour image</a></figcaption>
+  </figure>
+  {{- end }}{{ end }}
+  <div class="prose">
+    {{ .Content }}
+  </div>
+  {{- if or .PrevInSection .NextInSection }}
+  <nav class="post-nav" aria-label="More posts">
+    {{- with .PrevInSection }}<a class="older" href="{{ .RelPermalink }}" rel="prev"><small>◀ Older</small><span>{{ .Title }}</span></a>{{ end }}
+    {{- with .NextInSection }}<a class="next" href="{{ .RelPermalink }}" rel="next"><small>Newer ▶</small><span>{{ .Title }}</span></a>{{ end }}
+  </nav>
+  {{- end }}
+</article>
+{{ end }}
+{{ define "scripts" }}{{ partial "script.html" "js/progress.js" }}{{ end }}

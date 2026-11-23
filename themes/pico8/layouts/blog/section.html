@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{- $posts := .Pages.ByDate.Reverse }}
+{{- $first := index $posts.Reverse 0 }}
+{{- $kicker := printf "%d posts · %s–%s" (len $posts) ($first.Date.Format "2006") ((index $posts 0).Date.Format "2006") }}
+<header class="wrap page-head">
+  <span class="meta">{{ $kicker }} · <a href="{{ "feed.xml" | relURL }}">RSS</a></span>
+  <h1>{{ partial "sprite.html" (dict "name" "blog" "scale" 4) }}{{ .Title }}</h1>
+  {{ partial "filters.html" (dict "page" . "active" "") }}
+</header>
+<div class="band band--sea band--inset" aria-hidden="true"></div>
+{{- $pager := .Paginate $posts }}
+<div class="wrap">
+  <ol class="post-list" data-post-list data-search-url="{{ with site.Home.OutputFormats.Get "searchindex" }}{{ .RelPermalink }}{{ end }}" data-placeholder="{{ (resources.Get "img/sprites/blog.png" | fingerprint).RelPermalink }}">
+    {{- range $pager.Pages }}{{ partial "post-row.html" . }}{{ end }}
+  </ol>
+  <p class="empty" hidden data-empty>No posts match. Try another word.</p>
+  {{ partial "pager.html" $pager }}
+</div>
+{{ end }}
+{{ define "scripts" }}{{ partial "script.html" "js/search.js" }}{{ end }}

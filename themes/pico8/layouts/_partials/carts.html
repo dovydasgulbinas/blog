@@ -1,0 +1,18 @@
+<ul class="grid" style="padding: 56px 0 0; gap: 40px">
+  {{- range .ByDate.Reverse }}
+  {{- $tag := index (.Params.project_tags | default (slice)) 0 }}
+  {{- $cfg := index site.Params.projectTags ($tag | default "" | lower) | default dict }}
+  <li>
+    <div class="cart">
+      <div class="cart__grip" aria-hidden="true"></div>
+      {{ partial "cart-screen.html" (dict "page" . "scale" 2) }}
+      <div class="cart__label">
+        {{- with $tag }}<span class="tag" data-c="{{ $cfg.color | default "light-grey" }}" style="align-self:flex-start">{{ . }}</span>{{ else }}<span class="tag" style="align-self:flex-start;color:var(--white)">no tag</span>{{ end }}
+        <h2>{{ .Title }}</h2>
+        <p>{{ .Summary | plainify }}</p>
+        <a class="btn btn--primary px-drop" href="{{ .RelPermalink }}">Run ▶<span class="visually-hidden"> {{ .Title }}</span></a>
+      </div>
+    </div>
+  </li>
+  {{- end }}
+</ul>
