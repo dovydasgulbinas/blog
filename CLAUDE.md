@@ -2,7 +2,7 @@
 
 Personal blog built with [Hugo](https://gohugo.io) and the in-repo `pico8` theme (`themes/pico8/`).
 Deployed to GitHub Pages at https://dovydas.xyz from `master`.
-Words used here (Post, Project, Song, Category, Ramp…) are defined in [GLOSSARY.md](GLOSSARY.md).
+Words used here (Post, Project, Song, Category, Ramp…) are defined in [GLOSSARY.md](GLOSSARY.md). Decisions that look odd without context are recorded in [docs/adr/](docs/adr/).
 
 ## Commands
 
