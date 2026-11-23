@@ -114,7 +114,7 @@ timeZone = "Europe/Vilnius"
   musicArtist = "hermes33"
   fediverseCreator = "@dovydas@mastodon.social" # Mastodon shows "by @…" on link previews
   # Cloudflare Web Analytics site token (dash → Analytics & Logs → Web Analytics). Empty = off.
-  cloudflareAnalyticsToken = ""
+  cloudflareAnalyticsToken = "9f8f5562dfba4c008f722db1a28dc2b8"
   oldPostYears = 3 # posts not updated for this long get an "old post" notice
 
   # Other profiles of the same person, for the JSON-LD `sameAs` (not shown in the footer).

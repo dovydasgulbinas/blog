@@ -7,7 +7,7 @@
 <script>
 if (location.hostname === "{{ (urls.Parse site.BaseURL).Hostname }}") {
   const s = document.createElement("script");
-  s.defer = true;
+  s.type = "module"; // as in the snippet Cloudflare gives
   s.src = "https://static.cloudflareinsights.com/beacon.min.js";
   s.dataset.cfBeacon = JSON.stringify({ token: {{ . }} });
   document.head.append(s);
