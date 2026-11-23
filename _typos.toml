@@ -1,0 +1,17 @@
+# Spell check for the git hook (crate-ci/typos). Only prose and our own code; vendored files are excluded.
+[files]
+extend-exclude = [
+  "*.min.js",
+  "asciinema-player.*",
+  "themes/pico8/static/fonts/",
+  "tests/**/*-snapshots/",
+  "content/projects/qr-contact-generator/qrcode.mjs",
+]
+
+[default]
+extend-ignore-re = ["U\\+[0-9A-Fa-f?-]+"]  # unicode-range values in CSS
+
+[default.extend-words]
+hass = "hass"   # Home Assistant
+hax = "hax"     # a Python module name in a code sample
+delet = "delet" # an image file name (delet-settings-main.jpg)

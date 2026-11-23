@@ -68,7 +68,7 @@ D_1 = FUF5408, High Power Diode
 
 [NFC] -- Not used
 [-] -- Negative (-) power rail duh
-[S] -- Thermal resistor pin, originaly thermal resistor is built into the battery.
+[S] -- Thermal resistor pin, originally thermal resistor is built into the battery.
 [+] -- (+) 
 ```
 

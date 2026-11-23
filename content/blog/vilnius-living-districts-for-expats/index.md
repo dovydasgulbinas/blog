@@ -38,7 +38,7 @@ If you need cheaper rent pick:
 - [Justiniškės](#justiniskes)
 - [Fabijoniškės](#fabijoniskes)
 
-If you value shoping pick:
+If you value shopping pick:
 - [Šiaurės Miestelis](#siaures-miestelis)
 - [Šeškinė](#seskine)
 - [The City Center and Old-Town(Senamiestis)](#the-city-center-and-old-town-senamiestis)
@@ -175,7 +175,7 @@ Fabijoniškės has quite a few of gyms also at the outskirts of it you can find 
 
 A nice district to live at is surrounded by a regional park and quite tranquil green areas.
 It literally means Jerusalem in Lithuanian.
-Alltough it is a little further away from a city center in terms of travel times it is okay.
+Although it is a little further away from a city center in terms of travel times it is okay.
 There are various sorts of appartament buildings in there ones built in the soviet-era, others after 1991. Jeruzalės g. can be quite busy and noisy during rush hours, so I would avoid houses facing this Jeruzalės street.
 
 | Pros                                       | Cons                                    |
@@ -225,7 +225,7 @@ If you decide on looking for an apartment I would suggest ones found in Gelvonų
 
 ## Lazdynai and Lazdynėliai
 
-Decent districts to live if you have a car altough it feels that it may be situated further away from the city.
+Decent districts to live if you have a car although it feels that it may be situated further away from the city.
 The public transport is great and getting where you want with a car is even better.
 These districts have lots of green spaces and are situated near the Vingis Park one of the most beautiful green space in Vilnius.
 Most of the apartaments here are soviet-era and large amount of people living there speak Russian.
@@ -255,7 +255,7 @@ Some parts of Žvėrynas are at the walking distance of the Vingis Park.
 
 ## Šnipiškės
 
-Mixed bag of apartments and other buildings. You can find old wooden houses with chickens running around. Big 16 story soviet block apartments and brand new and steel and glass offices. Šnipiškės has a bussines focused sky-scraper area unofficially called „Shanghai“. Depending on the where you find a place to live Šnipiškės can be a great place. If you are looking for an apartment here make sure you choose flats located around Rinktinės g.
+Mixed bag of apartments and other buildings. You can find old wooden houses with chickens running around. Big 16 story soviet block apartments and brand new and steel and glass offices. Šnipiškės has a business focused sky-scraper area unofficially called „Shanghai“. Depending on the where you find a place to live Šnipiškės can be a great place. If you are looking for an apartment here make sure you choose flats located around Rinktinės g.
 
 | Pros                                          | Cons                                              |
 | --------------------------------------------- | ------------------------------------------------- |

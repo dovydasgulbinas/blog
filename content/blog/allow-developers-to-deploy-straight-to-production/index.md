@@ -32,7 +32,7 @@ superman will most likely emerge **naturally**, so why not allow everyone to be
 **natural** from their first feature?  Fires are best handled in houses of firefighters. 
 
 Bugs will are inevitable.  Furthermore, different data yields different bugs.
-This is more than true with _Enterprise Resourse Planning (ERP)_ systems.  From
+This is more than true with _Enterprise Resource Planning (ERP)_ systems.  From
 my own experience and shared experiences of many other ERP developers most of
 them seem to arrive to the same two conclusions: 1. clients manage to find complex bugs
 first, 2. data creates bugs no matter how thorough you are at hunting them. This is normal, because 

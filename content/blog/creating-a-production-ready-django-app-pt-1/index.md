@@ -359,7 +359,7 @@ ALLOWED_HOSTS = ['*']
 
 
 # JUST AS AN ILLUSTRATIVE EXAMPLE
-# overrides sqlite3 DB to a production ready postgress one
+# overrides sqlite3 DB to a production ready postgres one
 # DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 # DATABASES['default']['NAME'] = 'username'
 # DATABASES['default']['USER'] = 'password'

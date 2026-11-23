@@ -104,3 +104,18 @@ test("pages have a 1200×630 share image", async ({ page, request }) => {
     expect(png.readUInt32BE(20)).toBe(630);
   }
 });
+
+test("analytics beacon never loads outside dovydas.xyz", async ({ page }) => {
+  const beacon: string[] = [];
+  page.on("request", (r) => r.url().includes("cloudflareinsights") && beacon.push(r.url()));
+  await page.goto("/");
+  await page.waitForLoadState("networkidle");
+  expect(beacon).toEqual([]);
+});
+
+test("posts show related posts and the Mastodon author tag", async ({ page }) => {
+  await page.goto("/blog/3d-printing-hitomezashi-patterns/");
+  await expect(page.locator('meta[name="fediverse:creator"]')).toHaveAttribute("content", "@dovydas@mastodon.social");
+  const related = page.getByRole("region", { name: "Related posts" });
+  await expect(related.getByRole("link")).toHaveCount(3);
+});
