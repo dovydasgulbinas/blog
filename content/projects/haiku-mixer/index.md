@@ -1,0 +1,47 @@
+---
+short: "Remix your old haikus into new ones."
+cart_text: "Blissful sunny sky\ntension in the crowded room\nscreens kept abandoned."
+summary: "Paste the haikus you’ve written and it picks a random first, second and third line to make new ones. n haikus give up to n³ remixes."
+title: "Haiku Mixer"
+date: 2022-06-06
+project_tags: ["haiku"]
+js: "script.js"
+---
+
+> [Haiku](https://writers.com/how-to-write-a-haiku-poem) poems are short-form poems that originated in the 17th century, Japan. 
+
+This is a simple tool for taking all the haiku content you have written before, and remix it to produce new ones.
+
+It works by randomly selecting first, second, and third rows from the haiku text you provide, and remixes them to a new and unexpected one.
+You can generate up-to `n^3` remixed haikus, where `n` is the number of complete haikus you provide.
+
+<textarea id="haikus" type="text", rows="25">
+Time flies to one way
+sleepless nights are here to stay
+all my nightmares.
+
+Judge comes in early
+tension in the crowded room
+terror never stops.
+
+Launch the force majeure
+chaos and anxiety
+party is for some.
+
+Blissful sunny sky
+sandbox filled with childish joy
+father is watching.
+
+Earth smells like fresh spring
+markets are vibrant and full
+screens kept abandoned.
+</textarea>
+<button id="btn-mix">Remix!</button>
+<hr>
+
+<div id="result">
+    <h2>Remixed Haiku</h2>
+    <pre>
+        <code id="haiku-result" style="text-align:center; font-style:italic;"></code>
+    </pre>
+</div>

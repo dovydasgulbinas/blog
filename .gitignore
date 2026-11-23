@@ -1,5 +1,12 @@
-temp/
-tmp/
-node_modules/
-.build-output
+# Hugo
+/public/
+/resources/_gen/
+.hugo_build.lock
+/result
 
+# Tests
+node_modules/
+/tests/test-results/
+/tests/playwright-report/
+
+tmp/
