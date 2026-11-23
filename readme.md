@@ -1,12 +1,14 @@
-enable dev environment:
-    
-    nix develop
+# dovydas.xyz
 
-test dovydas.xyz by calling:
+Source of https://dovydas.xyz: a [Hugo](https://gohugo.io) site with the in-repo `pico8` theme.
 
-    cd tests
+```sh
+nix develop          # hugo, htmltest, just, node
+just dev             # http://localhost:1313
+just ci              # build, link check, Playwright smoke tests (run `just test-setup` once)
+```
 
-emulate specific device:
-    cd tests &&
-    npx playwright open --device="Galaxy Tab S4" localhost:5000
- 
+- Content: `content/<section>/<slug>/index.md` page bundles. See [CLAUDE.md](CLAUDE.md) for the rules.
+- Theme: `themes/pico8/`, built from the "dovydas.xyz — PICO-8 redesign" design canvas.
+- Deploy: every push to `master` builds with Nix, runs the tests and publishes to GitHub Pages (`.github/workflows/site.yml`).
+- `nix build` gives the built site in `./result`; `nix flake check` also runs htmltest on it.

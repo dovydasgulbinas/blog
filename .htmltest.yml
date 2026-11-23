@@ -1,10 +1,11 @@
-IgnoreAltMissing: true
+# htmltest config for the built site. Path is passed on the command line.
+CheckDoctype: true
+CheckMetaRefresh: false        # Hugo alias pages use a bare meta refresh
+IgnoreAltMissing: false
+IgnoreAltEmpty: true          # alt="" marks decorative sprites and thumbnails
+IgnoreDirectoryMissingTrailingSlash: true
 IgnoreURLs:
-  - "^http://localhost:"
-  # For unknown reasons, htmltest reports a 404 on these one:
-  - "^https://twitter.com/"
-
-# htmltest does not like quotes around URL in meta refresh
-CheckMetaRefresh: false
-# our redirect page doesn't have a doctype
-CheckDoctype: false
+  - "^http://localhost"
+  - "^https://(www\\.)?(twitter|x|linkedin)\\.com/"   # block bots
+ExternalTimeout: 20
+CacheExpires: "24h"

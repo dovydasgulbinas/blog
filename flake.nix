@@ -1,44 +1,62 @@
 {
-  description = "Dovydas.xyz blog runtime";
+  description = "dovydas.xyz: Hugo blog with the pico8 theme";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    oldnix.url = "github:nixos/nixpkgs?ref=nixos-21.11";
-  };
+  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
   outputs = {
+    self,
     nixpkgs,
-    oldnix,
-    ...
-  } @ inputs: let
-    systems = ["x86_64-linux" "aarch64-darwin"]; # Supports Linux & Mac ARM
-    forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
+  }: let
+    systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
+    forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
   in {
-    packages = forAllSystems (system: let
-      pkgs = import nixpkgs {inherit system;};
-    in {
-      dovydas-xyz = pkgs.lektor;
-      default = pkgs.lektor;
-    });
-
-    devShells = forAllSystems (system: let
-      pkgs = import nixpkgs {inherit system;};
-      oldpkgs = import oldnix {inherit system;};
-    in {
-      default = pkgs.mkShell {
-        buildInputs = [
-          pkgs.nodejs_23
-          pkgs.lektor
-          pkgs.pre-commit
-        ];
-        shellHook = ''
-          # shopt -s hostcomplete
-          export LC_ALL="C.UTF-8"
-          export LANG="C.UTF-8"
-
-          echo "Activating dovydas.xyz Dev Shell for ${system}!"
+    packages = forAllSystems (pkgs: {
+      # The built site: `nix build` → ./result/
+      default = pkgs.stdenvNoCC.mkDerivation {
+        pname = "dovydas-xyz";
+        version = self.shortRev or self.dirtyShortRev or "dev";
+        src = pkgs.lib.fileset.toSource {
+          root = ./.;
+          fileset = pkgs.lib.fileset.unions [
+            ./hugo.toml
+            ./content
+            ./static
+            ./themes
+          ];
+        };
+        nativeBuildInputs = [pkgs.hugo];
+        buildPhase = ''
+          runHook preBuild
+          hugo build --minify --gc --panicOnWarning --noBuildLock --cacheDir "$TMPDIR/hugo-cache" --destination "$out"
+          runHook postBuild
         '';
+        dontInstall = true;
       };
     });
+
+    checks = forAllSystems (pkgs: {
+      # Internal links, anchors and assets in the built site (no network in the sandbox).
+      links =
+        pkgs.runCommand "dovydas-xyz-htmltest" {
+          nativeBuildInputs = [pkgs.htmltest];
+        } ''
+          cp ${./.htmltest.yml} htmltest.yml
+          htmltest --conf htmltest.yml --skip-external ${self.packages.${pkgs.stdenv.hostPlatform.system}.default}
+          touch $out
+        '';
+    });
+
+    devShells = forAllSystems (pkgs: {
+      default = pkgs.mkShell {
+        packages = [
+          pkgs.hugo
+          pkgs.htmltest
+          pkgs.just
+          pkgs.nodejs_22
+        ];
+      };
+    });
+
+    formatter = forAllSystems (pkgs: pkgs.alejandra);
   };
 }

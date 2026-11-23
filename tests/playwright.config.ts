@@ -1,30 +1,28 @@
-import { PlaywrightTestConfig } from '@playwright/test'
+import { defineConfig, devices } from "@playwright/test";
 
-const config: PlaywrightTestConfig = {
-  timeout: 60000,
-  retries: 0,
+// Tests run against the production build in ../public (`just build` first; `just test` does both).
+const PORT = 3000;
+const SITE_DIR = process.env.SITE_DIR ?? "../public";
+
+export default defineConfig({
+  testDir: "./specs",
+  timeout: 30_000,
+  retries: process.env.CI ? 1 : 0,
+  forbidOnly: !!process.env.CI,
+  reporter: process.env.CI ? [["github"], ["html", { open: "never" }]] : "list",
   use: {
-    headless: true,
-    viewport: { width: 1280, height: 720 },
-    actionTimeout: 15000,
-    ignoreHTTPSErrors: true,
-    video: 'retain-on-failure',
-    screenshot: 'only-on-failure',
+    baseURL: `http://127.0.0.1:${PORT}`,
+    trace: "retain-on-failure",
+  },
+  webServer: {
+    command: `npx http-server ${SITE_DIR} -p ${PORT} -a 127.0.0.1 -s -c-1`,
+    url: `http://127.0.0.1:${PORT}/`,
+    reuseExistingServer: !process.env.CI,
   },
   projects: [
-    {
-      name: 'Chromium',
-      use: { browserName: 'chromium' },
-    },
-    {
-      name: 'Firefox',
-      use: { browserName: 'firefox' },
-    },
-    {
-      name: 'Webkit',
-      use: { browserName: 'webkit' },
-    },
+    { name: "desktop", testIgnore: /visual/, use: { ...devices["Desktop Chrome"] } },
+    { name: "phone", testIgnore: /visual/, use: { ...devices["Pixel 7"] } },
+    // Screenshot baselines are OS-specific; run with `just test-visual` locally.
+    { name: "visual", testMatch: /visual/, use: { ...devices["Desktop Chrome"] } },
   ],
-}
-
-export default config
+});

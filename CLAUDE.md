@@ -13,7 +13,8 @@ Toolchain comes from the flake: run `nix develop` (or use direnv) first. Hugo is
 | Live preview with drafts | `just dev` |
 | Production build into `public/` | `just build` |
 | Internal link check | `just links` |
-| Playwright smoke + visual tests | `just test` |
+| Playwright smoke tests (desktop + phone) | `just test` (once: `just test-setup`) |
+| Visual snapshots (macOS baselines, not in CI) | `just test-visual` |
 | Everything CI runs | `just ci` |
 | New post | `just post my-slug` |
 
@@ -48,7 +49,7 @@ tests/               Playwright tests, run against `public/` served on :3000
 - Fonts are self-hosted woff2 in `static/fonts/` (Pixelify Sans display, Silkscreen labels, VT323 body/code). No third-party requests from pages.
 - CSS and JS go through Hugo Pipes (`resources.Get` → `minify` → `fingerprint`), linked with `integrity`. No npm build step, no frameworks.
 - JS is progressive enhancement only: every page must read and navigate with JS off.
-- Images: process with `.Resize`/`images.Dither` in templates; always emit `width`, `height` and `alt`. Pixel art uses the `.pixel` class (`image-rendering: pixelated`) and integer scales only.
+- Images: process with `.Process`/`images.Dither` via `partials/func/dither.html` (Atkinson; Hugo has no Bayer); always emit `width`, `height` and `alt`. Pixel art uses the `.pixel` class (`image-rendering: pixelated`) and integer scales only.
 - Keep layouts small: `baseof.html` + section templates + partials. Logic that repeats goes in a partial; never copy markup between templates.
 - Use Hugo's own features before writing code: taxonomies for tags, `.Paginate` for paging, `.NextInSection` for older/newer, output formats for RSS and the search index, render hooks for headings/links/images/alerts.
 - Prefer `hugo.toml` `params` over hard-coded strings in templates (author, socials, intro text).
@@ -57,6 +58,7 @@ tests/               Playwright tests, run against `public/` served on :3000
 
 - Text contrast ≥ 4.5:1 (the canvas lists the allowed text/background pairs). Dark grey `--c5` is for rules only.
 - Real `<a>`/`<button>`, visible focus (`4px dashed` yellow), touch targets ≥ 44px, `aria-current` on the active nav link.
+- Heading IDs are `github-ascii` so old Lektor anchors (`#jeruzale`) keep working; pin an id with `{#id}` if a title change would break a link.
 - Every page has a unique `<title>`, meta description, canonical URL and Open Graph tags (from `partials/head.html`).
 - `just ci` must pass before merging: build with `--panicOnWarning`, htmltest, Playwright.
 
