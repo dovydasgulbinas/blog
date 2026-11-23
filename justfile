@@ -36,10 +36,11 @@ resume-pdf: build
 # Everything CI runs
 ci: links test
 
-# Scaffold a post bundle: just post my-new-post
+# Scaffold a post bundle and open it in $EDITOR: just post my-new-post
 post slug:
     hugo new content "blog/{{ slug }}/index.md"
-    @echo "Edit content/blog/{{ slug }}/index.md (set categories and remove draft)"
+    @echo "Set description and categories, then remove draft: true when it's ready."
+    ${EDITOR:-vi} "content/blog/{{ slug }}/index.md"
 
 # Run every git hook on every file (build, htmltest, content, SEO, images), as CI does
 nix-check:
