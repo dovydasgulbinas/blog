@@ -29,8 +29,8 @@
   </div>
   {{- if or .PrevInSection .NextInSection }}
   <nav class="post-nav" aria-label="More posts">
-    {{- with .NextInSection }}<a href="{{ .RelPermalink }}" rel="prev"><small>◀ Older</small><span>{{ .Title }}</span></a>{{ end }}
-    {{- with .PrevInSection }}<a class="next" href="{{ .RelPermalink }}" rel="next"><small>Newer ▶</small><span>{{ .Title }}</span></a>{{ end }}
+    {{- with .PrevInSection }}<a class="older" href="{{ .RelPermalink }}" rel="prev"><small>◀ Older</small><span>{{ .Title }}</span></a>{{ end }}
+    {{- with .NextInSection }}<a class="next" href="{{ .RelPermalink }}" rel="next"><small>Newer ▶</small><span>{{ .Title }}</span></a>{{ end }}
   </nav>
   {{- end }}
 </article>

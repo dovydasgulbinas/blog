@@ -9,17 +9,26 @@ if (list && box && input && list.dataset.searchUrl) {
   box.hidden = false;
   const original = list.innerHTML;
   const sprite = list.querySelector(".row__meta img")?.getAttribute("src") ?? "";
+  const placeholder = list.dataset.placeholder ?? "";
   let index;
 
   const load = async () => {
-    index ??= fetch(list.dataset.searchUrl).then((r) => r.json());
+    index ??= fetch(list.dataset.searchUrl)
+      .then((r) => {
+        if (!r.ok) throw new Error(`search index: ${r.status}`);
+        return r.json();
+      })
+      .catch((err) => {
+        index = undefined;
+        throw err;
+      });
     return index;
   };
 
   const esc = (s) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
   const row = (p) => `
     <li><a class="row" href="${esc(p.u)}" data-c="${esc(p.k)}">
-      <img class="pixel" src="${esc(p.i || sprite)}" alt="" width="64" height="64">
+      <img class="pixel" src="${esc(p.i || placeholder)}" alt="" width="64" height="64">
       <span class="row__body">
         <span class="row__meta"><img class="pixel" src="${esc(sprite)}" alt="" width="16" height="16">${esc(p.c)} · <time datetime="${esc(p.dt)}">${esc(p.d)}</time></span>
         <span class="row__title">${esc(p.t)}</span>
@@ -36,7 +45,14 @@ if (list && box && input && list.dataset.searchUrl) {
       return;
     }
     const words = q.split(/\s+/);
-    const hits = (await load()).filter((p) => words.every((w) => p.s.includes(w)));
+    let all;
+    try {
+      all = await load();
+    } catch {
+      return; // keep the server-rendered list; the next keystroke retries
+    }
+    if (input.value.trim().toLowerCase() !== q) return; // a newer keystroke won
+    const hits = all.filter((p) => words.every((w) => p.s.includes(w)));
     list.innerHTML = hits.map(row).join("");
     empty.hidden = hits.length > 0;
     if (pager) pager.hidden = true;

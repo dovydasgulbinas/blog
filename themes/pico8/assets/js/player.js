@@ -17,6 +17,8 @@ for (const root of document.querySelectorAll("[data-player]")) {
       s.className = i < on ? "on" : i === on && audio.currentTime > 0 ? "head" : "";
     });
     time.textContent = fmt(audio.currentTime);
+    seek.setAttribute("aria-valuenow", String(Math.round(pct * 100)));
+    seek.setAttribute("aria-valuetext", `${fmt(audio.currentTime)} of ${fmt(audio.duration)}`);
   };
   const state = () => {
     const playing = !audio.paused;
@@ -32,8 +34,14 @@ for (const root of document.querySelectorAll("[data-player]")) {
     audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
   });
   seek.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") audio.currentTime += 5;
-    if (e.key === "ArrowLeft") audio.currentTime -= 5;
+    if (!audio.duration) return;
+    const step = { ArrowRight: 5, ArrowUp: 5, ArrowLeft: -5, ArrowDown: -5, PageUp: 30, PageDown: -30 }[e.key];
+    if (step) audio.currentTime = Math.min(audio.duration, Math.max(0, audio.currentTime + step));
+    else if (e.key === "Home") audio.currentTime = 0;
+    else if (e.key === "End") audio.currentTime = audio.duration;
+    else return;
+    e.preventDefault();
+    draw();
   });
   audio.addEventListener("loadedmetadata", () => (duration.textContent = fmt(audio.duration)));
   audio.addEventListener("timeupdate", draw);

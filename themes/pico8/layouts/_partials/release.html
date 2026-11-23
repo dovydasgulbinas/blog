@@ -22,9 +22,9 @@
           {{- range $i, $_ := seq 16 }}<span data-c="{{ index (slice "blue" "green" "white") (mod $i 3) }}"></span>{{ end -}}
         </div>
       </div>
-      <button type="button" class="player__seek" aria-label="Seek" data-seek>
+      <div class="player__seek" role="slider" tabindex="0" aria-label="Playback position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0:00" data-seek>
         {{- range seq 24 }}<span></span>{{ end -}}
-      </button>
+      </div>
       <div class="player__time"><span data-time>0:00</span><span data-duration>–:––</span></div>
       <audio controls preload="metadata" src="{{ .RelPermalink }}">
         <a href="{{ .RelPermalink }}">Download {{ $p.Title }}</a>

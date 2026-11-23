@@ -7,7 +7,7 @@ enableRobotsTXT = true
 timeZone = "Europe/Vilnius"
 
 [pagination]
-  pagerSize = 10
+  pagerSize = 5   # Lektor used 5, so /blog/page/1…6/ keep working
 
 [taxonomies]
   category = "categories"
@@ -46,6 +46,7 @@ timeZone = "Europe/Vilnius"
   unsafe = true
 
 [markup.goldmark.parser]
+  wrapStandAloneImageWithinParagraph = false
   autoHeadingIDType = "github-ascii"   # same ASCII anchors Lektor produced (Jeruzalė → #jeruzale)
 [markup.goldmark.parser.attribute]
   block = true

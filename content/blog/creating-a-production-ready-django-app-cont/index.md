@@ -118,7 +118,9 @@ let's start our Django project using fab2:
     fab2 run
 
 
-<asciinema-player src="/data/cinemas/fab2.cast" cols="90" rows="25"></asciinema-player>
+<link rel="stylesheet" href="asciinema-player.css">
+<asciinema-player src="fab2.cast" cols="90" rows="25"></asciinema-player>
+<script src="asciinema-player.js"></script>
 
 
 # Outro

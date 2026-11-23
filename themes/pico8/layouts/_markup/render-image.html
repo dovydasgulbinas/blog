@@ -7,6 +7,7 @@
   {{- $src = .RelPermalink }}
   {{- if in (slice "png" "jpeg" "gif" "webp") .MediaType.SubType }}{{ $attrs = printf " width=\"%d\" height=\"%d\"" .Width .Height }}{{ end }}
 {{- end }}
-{{- if .Title }}<figure>{{ end -}}
-<img src="{{ $src }}" alt="{{ .PlainText }}"{{ $attrs | safeHTMLAttr }} loading="lazy" decoding="async">
-{{- if .Title }}<figcaption>{{ .Title }}</figcaption></figure>{{ end -}}
+{{- $tag := printf "<img src=%q alt=%q%s loading=\"lazy\" decoding=\"async\">" $src .PlainText $attrs }}
+{{- if .IsBlock }}
+<figure>{{ $tag | safeHTML }}{{ with .Title }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>
+{{- else }}{{ $tag | safeHTML }}{{ end -}}

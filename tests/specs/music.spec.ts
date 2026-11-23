@@ -18,6 +18,7 @@ test("music player plays and pauses the track", async ({ page }) => {
   await play.click();
   await expect(page.getByRole("button", { name: "Pause Post-War Bliss" })).toBeVisible();
   await expect(page.locator("[data-player]")).toHaveClass(/is-playing/);
+  await expect(page.getByRole("slider", { name: "Playback position" })).toBeVisible();
 });
 
 test("track download link points at the audio file", async ({ request, page }) => {

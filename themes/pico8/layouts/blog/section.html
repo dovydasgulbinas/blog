@@ -10,7 +10,7 @@
 <div class="band band--sea band--inset" aria-hidden="true"></div>
 {{- $pager := .Paginate $posts }}
 <div class="wrap">
-  <ol class="post-list" data-post-list data-search-url="{{ with site.Home.OutputFormats.Get "searchindex" }}{{ .RelPermalink }}{{ end }}">
+  <ol class="post-list" data-post-list data-search-url="{{ with site.Home.OutputFormats.Get "searchindex" }}{{ .RelPermalink }}{{ end }}" data-placeholder="{{ (resources.Get "img/sprites/blog.png" | fingerprint).RelPermalink }}">
     {{- range $pager.Pages }}{{ partial "post-row.html" . }}{{ end }}
   </ol>
   <p class="empty" hidden data-empty>No posts match. Try another word.</p>
