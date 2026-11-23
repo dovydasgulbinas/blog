@@ -56,9 +56,6 @@ timeZone = "Europe/Vilnius"
   codeFences = true
   guessSyntax = false
 
-[markup.tableOfContents]
-  startLevel = 2
-  endLevel = 3
 
 [[menus.main]]
   name = "Blog"
