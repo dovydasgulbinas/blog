@@ -19,7 +19,9 @@ Toolchain comes from the flake: run `nix develop` (or use direnv) first. Hugo is
 | New post | `just post my-slug` |
 | Résumé PDF from the HTML page | `just resume-pdf` (CI does this on every deploy) |
 
-`nix build` builds the site reproducibly into `./result`; `nix flake check` builds it and runs htmltest.
+`nix build` builds the site reproducibly into `./result`; `nix flake check` builds it, runs htmltest and runs the git hooks on every file.
+
+Git hooks come from `git-hooks.nix` in `flake.nix` and are installed by `nix develop`: whitespace/EOF fixers, YAML/TOML/JSON checks, alejandra, a `hugo build --panicOnWarning`, and a block on committing build output. Run them by hand with `pre-commit run --all-files`. Don't bypass them with `--no-verify`; fix the cause.
 
 ## Layout
 

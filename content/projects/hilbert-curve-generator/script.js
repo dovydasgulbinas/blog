@@ -40,7 +40,7 @@ class Turtle {
 
 function hilbert(turtle, size, order, parity){
   if (order == 0) {
-      return	
+      return
   }
 
   // rotate and draw first subcurve with opposite parity to big curve

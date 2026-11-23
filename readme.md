@@ -3,7 +3,7 @@
 Source of https://dovydas.xyz: a [Hugo](https://gohugo.io) site with the in-repo `pico8` theme.
 
 ```sh
-nix develop          # hugo, htmltest, just, node
+nix develop          # hugo, htmltest, just, node; installs the git hooks
 just dev             # http://localhost:1313
 just ci              # build, link check, Playwright smoke tests (run `just test-setup` once)
 ```
