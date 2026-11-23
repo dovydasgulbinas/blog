@@ -1,6 +1,7 @@
 ---
 title: "Allow Developers To Deploy Straight To Production"
 date: 2021-06-01
+description: "Why developers should be allowed to deploy to production themselves, even on legacy systems unfit for continuous integration."
 categories: ["linux"]
 ---
 

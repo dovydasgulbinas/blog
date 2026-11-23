@@ -2,6 +2,7 @@
 title: "Creating A Production Ready Django App (cont.)"
 date: 2018-07-07
 lastmod: 2022-06-03
+description: "Part 2 of the production-ready Django series: automating deployment tasks with a Fabric 2 fabfile."
 categories: ["python"]
 ---
 

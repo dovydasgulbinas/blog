@@ -1,6 +1,7 @@
 ---
 title: "Using Jython for Quick Java Protyping"
 date: 2022-04-05
+description: "Prototyping against Java classes from a Jython REPL or a .py script, without compiling anything."
 categories: ["java"]
 cover: "cover.png"
 ---

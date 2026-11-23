@@ -1,6 +1,7 @@
 ---
 title: "Creating Multiple Folders From a Bash Array"
 date: 2021-09-11
+description: "A one-line Bash snippet that creates a directory for every element of an array, without writing a loop."
 categories: ["linux"]
 cover: "cover.png"
 ---

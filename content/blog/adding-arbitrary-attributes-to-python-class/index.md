@@ -1,6 +1,7 @@
 ---
 title: "Adding Arbitrary Attributes To Python Class"
 date: 2021-06-23
+description: "A tiny Python class that stores arbitrary keyword arguments as attributes you can read with dot access."
 categories: ["python"]
 ---
 

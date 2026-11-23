@@ -2,6 +2,7 @@
 title: "Grice's Maxims Pythonic Edition"
 date: 2018-07-13
 lastmod: 2020-06-03
+description: "Grice's maxims of conversation, read with the Zen of Python in mind, and why they make technical writing clearer."
 categories: ["python"]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Fixing Let's Encrypt Certbot prerequisite issues"
 date: 2021-11-30
+description: "Fixing certbot-auto install failures on CentOS 6.10 by enabling the EPEL package repository in yum."
 categories: ["linux"]
 cover: "cover.png"
 ---

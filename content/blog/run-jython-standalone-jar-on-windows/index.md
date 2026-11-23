@@ -1,6 +1,7 @@
 ---
 title: "Run Jython Standalone Jar On Windows"
 date: 2022-04-04
+description: "Running the Jython standalone jar on Windows with OpenJDK 17 to execute Python scripts or use the Jython REPL."
 categories: ["java"]
 cover: "cover.png"
 ---

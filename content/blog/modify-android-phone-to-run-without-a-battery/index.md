@@ -2,6 +2,7 @@
 title: "Modify Android Phone To Run Without a Battery"
 date: 2018-06-03
 lastmod: 2020-06-03
+description: "Replacing an Android phone's battery with an external power supply so it can stay on all the time without the battery swelling."
 categories: ["hardware"]
 cover: "sk-module.jpg"
 cover_alt: "Battery-eliminator module soldered on perfboard"

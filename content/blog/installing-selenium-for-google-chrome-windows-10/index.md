@@ -1,6 +1,7 @@
 ---
 title: "Installing Selenium  For Google Chrome (Windows 10)"
 date: 2022-05-06
+description: "Step by step: installing ChromeDriver for Selenium with Google Chrome on Windows 10, plus the optional Python setup."
 categories: ["python"]
 cover: "cover.png"
 ---

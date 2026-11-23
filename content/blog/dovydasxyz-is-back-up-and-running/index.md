@@ -1,6 +1,7 @@
 ---
 title: "Dovydas.xyz is back up and running!"
 date: 2023-03-12
+description: "After four months offline the blog is back, now built with GitHub Actions and hosted on GitHub Pages."
 categories: ["life"]
 ---
 

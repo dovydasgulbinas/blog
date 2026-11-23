@@ -41,6 +41,6 @@ post slug:
     hugo new content "blog/{{ slug }}/index.md"
     @echo "Edit content/blog/{{ slug }}/index.md (set categories and remove draft)"
 
-# Reproducible build via Nix into ./result, plus link checks
+# Run every git hook on every file (build, htmltest, content, SEO, images), as CI does
 nix-check:
     nix flake check -L

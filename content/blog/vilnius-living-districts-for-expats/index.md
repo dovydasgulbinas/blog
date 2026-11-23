@@ -1,6 +1,7 @@
 ---
 title: "Vilnius Living Districts (for expats)"
 date: 2021-12-01
+description: "A local's guide to Vilnius districts for expats: rent, traffic, schools and what living in each area is like."
 categories: ["life"]
 cover: "cover.png"
 ---

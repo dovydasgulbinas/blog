@@ -1,6 +1,7 @@
 ---
 title: "Generating infinite sequence of bytes set to ones"
 date: 2021-06-21
+description: "Generating long Python bytes sequences filled with ones, handy test data for one-time pad encryption code."
 categories: ["python"]
 ---
 

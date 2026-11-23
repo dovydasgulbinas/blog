@@ -2,6 +2,7 @@
 title: "Adding more features to Hyperion in Homeassistant"
 date: 2017-07-23
 lastmod: 2022-06-03
+description: "Controlling Hyperion ambient lighting on a Kodi Raspberry Pi from Home Assistant, so the backlight can be automated."
 categories: ["self-host"]
 ---
 

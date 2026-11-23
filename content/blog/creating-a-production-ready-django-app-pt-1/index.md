@@ -2,6 +2,7 @@
 title: "Creating A Production Ready Django App"
 date: 2018-07-01
 lastmod: 2022-06-03
+description: "Part 1 of a production-tested Django setup: structuring settings.py for several environments and keeping secrets out of git."
 categories: ["python"]
 ---
 

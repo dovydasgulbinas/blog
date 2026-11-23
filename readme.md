@@ -11,4 +11,4 @@ just ci              # build, link check, Playwright smoke tests (run `just test
 - Content: `content/<section>/<slug>/index.md` page bundles. See [CLAUDE.md](CLAUDE.md) for the rules.
 - Theme: `themes/pico8/`, built from the "dovydas.xyz — PICO-8 redesign" design canvas.
 - Deploy: every push to `master` builds with Nix, runs the tests and publishes to GitHub Pages (`.github/workflows/site.yml`).
-- `nix build` gives the built site in `./result`; `nix flake check` also runs htmltest on it.
+- `nix build` gives the built site in `./result`; `nix flake check` runs the git hooks, including a build and htmltest.

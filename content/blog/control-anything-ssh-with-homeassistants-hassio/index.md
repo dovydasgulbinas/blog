@@ -2,6 +2,7 @@
 title: "Control anything SSH with Homeassistant's Hass.io"
 date: 2018-01-22
 lastmod: 2022-06-03
+description: "Running shell commands on any machine over SSH from a Home Assistant (Hass.io) button, with keys and sudoers set up safely."
 categories: ["self-host"]
 ---
 

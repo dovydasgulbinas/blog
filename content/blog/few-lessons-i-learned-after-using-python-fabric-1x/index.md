@@ -2,6 +2,7 @@
 title: "Few lessons I learned after using python fabric 1.x"
 date: 2018-08-19
 lastmod: 2020-03-06
+description: "Practical rules for writing maintainable Fabric 1.x scripts that run tasks on local and remote machines."
 categories: ["python"]
 ---
 

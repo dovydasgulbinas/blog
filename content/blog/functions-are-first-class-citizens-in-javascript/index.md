@@ -1,6 +1,7 @@
 ---
 title: "Functions are first-class citizens in JavaScript"
 date: 2021-11-26
+description: "What first-class functions mean in JavaScript: functions can be assigned, passed as arguments and returned."
 categories: ["web"]
 cover: "cover.png"
 ---

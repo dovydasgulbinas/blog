@@ -2,6 +2,7 @@
 title: "What is Game State Integration on CS:GO?"
 date: 2016-11-29
 lastmod: 2023-03-31
+description: "What CS:GO Game State Integration is, how it streams live match data over HTTP, and projects people have built on it."
 categories: ["web"]
 ---
 

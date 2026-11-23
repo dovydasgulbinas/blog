@@ -2,6 +2,7 @@
 title: "Introduction to REST authentication"
 date: 2018-06-26
 lastmod: 2022-06-03
+description: "An overview of REST API authentication and the OAuth 2 grant types, written while designing endpoints for a legacy backend."
 categories: ["web"]
 ---
 

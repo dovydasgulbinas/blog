@@ -1,6 +1,7 @@
 ---
 title: "Python Generator Basics"
 date: 2021-12-02
+description: "An illustrative example of how generators and yield statements relate in Python, and how execution resumes after each yield."
 categories: ["python"]
 cover: "cover.png"
 ---

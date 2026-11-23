@@ -19,9 +19,20 @@ Toolchain comes from the flake: run `nix develop` (or use direnv) first. Hugo is
 | New post | `just post my-slug` |
 | Résumé PDF from the HTML page | `just resume-pdf` (CI does this on every deploy) |
 
-`nix build` builds the site reproducibly into `./result`; `nix flake check` builds it, runs htmltest and runs the git hooks on every file.
+`nix build` builds the site reproducibly into `./result`; `nix flake check` runs the git hooks (which build the site and run htmltest) on every file.
 
-Git hooks come from `git-hooks.nix` in `flake.nix` and are installed by `nix develop`: whitespace/EOF fixers, YAML/TOML/JSON checks, alejandra, a `hugo build --panicOnWarning`, and a block on committing build output. Run them by hand with `pre-commit run --all-files`. Don't bypass them with `--no-verify`; fix the cause.
+Git hooks come from `git-hooks.nix` in `flake.nix` and are installed by `nix develop`; `nix flake check` (CI) runs them on every file. Scripts live in `scripts/hooks/`.
+
+| Hook | Checks |
+| --- | --- |
+| `hugo build + htmltest` | site builds with drafts and `--panicOnWarning`; no broken internal links or anchors |
+| `content` | front matter has a title; Posts have a date and exactly one known category; `cover`/`js`/`css`/`track` files exist; images have alt text; relative links point to bundle files |
+| `SEO` (Posts) | title 20–60 chars, `description` 50–160 chars, one category |
+| `optimize images` | strips metadata and recompresses PNG/JPEG losslessly (re-stage and commit again when it changes a file) |
+| `theme colours` | no hex colours outside `tokens.css` |
+| housekeeping | whitespace/EOF, YAML/TOML/JSON, merge markers, files > 2 MB, alejandra, no `public/`/`result`/`node_modules` |
+
+Run them by hand with `pre-commit run --all-files`. Don't bypass them with `--no-verify`; fix the cause.
 
 ## Layout
 
@@ -37,7 +48,7 @@ tests/               Playwright tests, run against `public/` served on :3000
 
 - Every Post is a **page bundle**: `content/blog/<slug>/index.md` with its images next to it. Never put post images in `static/`.
 - The folder name is the slug and the URL (`/blog/<slug>/`). Never rename a published folder; if you must, add the old path to `aliases`.
-- Front matter is YAML. A Post has `title`, `date`, optional `lastmod`, exactly one `categories` entry, optional `summary` and `cover` (a bundle image filename).
+- Front matter is YAML. A Post has `title` (20–60 chars), `date`, `description` (50–160 chars, used for the meta description and link previews), optional `lastmod`, exactly one `categories` entry and optional `cover` (a bundle image filename).
 - `categories` must be one of the keys in `params.categories` in `hugo.toml`; each key sets the tag colour and dither Ramp.
 - Use `<!--more-->` or `summary` for list excerpts, not truncated HTML.
 - Callouts use GitHub alert syntax: `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`. Do not invent shortcodes for things Markdown can express.

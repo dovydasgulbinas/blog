@@ -1,6 +1,7 @@
 ---
 title: "Install Node on Pop!_OS"
 date: 2023-03-16
+description: "Pop!_OS apt ships an old Node.js, so here is how I installed the current LTS release to run Playwright tests."
 categories: ["linux"]
 cover: "cover.png"
 ---

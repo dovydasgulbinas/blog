@@ -2,6 +2,7 @@
 title: "Using Newsboat to Watch Bitchute"
 date: 2018-08-25
 lastmod: 2020-06-02
+description: "Following BitChute channels over RSS in the Newsboat terminal reader and playing the videos in mpv."
 categories: ["linux"]
 ---
 

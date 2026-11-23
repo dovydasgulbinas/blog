@@ -1,7 +1,8 @@
 ---
-title: "Issuing and managing client-side SSL certificates with Python"
+title: "Issuing and Managing Client-Side SSL Certs with Python"
 date: 2018-02-02
 lastmod: 2022-06-03
+description: "Issuing and managing client-side SSL certificates in Python: keys, certificate signing requests and your own CA."
 categories: ["python"]
 ---
 

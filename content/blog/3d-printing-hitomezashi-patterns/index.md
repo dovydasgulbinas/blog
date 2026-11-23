@@ -1,6 +1,7 @@
 ---
 title: "3D Printing Hitomezashi Patterns"
 date: 2022-05-25
+description: "Generating Hitomezashi, a Japanese Sashiko stitching pattern, and turning it into 3D-printable models."
 categories: ["hardware"]
 ---
 

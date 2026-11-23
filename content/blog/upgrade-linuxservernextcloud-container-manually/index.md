@@ -2,6 +2,7 @@
 title: "Upgrade LinuxServer/Nextcloud Container Manually"
 date: 2022-04-26
 lastmod: 2022-07-15
+description: "Manually upgrading the linuxserver/nextcloud Docker container one major version at a time when the web updater fails."
 categories: ["self-host"]
 cover: "cover.png"
 ---

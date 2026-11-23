@@ -2,6 +2,7 @@
 title: "Truncate Text In Lektor"
 date: 2022-05-08
 lastmod: 2022-05-23
+description: "A Jinja snippet that strips HTML from a Lektor Markdown body and truncates it to make blog post previews."
 categories: ["python"]
 cover: "cover.png"
 ---
