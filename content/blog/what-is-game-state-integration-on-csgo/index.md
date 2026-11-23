@@ -43,7 +43,7 @@ Up to this date various people including me have created many interesting things
 Probably the most sophisticated of all demos given below.
 This is a rich extension to your CS:GO game. Technology used here is node.js and JavaScript.
 This video really showcased the functionality GSI has. I strongly encourage you to try out this one on your own computer.
-More info on how to do it can be found on GitHub [Phillips hue lights controlled by a C4 timer](https://github.com/Double0negative/CSGO-HUD").
+More info on how to do it can be found on GitHub [Phillips hue lights controlled by a C4 timer](https://github.com/Double0negative/CSGO-HUD).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QBdI54MHB-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
