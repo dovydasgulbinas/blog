@@ -142,6 +142,7 @@
             pkgs.htmltest
             pkgs.just
             pkgs.nodejs_22
+            pkgs.python3 # scripts/slugify.py
           ]
           ++ hooks.enabledPackages;
         shellHook = hooks.shellHook;

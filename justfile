@@ -36,11 +36,18 @@ resume-pdf: build
 # Everything CI runs
 ci: links test
 
-# Scaffold a post bundle and open it in $EDITOR: just post my-new-post
-post slug:
-    hugo new content "blog/{{ slug }}/index.md"
-    @echo "Set description and categories, then remove draft: true when it's ready."
-    ${EDITOR:-vi} "content/blog/{{ slug }}/index.md"
+# New post from its title, opened in $EDITOR: just post "Why I Moved to Hugo (Again)"
+post +title:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    title={{ quote(title) }}
+    slug=$(python3 scripts/slugify.py "$title")
+    if [[ -e "content/blog/$slug" ]]; then echo "content/blog/$slug already exists" >&2; exit 1; fi
+    HUGO_POST_TITLE="$title" hugo new content "blog/$slug/index.md"
+    n=${#title}
+    if (( n < 20 || n > 60 )); then echo "Note: the title is $n characters; the SEO hook wants 20–60 before it's published."; fi
+    echo "Set description and categories, then remove draft: true when it's ready."
+    ${EDITOR:-vi} "content/blog/$slug/index.md"
 
 # Run every git hook on every file (build, htmltest, content, SEO, images), as CI does
 nix-check:

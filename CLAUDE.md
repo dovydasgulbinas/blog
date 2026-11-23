@@ -16,7 +16,7 @@ Toolchain comes from the flake: run `nix develop` (or use direnv) first. Hugo is
 | Playwright smoke tests (desktop + phone) | `just test` (once: `just test-setup`) |
 | Visual snapshots (macOS baselines, not in CI) | `just test-visual` |
 | Everything CI runs | `just ci` |
-| New post | `just post my-slug` |
+| New post (title → URL slug) | `just post "My Post Title"` |
 | Résumé PDF from the HTML page | `just resume-pdf` (CI does this on every deploy) |
 
 `nix build` builds the site reproducibly into `./result`; `nix flake check` runs the git hooks (which build the site and run htmltest) on every file.
